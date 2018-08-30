@@ -11,10 +11,7 @@ use yii\helpers\Url;
 
                 <li>
                     <a href="<?= Url::to(['/patiententry/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a>
-                </li>
-                <li>
-                    <a href="<?= Url::to(['/servicedummy/default/index']) ?>"><i class="fa fa-medkit"></i>  Service Dummy</a>
-                </li>
+                </li>              
                 <li>
                     <a href="#"><i class="fa fa-bullhorn"></i> Q.manage</a>
                 </li>
