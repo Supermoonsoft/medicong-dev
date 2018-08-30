@@ -22,7 +22,9 @@
         "kartik-v/yii2-widget-select2": "@dev",
         "kartik-v/yii2-widget-datepicker": "@dev",
         "yii2mod/yii2-bootstrap-notify": "*",
-        "phpnt/yii2-icheck": "^0.0.2"
+        "phpnt/yii2-icheck": "^0.0.2",
+        "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-grid": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
