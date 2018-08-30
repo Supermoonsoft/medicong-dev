@@ -1,0 +1,27 @@
+
+    .box {
+        border: 1px solid #ccc;
+        height: 46px;
+        padding: 9px;
+        text-align: center;
+        font-size: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+      .box-content{
+        width: 97%;
+        margin:auto;
+      }
+  
+      .box_form {
+        margin-top: 20px;
+      }
+  
+      .box_form>.form-group {
+        margin-bottom: 31px;
+      }
+  
+      .table-title {
+        font-size: 20px;
+      }
