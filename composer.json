@@ -24,7 +24,8 @@
         "yii2mod/yii2-bootstrap-notify": "*",
         "phpnt/yii2-icheck": "^0.0.2",
         "kartik-v/yii2-widgets": "*",
-        "kartik-v/yii2-grid": "@dev"
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-detail-view": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
