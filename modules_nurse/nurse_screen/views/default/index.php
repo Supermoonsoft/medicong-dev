@@ -7,6 +7,7 @@ Use app\components\MessageHelper;
 use app\components\PatientHelper;
 
 $hn = PatientHelper::getCurrentHn();
+$vn_session = PatientHelper::getCurrentVn();
 if (empty($hn)) {
     MessageHelper::errorNullHn();
 }
@@ -18,9 +19,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="sservice-dummy-index">
+
 <?php Pjax::begin(); ?>
-    <?=
-        GridView::widget([
+<?= Html::beginForm(['index'], 'post', ['data-pjax' => '', 'class' => 'form-inline', 'id' => 'vn-open']); ?>
+<?= Html::hiddenInput('hn', $hn) ?>
+    <?php if (empty($vn_session)): ?>
+        <?=
+        Html::submitButton('ส่งตรวจ', ['class' => 'btn btn-lg btn-success',
+            'data' => [
+                'confirm' => 'ส่งผู้ป่วยเข้าตรวจ ?',
+            //'method' => 'post',
+            ]
+        ])
+        ?>
+    <?php endif; ?>
+    <?= Html::endForm() ?>
+
+ <?php if (!empty($vn_session)) { 
+     //
+    echo    GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'pjax'=>true,
@@ -64,9 +81,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'vAlign'=>'middle',
                 'hAlign'=>'center',
                 'value'=>function ($model, $key, $index) { 
-                    return Html::a('<i class="glyphicon glyphicon-remove"></i>',
+                    return Html::a('<i class="glyphicon glyphicon-ok"></i>',
                         ['/screen/nurse-screening/update', 'id' => '35cd1195-6165-42d8-9425-bf0084db192c'],
-                        ['class' => 'btn btn-danger']
+                        ['class' => 'btn btn-success']
                     );
                 },
             ],
@@ -76,7 +93,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'vAlign'=>'middle',
                 'hAlign'=>'center',
                 'value'=>function ($model, $key, $index) { 
-                    return Html::a('<i class="glyphicon glyphicon-info-sign"></i>',
+                    return Html::a('<i class="glyphicon glyphicon-ok"></i>',
                         ['/screen/nurse-cc/update', 'id' => '35cd1195-6165-42d8-9425-bf0084db192c'],
                         ['class' => 'btn btn-warning']
                     );
@@ -89,14 +106,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 'vAlign'=>'middle',
                 'hAlign'=>'center',
                 'value' => function($model) {
-                    return Html::a('<i class="glyphicon glyphicon-heart-empty"></i>',
+                    return Html::a('<i class="glyphicon glyphicon-ok"></i>',
                         ['/screen/dm-assessment/update', 'id' => '35cd1195-6165-42d8-9425-bf0084db192c'],
-                        ['class' => 'btn btn-info']
+                        ['class' => 'btn btn-danger']
                     );
                 }
             ],
         ]
 
-    ]); ?>
+    ]); 
+    //
+    } else {
+            echo 'รอเลข vn';
+        }
+        ?>
+
     <?php Pjax::end(); ?>
 </div>

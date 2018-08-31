@@ -13,10 +13,20 @@ class PopupController extends Controller
      * Renders the index view for the module
      * @return string
      */
-    public function actionIndex($params)
+    public function actionIndex($type=null)
     {
-        return $this->renderAjax('index',[
-            'params'=>$params
-        ]);
+        if($type==1){
+            $report='visit.mrt';
+        }elseif($type==2){
+            $report='lab.mrt';
+        }elseif($type==3){
+            $report='drug.mrt';
+        }elseif($type==4){
+            $report='doc.mrt';
+        }else{
+             $report='pacs.mrt';
+        }
+        
+        return $this->renderAjax('index',['report'=>$report]);
     }
 }

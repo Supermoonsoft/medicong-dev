@@ -8,8 +8,8 @@ use app\modules_nurse\nurse_screen\models\OpdVisitSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-//use app\components\PatientHelper;
-//use app\components\MessageHelper;
+use app\components\NurseHelper;
+use app\components\PatientHelper;
 
 class DefaultController extends Controller
 {
@@ -28,13 +28,23 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
+
+        $hn = \Yii::$app->request->post('hn');
+        $vn = '';
         $searchModel = new OpdVisitSearch();
-        //$searchModel->hn = PatientHelper::getCurrentHn();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        if (!empty($hn)) {
+            $vn = NurseHelper::openVisit($hn);
+            PatientHelper::setCurrentVn($vn);
+        }
+
+            return $this->render('index', [
+                'vn' => $vn,
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+
+
     }
 }

@@ -11,24 +11,24 @@ $('.visit').click(function () {
             .find('#emrModalContent')
             .load($(this).attr('value'));
 })
-
-$('.med').click(function () {
+$('.drug').click(function () {
     $('#emr-modal')
             .modal('show')
             .find('#emrModalContent')
             .load($(this).attr('value'));
 })
-
 $('.doc').click(function () {
     $('#emr-modal')
             .modal('show')
             .find('#emrModalContent')
             .load($(this).attr('value'));
 })
-
-$('.pac').click(function () {
+$('.pacs').click(function () {
     $('#emr-modal')
             .modal('show')
             .find('#emrModalContent')
             .load($(this).attr('value'));
 })
+
+
+

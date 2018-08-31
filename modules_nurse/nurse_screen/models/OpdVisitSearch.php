@@ -59,6 +59,7 @@ class OpdVisitSearch extends OpdVisit
         // grid filtering conditions
         $query->andFilterWhere([
             'hn'=> PatientHelper::getCurrentHn(),
+            'vn'=> PatientHelper::getCurrentVn(),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'service_start_date' => $this->service_start_date,
