@@ -7,69 +7,24 @@ use phpnt\ICheck\ICheck;
 use app\components\PatientHelper;
 $hn = PatientHelper::getCurrentHn();
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
+$this->registerCss($this->render('../../dist/css/style.css'));
+
+$this->title = 'ULCER VISIT FIRST VISIT IPD';
+$this->params['breadcrumbs'][] = ['label' => 'FOOT', 'url' => ['/foot/default/index']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-OPD', 'url' => ['/foot/foot-assessment-summary-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-IPD', 'url' => ['/foot/foot-assessment-summary-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'COMPLATE', 'url' => ['/foot/foot-assessment-complate']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT OPD', 'url' => ['/foot/foot-ulcer-first-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT IPD', 'url' => ['/foot/foot-ulcer-first-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT OPD', 'url' => ['/foot/foot-ulcer-fu-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT IPD', 'url' => ['/foot/foot-ulcer-fu-ipd']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<style>
-    .box {
-        border: 1px solid #ccc;
-    height: 46px;
-    padding: 9px;
-    text-align: center;
-    font-size: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    }
-    .content{
-        margin-left:20px;
-    }
 
-#footulcerfirstipd-off_loading_technique{
-    display: inline-block;
-}
-    #footulcerfirstIPD-vessel_palpation_dp_right{
-        display: inline-block;
-    }
-    #footulcerfirstIPD-vessel_palpation_dp_left{
-        display: inline-block;
-    }
-    #footulcerfirstIPD-vessel_palpation_pt_right{
-        display: inline-block;
-    }
-    #footulcerfirstIPD-vessel_palpation_pt_left{
-        display: inline-block;
-    }
-    #footulcerfirstIPD-off_loading_technique{
-        display: inline-block;
-    }
-    #footulcerfirstIPD-local_procedure_performed{
-        display: inline-block;
-    }
-    #footulcerfirstIPD-local_dressing_performed{
-        display: inline-block;
-    }
-    #footulcerfirstIPD-post_revascularization{
-        display: inline-block;
-    }
-    #footulcerfirstIPD-post_hbot{
-        display: inline-block;
-    }
-    #footulcerfirstIPD-period_number{
-        width: 300px;
-        display: inline-block;
-        background-color: #fff0;
-        background-image: none;
-        border: none;
-    }
-    #footulcerfirstIPD-post_amputation{
-        display: inline-block;
-    }
-  
-
-</style>
-
-<h3 style="color:#777;margin-left: 20px;">IPD DIABETIC FOOT ULCER VISIT RECORD : IPD DFU FIRST VISIT</h3>
+<div class="box-content">
+<h3 style="color:#777;">IPD DIABETIC FOOT ULCER VISIT RECORD : IPD DFU FIRST VISIT</h3>
 <?php $form = ActiveForm::begin(); ?>
-<div class="content">
+
 Visit date ……./………/…………                               First visit                                        Recorder………………………………
 
 <div class="box">
@@ -810,8 +765,8 @@ Classification of DFU (First visit only)
               return '<input type="radio" id="post_revascularization'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="post_revascularization'.$index.'">'.$label.'</label>';
           } ]])->label('4. Post Revascularization : ');?>
 
-          <div class="row">
-<div class="col-lg-2 col-md-2 col-ls-2">
+
+<div style="display: inline-block;padding-right: 20px;">
 <?= $form->field($model, 'post_hbot')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
@@ -825,10 +780,10 @@ Classification of DFU (First visit only)
               return '<input type="radio" id="post_hbot'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="post_hbot'.$index.'">'.$label.'</label>';
           } ]])->label('5. Post HBOT : ');?>
 </div>
-<div class="col-lg-4 col-md-4 col-sm-4" style="margin-left: -124px;">
+<div style="display: inline-block;">
 <?= $form->field($model, 'period_number')->textInput(['placeholder' => ".........................................."])->label('period number');?>
 </div>
-</div>
+
 <?= $form->field($model, 'post_amputation')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
@@ -846,3 +801,4 @@ Classification of DFU (First visit only)
       
 </div>
 <?php $form = ActiveForm::end(); ?>
+

@@ -52,6 +52,7 @@ class DmAssessmentController extends Controller
      */
     public function actionView($id)
     {
+        $id="35cd1195-6165-42d8-9425-bf0084db192c";
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -65,9 +66,9 @@ class DmAssessmentController extends Controller
     public function actionCreate()
     {
         $model = new DmAssessment();
-
+        $id="35cd1195-6165-42d8-9425-bf0084db192c";
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $id]);
         }
 
         return $this->render('create', [
@@ -84,6 +85,7 @@ class DmAssessmentController extends Controller
      */
     public function actionUpdate($id)
     {
+        $id="35cd1195-6165-42d8-9425-bf0084db192c";
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

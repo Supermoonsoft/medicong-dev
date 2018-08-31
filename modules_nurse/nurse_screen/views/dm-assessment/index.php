@@ -1,36 +1,69 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\widgets\Pjax;
-/* @var $this yii\web\View */
-/* @var $searchModel app\modules_nurse\nurse_screen\models\DmAssessmentSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+use app\components\PatientHelper;
 
-$this->title = 'Dm Assessments';
+$this->title = "Dm Assessments";
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Dm Assessments', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
+
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
+
 ?>
 <div class="dm-assessment-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+  
 
     <p>
-        <?= Html::a('Create Dm Assessment', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('สร้าง Dm Assessment', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'pjax'=>true,
+        'pjaxSettings'=>[
+            'neverTimeout'=>true,
+            //'beforeGrid'=>'.',
+            //'afterGrid'=>'My fancy content after.',
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'vn',
+            //'date_start_service',
+            //'time_start_service',
+            [
+                'attribute'=>'date_start_service',
+                'value'=>function ($model, $key, $index) { 
+                    return $model->date_start_service.' '.$model->time_start_service;
+                },
+            ],
+            //'id',
+            //'vn',
             'hn',
-            'data_json',
-            'requester',
+            [
+                'attribute'=>'hn',
+                'label'=>'ชื่อผู้ป่วย',
+                'value'=>function ($model, $key, $index) { 
+                    return PatientHelper::getPatientTitleByHn($model->hn);
+                },
+            ],
+            [
+                'label'=>'Check',
+                'format' => 'raw',
+                'value'=>function ($model, $key, $index) { 
+                    return '<i class="label label-danger">No</i>';
+                },
+            ],
             //'created_at',
             //'created_by',
             //'updated_at',
@@ -100,7 +133,13 @@ $this->params['breadcrumbs'][] = $this->title;
             //'vaccination_date1',
             //'vaccination_date2',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'label'=>'Action',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return Html::a(' <i class="glyphicon glyphicon-pencil"></i> ', ['/screen/dm-assessment/update', 'id' => '35cd1195-6165-42d8-9425-bf0084db192c'], ['class' => 'btn btn-info']);
+                }
+            ],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

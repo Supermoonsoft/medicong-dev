@@ -7,20 +7,19 @@ use app\components\PatientHelper;
 $hn = PatientHelper::getCurrentHn();
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 $this->registerCss($this->render('../../dist/css/style.css'));
+
+$this->title = 'SUMMARY-IPD';
+$this->params['breadcrumbs'][] = ['label' => 'FOOT', 'url' => ['/foot/default/index']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-OPD', 'url' => ['/foot/foot-assessment-summary-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-IPD', 'url' => ['/foot/foot-assessment-summary-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'COMPLATE', 'url' => ['/foot/foot-assessment-complate']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT OPD', 'url' => ['/foot/foot-ulcer-first-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT IPD', 'url' => ['/foot/foot-ulcer-first-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT OPD', 'url' => ['/foot/foot-ulcer-fu-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT IPD', 'url' => ['/foot/foot-ulcer-fu-ipd']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-  <style>
-    .field-footassessmentsummary-right_claw_toe {display: inline-block;}
-    .field-footassessmentsummary-right_hammer_toe {display: inline-block;}
-    .field-footassessmentsummary-right_maillet_toe {display: inline-block;}
-    .field-footassessmentsummary-right_callus {display: inline-block;}
-    .field-footassessmentsummary-right_corn {display: inline-block;}
-    .field-footassessmentsummary-left_claw_toe {display: inline-block;}
-    .field-footassessmentsummary-left_hammer_toe {display: inline-block;}
-    .field-footassessmentsummary-left_maillet_toe {display: inline-block;}
-    .field-footassessmentsummary-left_callus {display: inline-block;}
-    .field-footassessmentsummary-left_corn {display: inline-block;}
-    .field-footassessmentsummary-risk_of_foot_ulceration {display: inline-block;margin-left: 42px;}
-  </style>
+
   <h3 style="color:#777;margin-left: 20px;">IPD DIABETIC FOOT ASSESSMENT RECORD : SUMMARY</h3>
 <div class="box-content">
   <?php $form = ActiveForm::begin(); ?>

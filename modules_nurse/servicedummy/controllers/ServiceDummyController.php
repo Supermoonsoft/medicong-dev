@@ -77,6 +77,9 @@ class ServiceDummyController extends Controller
         $model->vn = $vn;
         $model->date_start_service = date('Y-m-d');
         $model->time_start_service = date('H:i:s');
+        $dm = 1;
+        $arr['comosss'] = ['dm'=>$dm,'t1'=>1];
+        $model->data_json = $arr;
 
         if ($model->load(Yii::$app->request->post()) && $model->save(FALSE)) {
             return $this->redirect(['index']);

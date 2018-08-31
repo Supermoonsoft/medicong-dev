@@ -49,7 +49,7 @@ use phpnt\ICheck\ICheck;
             '7' => 'Sport shoes',
             '8' => 'Other ……………………',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-type_of_footwear_indoor'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-type_of_footwear_indoor'.$index.'">'.$label.'</label></br>';
@@ -71,7 +71,7 @@ use phpnt\ICheck\ICheck;
             '7' => 'Sport shoes',
             '8' => 'Other ……………………',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-type_of_footwear_outdoor'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-type_of_footwear_outdoor'.$index.'">'.$label.'</label></br>';
@@ -92,7 +92,7 @@ use phpnt\ICheck\ICheck;
             '7' => 'Sport shoes',
             '8' => 'Other ……………………',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-type_of_footwear_exercise'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-type_of_footwear_exercise'.$index.'">'.$label.'</label></br>';

@@ -4,8 +4,21 @@ use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use phpnt\ICheck\ICheck;
 use app\components\PatientHelper;
+$this->registerCss($this->render('../../dist/css/style.css'));
 $hn = PatientHelper::getCurrentHn();
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
+
+
+$this->title = 'COMPLATE';
+$this->params['breadcrumbs'][] = ['label' => 'FOOT', 'url' => ['/foot/default/index']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-OPD', 'url' => ['/foot/foot-assessment-summary-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-IPD', 'url' => ['/foot/foot-assessment-summary-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'COMPLATE', 'url' => ['/foot/foot-assessment-complate']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT OPD', 'url' => ['/foot/foot-ulcer-first-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT IPD', 'url' => ['/foot/foot-ulcer-first-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT OPD', 'url' => ['/foot/foot-ulcer-fu-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT IPD', 'url' => ['/foot/foot-ulcer-fu-ipd']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <style>
 
@@ -33,38 +46,9 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     border-radius: 6px;
     padding: 15px;
 }
-.box{
-    border-left: 5px solid #e8a32b;
-    height: 63px;
-    padding: 20px;
-    text-align: center;
-    font-size: 20px;
-    background-color: #e8a32b29;
-}
+
 label {
     margin-right: 10px;
-}
-
-#footassessmentcomplate-occupation{
-    display: inline-block;
-}
-#footassessmentcomplate-smoking{
-    display: inline-block;
-}
-#footassessmentcomplate-activity{
-    display: inline-block;
-}
-#footassessmentcomplate-using_ambulation{
-    display: inline-block;
-}
-.field-footassessmentcomplate-evt_right{
-    display: inline-block;
-}
-.field-footassessmentcomplate-evt_note_right{
-    display: inline-block;
-}
-.field-footassessmentcomplate-chief_complaint{
-    display: inline-block;
 }
 
 .box_form{

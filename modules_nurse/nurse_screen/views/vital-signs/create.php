@@ -1,14 +1,20 @@
 <?php
 
 use yii\helpers\Html;
+use app\components\PatientHelper;
+
+$this->title = "Vital Signs";
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = $this->title;
+
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
+
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
 
-/* @var $this yii\web\View */
-/* @var $model app\modules_nurse\nurse_screen\models\NurseScreen */
-
-//$this->title = 'Create Nurse Screen';
-//$this->params['breadcrumbs'][] = ['label' => 'Nurse Screens', 'url' => ['index']];
-//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vital-signs-create">
 

@@ -1,16 +1,21 @@
 <?php
 
 use yii\helpers\Html;
+use app\components\PatientHelper;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules_nurse\nurse_screen\models\NurseCc */
+$this->title = "Nurse Chief complaint";
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = $this->title;
 
-$this->title = 'Nurse Chief complaint';
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
 
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 <div class="nurse-cc-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

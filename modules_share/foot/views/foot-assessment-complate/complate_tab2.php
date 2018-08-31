@@ -29,7 +29,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>['N'=> 'N','Y' => 'Y'],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hair_loss_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hair_loss_right'.$index.'">'.$label.'</label>';
@@ -41,7 +41,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>['N'=> 'N','Y' => 'Y'],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hair_loss_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hair_loss_left'.$index.'">'.$label.'</label>';
@@ -56,7 +56,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>['N'=> 'N','Y' => 'Y'],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-fungal_infection_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-fungal_infection_right'.$index.'">'.$label.'</label>';
@@ -68,7 +68,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>['N'=> 'N','Y' => 'Y'],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-fungal_infection_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-fungal_infection_left'.$index.'">'.$label.'</label>';
@@ -88,7 +88,7 @@ use phpnt\ICheck\ICheck;
             '3' => 'Pale',
             '4' => 'Dark',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-color_change_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-color_change_right'.$index.'">'.$label.'</label></br>';
@@ -105,7 +105,7 @@ use phpnt\ICheck\ICheck;
             '3' => 'Pale',
             '4' => 'Dark',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-color_change_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-color_change_left'.$index.'">'.$label.'</label></br>';
@@ -129,7 +129,7 @@ use phpnt\ICheck\ICheck;
             '7' => 'Scar',
             '8' => 'Distrophic',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-skin_condition_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-skin_condition_right'.$index.'">'.$label.'</label></br>';
@@ -150,7 +150,7 @@ use phpnt\ICheck\ICheck;
             '7' => 'Scar',
             '8' => 'Distrophic',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-skin_condition_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-skin_condition_left'.$index.'">'.$label.'</label></br>';
@@ -171,7 +171,7 @@ use phpnt\ICheck\ICheck;
             '3' => 'Very dry',
             '4' => 'Callus',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-interspace_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-interspace_right'.$index.'">'.$label.'</label></br>';
@@ -188,7 +188,7 @@ use phpnt\ICheck\ICheck;
             '3' => 'Very dry',
             '4' => 'Callus',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-interspace_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-interspace_left'.$index.'">'.$label.'</label></br>';
@@ -208,7 +208,7 @@ use phpnt\ICheck\ICheck;
             '2' => 'Cold',
             '3' => 'Warm',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-temperature_change_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-temperature_change_right'.$index.'">'.$label.'</label></br>';
@@ -224,7 +224,7 @@ use phpnt\ICheck\ICheck;
             '2' => 'Cold',
             '3' => 'Warm',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-temperature_change_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-temperature_change_left'.$index.'">'.$label.'</label></br>';
@@ -257,7 +257,7 @@ use phpnt\ICheck\ICheck;
             '1'=> 'N',
             '2' => 'specify type and site',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-toenail_problem'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-toenail_problem'.$index.'">'.$label.'</label>';
@@ -280,7 +280,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-fungal_nail_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-fungal_nail_right'.$index.'">'.$label.'</label>';
@@ -298,7 +298,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-fungal_nail_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-fungal_nail_left'.$index.'">'.$label.'</label>';
@@ -319,7 +319,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hypertrophic_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hypertrophic_right'.$index.'">'.$label.'</label>';
@@ -337,7 +337,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hypertrophic_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hypertrophic_left'.$index.'">'.$label.'</label>';
@@ -358,7 +358,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-distrophic_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-distrophic_right'.$index.'">'.$label.'</label>';
@@ -376,7 +376,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-distrophic_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-distrophic_left'.$index.'">'.$label.'</label>';
@@ -397,7 +397,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-discolored_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-discolored_right'.$index.'">'.$label.'</label>';
@@ -415,7 +415,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-discolored_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-discolored_left'.$index.'">'.$label.'</label>';
@@ -436,7 +436,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-elongated_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-elongated_right'.$index.'">'.$label.'</label>';
@@ -454,7 +454,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-elongated_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-elongated_left'.$index.'">'.$label.'</label>';
@@ -475,7 +475,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-ingrown_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-ingrown_right'.$index.'">'.$label.'</label>';
@@ -493,7 +493,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-ingrown_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-ingrown_left'.$index.'">'.$label.'</label>';
@@ -514,7 +514,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-involuted_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-involuted_right'.$index.'">'.$label.'</label>';
@@ -532,7 +532,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-involuted_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-involuted_left'.$index.'">'.$label.'</label>';
@@ -554,7 +554,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-splitting_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-splitting_right'.$index.'">'.$label.'</label>';
@@ -572,7 +572,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-splitting_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-splitting_left'.$index.'">'.$label.'</label>';
@@ -595,7 +595,7 @@ use phpnt\ICheck\ICheck;
             'Y' => 'Y, specify type and site  on figure',
            
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-skin_lesion'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-skin_lesion'.$index.'">'.$label.'</label>';
@@ -611,7 +611,7 @@ use phpnt\ICheck\ICheck;
             '2' => 'Com , number………….',
             '3' => 'Wart , number………….',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-skin_lesion_type_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-skin_lesion_type_right'.$index.'">'.$label.'</label></br>';
@@ -627,7 +627,7 @@ use phpnt\ICheck\ICheck;
             '2' => 'Com , number………….',
             '3' => 'Wart , number………….',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-skin_lesion_type_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-skin_lesion_type_left'.$index.'">'.$label.'</label></br>';
@@ -661,7 +661,7 @@ use phpnt\ICheck\ICheck;
             '4' => 'Pronated',
             '5' => 'Supinated',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-foot_type_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-foot_type_right'.$index.'">'.$label.'</label></br>';
@@ -679,7 +679,7 @@ use phpnt\ICheck\ICheck;
             '4' => 'Pronated',
             '5' => 'Supinated',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-foot_type_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-foot_type_left'.$index.'">'.$label.'</label></br>';
@@ -697,7 +697,7 @@ use phpnt\ICheck\ICheck;
             '1'=> 'Positive',
             '2' => 'Negative',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-silfverskiold_test_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-silfverskiold_test_right'.$index.'">'.$label.'</label></br>';
@@ -712,7 +712,7 @@ use phpnt\ICheck\ICheck;
           '1'=> 'Positive',
            '2' => 'Negative',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-silfverskiold_test_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-silfverskiold_test_left'.$index.'">'.$label.'</label></br>';
@@ -735,7 +735,7 @@ use phpnt\ICheck\ICheck;
           'N'=> 'N',
           'Y' => 'Y , specify type and site',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-deformities'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-deformities'.$index.'">'.$label.'</label>';
@@ -759,7 +759,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-claw_toe_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-claw_toe_right'.$index.'">'.$label.'</label>';
@@ -777,7 +777,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-claw_toe_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-claw_toe_left'.$index.'">'.$label.'</label>';
@@ -798,7 +798,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hammer_toe_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hammer_toe_right'.$index.'">'.$label.'</label>';
@@ -816,7 +816,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hammer_toe_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hammer_toe_left'.$index.'">'.$label.'</label>';
@@ -837,7 +837,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-mallet_toe_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-mallet_toe_right'.$index.'">'.$label.'</label>';
@@ -855,7 +855,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-mallet_toe_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-mallet_toe_left'.$index.'">'.$label.'</label>';
@@ -876,7 +876,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hallux_valgus_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hallux_valgus_right'.$index.'">'.$label.'</label>';
@@ -894,7 +894,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hallux_valgus_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hallux_valgus_left'.$index.'">'.$label.'</label>';
@@ -915,7 +915,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hallux_varus_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hallux_varus_right'.$index.'">'.$label.'</label>';
@@ -933,7 +933,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hallux_varus_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hallux_varus_left'.$index.'">'.$label.'</label>';
@@ -954,7 +954,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hallux_rigidus_limitus_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hallux_rigidus_limitus_right'.$index.'">'.$label.'</label>';
@@ -972,7 +972,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-hallux_rigidus_limitus_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-hallux_rigidus_limitus_left'.$index.'">'.$label.'</label>';
@@ -993,7 +993,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-bunion_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-bunion_right'.$index.'">'.$label.'</label>';
@@ -1011,7 +1011,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-bunion_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-bunion_left'.$index.'">'.$label.'</label>';
@@ -1032,7 +1032,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-bunionette_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-bunionette_right'.$index.'">'.$label.'</label>';
@@ -1050,7 +1050,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-bunionette_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-bunionette_left'.$index.'">'.$label.'</label>';
@@ -1071,7 +1071,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-charcot_foot_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-charcot_foot_right'.$index.'">'.$label.'</label>';
@@ -1089,7 +1089,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-charcot_foot_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-charcot_foot_left'.$index.'">'.$label.'</label>';
@@ -1110,7 +1110,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-post_surgical_deformity_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-post_surgical_deformity_right'.$index.'">'.$label.'</label>';
@@ -1128,7 +1128,7 @@ use phpnt\ICheck\ICheck;
             '4' => '4',
             '5' => '5',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-post_surgical_deformity_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-post_surgical_deformity_left'.$index.'">'.$label.'</label>';
@@ -1180,7 +1180,7 @@ use phpnt\ICheck\ICheck;
             '3' => 'Pins & Needles',
             '4' => 'Burning',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-neuropathic_symptom_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-neuropathic_symptom_right'.$index.'">'.$label.'</label></br>';
@@ -1197,7 +1197,7 @@ use phpnt\ICheck\ICheck;
             '3' => 'Pins & Needles',
             '4' => 'Burning',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-neuropathic_symptom_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-neuropathic_symptom_left'.$index.'">'.$label.'</label></br>';
@@ -1215,7 +1215,7 @@ use phpnt\ICheck\ICheck;
             '1'=> 'Intact',
             '2' => 'Impair',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-monofilament_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_right'.$index.'">'.$label.'</label></br>';
@@ -1230,7 +1230,7 @@ use phpnt\ICheck\ICheck;
             '1'=> 'Intact',
             '2' => 'Impair',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label></br>';
@@ -1249,7 +1249,7 @@ use phpnt\ICheck\ICheck;
             '2' => 'Diminish',
             '3' => 'Impair',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-tuning_fork_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-tuning_fork_right'.$index.'">'.$label.'</label></br>';
@@ -1265,7 +1265,7 @@ use phpnt\ICheck\ICheck;
             '2' => 'Diminish',
             '3' => 'Impair',
         ],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-tuning_fork_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-tuning_fork_left'.$index.'">'.$label.'</label></br>';

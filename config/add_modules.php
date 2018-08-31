@@ -10,8 +10,11 @@ $modules['newpatient'] = ['class' => 'app\modules_share\newpatient\NewPatient'];
 $modules['patiententry'] = ['class' => 'app\modules_nurse\patiententry\PatientEntry'];
 $modules['servicedummy'] = ['class' => 'app\modules_nurse\servicedummy\ServiceDummy'];
 $modules['opdvisit'] = ['class' => 'app\modules_share\opdvisit\OpdVisit'];
-$modules['foot'] = ['class' => 'app\modules_share\foot\Foot'];
-$modules['screen'] = ['class' => 'app\modules_nurse\nurse_screen\Screen'];
+$modules['foot'] = ['class' => 'app\modules_share\foot\Foot']; //oh
+$modules['screen'] = ['class' => 'app\modules_nurse\nurse_screen\Screen']; //pond
+$modules['emr'] = ['class' => 'app\modules_share\emr\Emr']; //jub
+$modules['dietitian'] = ['class' => 'app\modules_nurse\dietitian\Dietitian']; //jub
+
 
 
 return $modules;

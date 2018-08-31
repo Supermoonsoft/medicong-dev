@@ -66,7 +66,7 @@ class NurseScreening extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'hn', 'date_start_service', 'time_start_service'], 'required'],
+            //[['id', 'hn', 'date_start_service', 'time_start_service'], 'required'],
             [['id'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service'], 'safe'],
             [['cnk_er', 'chk_dm', 'chk_followup', 'chk_insurace', 'chk_contract', 'chk_im', 'chk_anc', 'chk_other', 'chk_risk', 'chk_risk_1', 'chk_risk_2', 'chk_risk_3', 'chk_risk_4', 'chk_risk_5', 'chk_thyroid', 'chk_eye', 'chk_illness', 'chk_checkup'], 'boolean'],

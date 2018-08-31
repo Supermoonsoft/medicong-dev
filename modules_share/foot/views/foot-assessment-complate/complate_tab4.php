@@ -16,7 +16,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>['Y'=> 'Y','N' => 'N',],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-foot_take_care'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-foot_take_care'.$index.'">'.$label.'</label>';
@@ -27,7 +27,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>['Y'=> 'Y','N' => 'N , specify reason',],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-foot_general_footcare'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-foot_general_footcare'.$index.'">'.$label.'</label>';
@@ -39,7 +39,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>['Y'=> 'Y','N' => 'N',],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-foot_take_care_his'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-foot_take_care_his'.$index.'">'.$label.'</label>';
@@ -52,7 +52,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>['Y'=> 'Y','N' => 'N',],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-take_check_his'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-take_check_his'.$index.'">'.$label.'</label>';

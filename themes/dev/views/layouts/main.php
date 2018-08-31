@@ -71,7 +71,7 @@ $hn = PatientHelper::getCurrentHn();
                         <li style="padding-right: 30px;"><a data-toggle="modal" data-target="#myModal2"><i class="fa fa-user-o"  style="font-size:20px;color:white;"></i></a></li>
 
                         <li><img src="img\profile.png" height="40px" class="img-circle" style="padding-top: 6px;" /></li>
-                        <li  style="padding-top: 5px;padding-left: 5px;"><h4>John Doe</h4></li>
+                        <li  style="padding-top: 5px;padding-left: 5px;"><h4>Dr.Kob</h4></li>
                     </ul>
                 </div><!--/.nav-collapse -->
 

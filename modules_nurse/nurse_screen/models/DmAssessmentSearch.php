@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\modules_nurse\nurse_screen\models\DmAssessment;
+use app\components\PatientHelper;
 
 /**
  * DmAssessmentSearch represents the model behind the search form of `app\modules_nurse\nurse_screen\models\DmAssessment`.
@@ -59,6 +60,7 @@ class DmAssessmentSearch extends DmAssessment
 
         // grid filtering conditions
         $query->andFilterWhere([
+            'hn'=> PatientHelper::getCurrentHn(),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'date_start_service' => $this->date_start_service,
@@ -86,7 +88,7 @@ class DmAssessmentSearch extends DmAssessment
 
         $query->andFilterWhere(['ilike', 'id', $this->id])
             ->andFilterWhere(['ilike', 'vn', $this->vn])
-            ->andFilterWhere(['ilike', 'hn', $this->hn])
+            //->andFilterWhere(['ilike', 'hn', $this->hn])
             ->andFilterWhere(['ilike', 'data_json', $this->data_json])
             ->andFilterWhere(['ilike', 'requester', $this->requester])
             ->andFilterWhere(['ilike', 'created_by', $this->created_by])

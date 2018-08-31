@@ -1,18 +1,27 @@
 <?php
 
 use yii\helpers\Html;
+use app\components\PatientHelper;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules_nurse\nurse_screen\models\DmAssessment */
+$this->title = "Dm Assessments";
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = $this->title;
 
-$this->title = 'Update Dm Assessment: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Dm Assessments', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
+
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 <div class="dm-assessment-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<h1><?php
+        if (!empty($vn_session)) {
+            //echo 'VN = '.$vn_session;
+        } else {
+            //echo 'รอเลข vn';
+        }
+        ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

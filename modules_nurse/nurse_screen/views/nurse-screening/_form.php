@@ -9,6 +9,13 @@ use app\components\PatientHelper;
 $session = Yii::$app->session;
 $vn_session = Yii::$app->request->get('vn_session');
 $id="35cd1195-6165-42d8-9425-bf0084db192c"; //DEMO
+
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
+
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 <?php
 $this->registerCss("
@@ -37,7 +44,7 @@ $this->registerCss("
                         ['',], 
                         ['class'=>'btn btn-primary']); ?>
         </h3>
-        <?= $form->field($model, 'hn')->hiddenInput(['value' => PatientHelper::getCurrentHn()])->label(false); ?>
+        <?= $form->field($model, 'hn')->hiddenInput(['value' => '000000034'])->label(false); ?>
         <?= $form->field($model, 'vn')->hiddenInput(['value' => $vn_session])->label(false); ?>
 
   </div>
@@ -56,11 +63,11 @@ $this->registerCss("
 <div class="row"><div class="col-md-3">
     <?= $form->field($model, 'chk_dm')->checkbox() ?>
 </div><div class="col-md-3">
-    <?= $form->field($model, 'chk_dm_type')->radioList(['Y' => 'รายใหม่', 'N' => 'followup'], ['inline'=>true])->label("SELECT");?>
+    <?= $form->field($model, 'chk_dm_type')->radioList(['NEW_DM' => 'รายใหม่', 'DM_Followup' => 'followup'], ['inline'=>true])->label("SELECT");?>
 </div><div class="col-md-3">
     <?= $form->field($model, 'chk_thyroid')->checkbox() ?>
 </div><div class="col-md-3">
-    <?= $form->field($model, 'chk_thyroid_type')->radioList(['Y' => 'รายใหม่', 'N' => 'followup'], ['inline'=>true])->label("SELECT");?>
+    <?= $form->field($model, 'chk_thyroid_type')->radioList(['NEW_Thyroid' => 'รายใหม่', 'FU_Thyroid' => 'followup'], ['inline'=>true])->label("SELECT");?>
 </div></div>
 
 <div class="row"><div class="col-md-3">

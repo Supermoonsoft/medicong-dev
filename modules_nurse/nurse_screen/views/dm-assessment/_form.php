@@ -1,167 +1,235 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
+use yii\widgets\Pjax;
+use app\components\PatientHelper;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules_nurse\nurse_screen\models\DmAssessment */
-/* @var $form yii\widgets\ActiveForm */
+$session = Yii::$app->session;
+$vn_session = Yii::$app->request->get('vn_session');
+$id="35cd1195-6165-42d8-9425-bf0084db192c"; //DEMO
+
+
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
+
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
+
 ?>
+<?php
+$this->registerCss("
+.box-shadow {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+}
+"); 
+?>
+<div class="dm-assessment-form">
+<?php Pjax::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        //'type' => ActiveForm::TYPE_HORIZONTAL,
+        //'formConfig' => ['labelSpan' => 6, 'deviceSize' => ActiveForm::SIZE_SMALL]
+    ]); 
+    
+    ?>
+    <?= $form->field($model, 'hn')->hiddenInput(['value' => '000000034'])->label(false); ?>
+    <?= $form->field($model, 'vn')->hiddenInput(['value' => $vn_session])->label(false); ?>
+<div class="col-md-1"></div>
+<div class="col-md-10">
+
+<div class="row ">
+<div class="col-md-12">
+<div class="panel panel-success box-shadow">
+  <div class="panel-heading"><h1>DM Assessment</h1> : </div>
+  <div class="panel-body">
 
 <div class="dm-assessment-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'last_meal_eating')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div><div class="col-md-2">
+    <?= $form->field($model, 'last_meal_eating_data')->textInput()->label("at Times") ?>
+</div></div>
 
-    <?= $form->field($model, 'id')->textInput() ?>
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'last_insulin')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div><div class="col-md-2">
+    <?= $form->field($model, 'last_insulin_data')->textInput()->label("at Times") ?>
+</div></div>
 
-    <?= $form->field($model, 'vn')->textInput(['maxlength' => true]) ?>
+<div class="row"><div class="col-md-6">
+    <?= $form->field($model, 'psychosocial_problem')->radioList(["Normal" => 'Normal', "Stress" => 'Stress', "Depression" => 'Depression'],['inline'=>true]) ?>
+</div></div>
 
-    <?= $form->field($model, 'hn')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'data_json')->textInput() ?>
-
-    <?= $form->field($model, 'requester')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'created_by')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_by')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'date_start_service')->textInput() ?>
-
-    <?= $form->field($model, 'time_start_service')->textInput() ?>
-
-    <?= $form->field($model, 'date_end_service')->textInput() ?>
-
-    <?= $form->field($model, 'time_end_service')->textInput() ?>
-
-    <?= $form->field($model, 'last_meal_eating')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'last_meal_eating_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'last_insulin')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'last_insulin_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'psychosocial_problem')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'key_presenting')->textInput(['maxlength' => true]) ?>
-
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'key_presenting')->radioList(["No" => 'No at All', "YES" => 'YES'],['inline'=>true]) ?>
+</div>
+<div class="col-md-3">
     <?= $form->field($model, 'chest_discomfort')->checkbox() ?>
-
+</div><div class="col-md-2">
     <?= $form->field($model, 'blurred_vision')->checkbox() ?>
-
+</div><div class="col-md-1">
     <?= $form->field($model, 'numbness')->checkbox() ?>
-
+</div><div class="col-md-2">
     <?= $form->field($model, 'foot_ulcer')->checkbox() ?>
+</div></div>
 
-    <?= $form->field($model, 'hbpm')->textInput(['maxlength' => true]) ?>
-
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'hbpm')->radioList(["No" => 'No at All', "YES" => 'YES'],['inline'=>true]) ?>
+</div><div class="col-md-2">
     <?= $form->field($model, 'hbpm_frequency')->checkbox() ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'hbpm_day')->textInput(['type'=>'number'])->label("Day") ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'hbpm_week')->textInput(['type'=>'number'])->label("Week") ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'hbpm_month')->textInput(['type'=>'number'])->label("Month") ?>
+</div></div>
 
-    <?= $form->field($model, 'hbpm_day')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hbpm_week')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hbpm_month')->textInput(['maxlength' => true]) ?>
-
+<div class="row">
+<div class="col-md-3">
     <?= $form->field($model, 'hbpm_result')->checkbox() ?>
-
+    </div><div class="col-md-1">
     <?= $form->field($model, 'hbpm_sbp')->checkbox() ?>
-
-    <?= $form->field($model, 'hbpm_sbp_data')->textInput(['maxlength' => true]) ?>
-
+    </div><div class="col-md-2">
+    <?= $form->field($model, 'hbpm_sbp_data')->textInput(['type'=>'number'])->label("") ?>
+    </div><div class="col-md-1">
     <?= $form->field($model, 'hbpm_dbp')->checkbox() ?>
-
-    <?= $form->field($model, 'hbpm_dbp_data')->textInput(['maxlength' => true]) ?>
-
+    </div><div class="col-md-2">
+    <?= $form->field($model, 'hbpm_dbp_data')->textInput(['type'=>'number'])->label("") ?>
+    </div><div class="col-md-1">
     <?= $form->field($model, 'hbpm_pulse')->checkbox() ?>
-
-    <?= $form->field($model, 'hbpm_pulse_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smbg')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smbg_frequency')->checkbox() ?>
-
-    <?= $form->field($model, 'smbg_day')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smbg_week')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smbg_month')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smbg_result')->checkbox() ?>
-
-    <?= $form->field($model, 'smbg_sbp')->checkbox() ?>
-
-    <?= $form->field($model, 'smbg_sbp_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smbg_dbp')->checkbox() ?>
-
-    <?= $form->field($model, 'smbg_dbp_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smbg_pulse')->checkbox() ?>
-
-    <?= $form->field($model, 'smbg_pulse_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hyperglycemic')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hyperglycemic_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hypoglycemic')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hypoglycemic_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hypoglycemic_risk')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hypoglycemic_risk1')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hypoglycemic_risk1_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hypoglycemic_risk2')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hypoglycemic_risk2_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hypoglycemic_risk3')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'hypoglycemic_risk3_data')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'diet_data1')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'diet_data2')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'exercise_data1')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'exercise_data2')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'drug_data1')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'drug_data2')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smooking')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smooking_ex1')->checkbox() ?>
-
-    <?= $form->field($model, 'smooking_ex1_day')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smooking_ex1_year')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smooking_ex2')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smooking_ex2_day')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'smooking_ex2_year')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'vaccination_date1')->textInput() ?>
-
-    <?= $form->field($model, 'vaccination_date2')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </div><div class="col-md-2">
+    <?= $form->field($model, 'hbpm_pulse_data')->textInput(['type'=>'number'])->label("") ?>
     </div>
+</div>
+
+<div class="row"><div class="col-md-2">
+    <?= $form->field($model, 'smbg')->radioList(["No" => 'No at All', "YES" => 'YES'],['inline'=>true]) ?>
+</div><div class="col-md-2">
+    <?= $form->field($model, 'smbg_frequency')->checkbox() ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'smbg_day')->textInput(['type'=>'number'])->label("Day") ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'smbg_week')->textInput(['type'=>'number'])->label("Week") ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'smbg_month')->textInput(['type'=>'number'])->label("Month") ?>
+</div></div>
+<div class="row">
+<div class="col-md-3">
+    <?= $form->field($model, 'smbg_result')->checkbox() ?>
+    </div><div class="col-md-1">
+    <?= $form->field($model, 'smbg_sbp')->checkbox() ?>
+    </div><div class="col-md-2">
+    <?= $form->field($model, 'smbg_sbp_data')->textInput(['type'=>'number'])->label("") ?>
+    </div><div class="col-md-1">
+    <?= $form->field($model, 'smbg_dbp')->checkbox() ?>
+    </div><div class="col-md-2">
+    <?= $form->field($model, 'smbg_dbp_data')->textInput(['type'=>'number'])->label("") ?>
+    </div><div class="col-md-1">
+    <?= $form->field($model, 'smbg_pulse')->checkbox() ?>
+    </div><div class="col-md-2">
+    <?= $form->field($model, 'smbg_pulse_data')->textInput(['type'=>'number'])->label("") ?>
+    </div>
+</div>
+
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'hyperglycemic')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div><div class="col-md-3">
+    <?= $form->field($model, 'hyperglycemic_data')->textInput()->label("describe") ?>
+</div></div>
+
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'hypoglycemic')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div><div class="col-md-3">
+    <?= $form->field($model, 'hypoglycemic_data')->textInput()->label("describe") ?>
+</div></div>
+
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'hypoglycemic_risk')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div></div>
+
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'hypoglycemic_risk1')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div><div class="col-md-3">
+    <?= $form->field($model, 'hypoglycemic_risk1_data')->textInput()->label("describe") ?>
+</div></div>
+
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'hypoglycemic_risk2')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div><div class="col-md-3">
+    <?= $form->field($model, 'hypoglycemic_risk2_data')->textInput()->label("describe") ?>
+</div></div>
+
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'hypoglycemic_risk3')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div><div class="col-md-3">
+    <?= $form->field($model, 'hypoglycemic_risk3_data')->textInput()->label("describe") ?>
+</div></div>
+
+<div class="row"><div class="col-md-3">
+    <?= $form->field($model, 'diet_data1')->radioList(["0" => '0', "1" => '1', "2" => '2', "3" => '3'],['inline'=>true]) ?>
+</div><div class="col-md-3">
+    <?= $form->field($model, 'diet_data2')->radioList(["0" => '0', "1" => '1', "2" => '2', "3" => '3'],['inline'=>true]) ?>
+</div></div>
+
+<div class="row"><div class="col-md-3">
+    <?= $form->field($model, 'exercise_data1')->radioList(["0" => '0', "1" => '1', "2" => '2', "3" => '3'],['inline'=>true]) ?>
+</div><div class="col-md-3">
+    <?= $form->field($model, 'exercise_data2')->radioList(["0" => '0', "1" => '1', "2" => '2', "3" => '3'],['inline'=>true]) ?>
+</div></div>
+
+<div class="row"><div class="col-md-3">
+    <?= $form->field($model, 'drug_data1')->radioList(["0" => '0', "1" => '1', "2" => '2', "3" => '3'],['inline'=>true]) ?>
+</div><div class="col-md-3">
+    <?= $form->field($model, 'drug_data2')->radioList(["0" => '0', "1" => '1', "2" => '2', "3" => '3'],['inline'=>true]) ?>
+</div></div>
+
+<div class="row"><div class="col-md-2">
+    <?= $form->field($model, 'smooking')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'smooking_ex1')->checkbox()->label("Ex.") ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'smooking_ex1_day')->textInput(['type'=>'number']) ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'smooking_ex1_year')->textInput(['type'=>'number']) ?>
+</div></div>
+
+<div class="row"><div class="col-md-2">
+    <?= $form->field($model, 'smooking2')->radioList(["YES" => 'YES', "NO" => 'No'],['inline'=>true]) ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'smooking_ex2')->checkbox() ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'smooking_ex2_day')->textInput(['type'=>'number']) ?>
+</div><div class="col-md-1">
+    <?= $form->field($model, 'smooking_ex2_year')->textInput(['type'=>'number']) ?>
+</div></div>
+
+<div class="row"><div class="col-md-4">
+    <?= $form->field($model, 'vaccination_date1')->textInput(['type'=>'date']) ?>
+</div><div class="col-md-4">
+    <?= $form->field($model, 'vaccination_date2')->textInput(['type'=>'date']) ?>
+</div></div>
+
+
+
+<div class="row">
+        <div class="col-md-2">
+            <?= $form->field($model, 'requester')->textInput(['placeholder'=>'requester','maxlength' => true])->label(false) ?>
+        </div>
+        <div class="col-md-4">
+        <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : 'แก้ไข', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            <?php // Html::submitButton('บันทึก', ['class' => 'btn btn-success']) ?>  
+        </div>
+</div>
+
+</div></div></div>
+<div class="col-md-1"></div>
 
     <?php ActiveForm::end(); ?>
+    <?php Pjax::end(); ?>
+
 
 </div>

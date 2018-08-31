@@ -3,12 +3,24 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\components\PatientHelper;
+
+$this->title = "Nurseing Assessment";
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = $this->title;
+
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
+
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 <?php
 $this->registerCss("
 .box-shadow {
     -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
     box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+    font-size: 14px;
 }
 ");
 ?>
@@ -17,49 +29,52 @@ $this->registerCss("
 <div class="col-md-2"></div>
 <div class="col-md-8">
 
-<div class="panel panel-success box-shadow">
-  <div class="panel-heading">การมารับบริการ : <?= PatientHelper::getCurrentHn() ?>
-        <?= Html::a('<i class="glyphicon glyphicon-pencil"></i>', ['update', 'id' => $model->id]) ?>
-        <?= Html::a('<i class="glyphicon glyphicon-erase"></i>', ['delete', 'id' => $model->id], [
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
 
+<h3>บันทึก Chief Complaint : 
+<?= Html::a('<i class="glyphicon glyphicon-plus-sign"> Chief complaint </i>',
+             ['/screen/nurse-cc/update', 'id' => $model->id],
+             ['class' => 'btn btn-success']) 
+?>
+</h3>
+
+<div class="panel panel-success box-shadow">
+  <div class="panel-heading">
+<h3>การมารับบริการ : 
+        <?= Html::a('<i class="glyphicon glyphicon-pencil"></i>', ['update', 'id' => $model->id]) ?>
+</h3>
   </div>
   <div class="panel-body">
 
 
 <div class="row"><div class="col-md-3">
-    <?php echo 'ผู้ป่วยทั่วไป : ';
+    <?php echo '<b>ผู้ป่วยทั่วไป : ';
             //if($model->chk_illness='t'){
-            // echo "<i class='glyphicon glyphicon-ok'></i>";}else{"<i class='glyphicon glyphicon-remove'></i>";}
-            echo  $model->chk_illness==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+            // echo "<span class='label label-success'>Yes</span>";}else{"<span class='label label-danger'>No</span>";}
+            echo  $model->chk_illness==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
              ?>
 </div><div class="col-md-3">
     <?php echo 'บริการ ฉุกเฉิน : ';
-    echo $model->cnk_er ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->cnk_er ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
     ?>
-</div><div class="col-md-3">
+</div><div class="col-md-2">
     <?php echo 'ตรวจสุขภาพ : ';
-    echo $model->chk_checkup ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_checkup ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
      ?>
-</div><div class="col-md-3">
+</div><div class="col-md-4">
     <?php echo 'มาตามนัด/ติดตามอาการ : ';
-    echo $model->chk_followup ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_followup ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
     ?>
 </div></div>
 
 <div class="row"><div class="col-md-3">
     <?php echo 'ผู้ป่วยเบาหวาน(Dm) : ';
-    echo $model->chk_dm ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_dm ==1 ? "<span class='label label-success'>NEW</span>":"<span class='label label-danger'>No</span>";
     ?>
 </div><div class="col-md-3">
     <?php echo 'DM TYPE : '.$model->chk_dm_type ?>
 </div><div class="col-md-3">
     <?php echo 'ผู้ป่วย ไทรอยด์ : ';
-    echo $model->chk_thyroid ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_thyroid ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
     ?>
 </div><div class="col-md-3">
     <?php echo 'ประเภทผู้ป่วยไทรอยด์ : '.$model->chk_thyroid_type ?>
@@ -67,37 +82,37 @@ $this->registerCss("
 
 <div class="row"><div class="col-md-3">
     <?php echo 'รับวัคซีน : ';
-    echo $model->chk_im ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_im ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
     ?>
 </div><div class="col-md-3">
     <?php echo 'ANC : ';
-    echo $model->chk_anc ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_anc ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
     ?>
 </div><div class="col-md-3">
     <?php echo 'ผู้ป่วยสิทธิ์ประกัน : ';
-    echo $model->chk_insurace ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_insurace ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
     ?>
 </div><div class="col-md-3">
     <?php echo 'Contract : ';
-    echo $model->chk_contract ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_contract ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
     ?>
 </div></div>
 
 <div class="row"><div class="col-md-3">
     <?php echo 'ตรวจตา : ';
-    echo $model->chk_eye ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_eye ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
     ?>
 </div><div class="col-md-3">
     <?php echo 'อื่นๆ : ';
-    echo $model->chk_other ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_other ==1 ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
     ?>
 </div><div class="col-md-6">
     <?php echo 'หมายเหตุ : '.$model->chk_other_text ?>
 </div></div>
-
+ 
 </div></div>
 <div class="panel panel-warning box-shadow">
-  <div class="panel-heading">อาการ : </div>
+  <div class="panel-heading"><h3>อาการ : </h3></div>
   <div class="panel-body">
 
 
@@ -124,28 +139,28 @@ $this->registerCss("
 
 </div></div>
 <div class="panel panel-danger box-shadow">
-  <div class="panel-heading">Full Risk : </div>
+  <div class="panel-heading"><h3>Full Risk : </h3></div>
   <div class="panel-body">
 
 <div class="row"><div class="col-md-2">
 <?php echo 'มีประวัติ : ';
-    echo $model->chk_risk_1 ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_risk_1 ==true ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
 ?>
 </div><div class="col-md-2">
 <?php echo 'ได้ยา : ';
-    echo $model->chk_risk_2 ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_risk_2 ==true ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
 ?>
 </div><div class="col-md-2">
 <?php echo 'ใช้อุปกรณ์ : ';
-    echo $model->chk_risk_3 ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_risk_3 ==true ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
 ?> 
 </div><div class="col-md-3">
 <?php echo 'มีปัญหาการทรงตัว : ';
-    echo $model->chk_risk_4 ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_risk_4 ==true ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
 ?>
 </div><div class="col-md-2">
 <?php echo 'แอลกอฮอล์ : ';
-    echo $model->chk_risk_5 ==1 ? "<i class='glyphicon glyphicon-ok'></i>":"<i class='glyphicon glyphicon-remove'></i>";
+    echo $model->chk_risk_5 ==true ? "<span class='label label-success'>Yes</span>":"<span class='label label-danger'>No</span>";
 ?>   
 </div></div>
     

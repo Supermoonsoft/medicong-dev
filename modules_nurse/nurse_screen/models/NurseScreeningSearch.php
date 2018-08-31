@@ -120,7 +120,7 @@ class NurseScreeningSearch extends NurseScreening
     public function beforeSave($insert){
         //$visit = OpdVisit::find()->where(['vn'=>$this->vn])->one();
 
-    if (NurseScreen::beforeSave($insert)) {
+    if (NurseScreening::beforeSave($insert)) {
         $this->date_start_service = date('Y-m-d');
         $this->time_start_service = date('H:i:s');
 

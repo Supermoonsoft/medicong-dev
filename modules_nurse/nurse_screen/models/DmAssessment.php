@@ -97,13 +97,13 @@ class DmAssessment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'hn', 'date_start_service', 'time_start_service'], 'required'],
+            [[ 'hn', 'date_start_service', 'time_start_service'], 'required'],
             [['id'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service', 'vaccination_date1', 'vaccination_date2'], 'safe'],
-            [['chest_discomfort', 'blurred_vision', 'numbness', 'foot_ulcer', 'hbpm_frequency', 'hbpm_result', 'hbpm_sbp', 'hbpm_dbp', 'hbpm_pulse', 'smbg_frequency', 'smbg_result', 'smbg_sbp', 'smbg_dbp', 'smbg_pulse', 'smooking_ex1'], 'boolean'],
+            [['chest_discomfort', 'blurred_vision', 'numbness', 'foot_ulcer', 'hbpm_frequency', 'hbpm_result', 'hbpm_sbp', 'hbpm_dbp', 'hbpm_pulse', 'smbg_frequency', 'smbg_result', 'smbg_sbp', 'smbg_dbp', 'smbg_pulse','smooking_ex1'], 'boolean'],
             [['vn'], 'string', 'max' => 12],
             [['hn'], 'string', 'max' => 9],
-            [['requester', 'created_by', 'updated_by', 'last_meal_eating', 'last_meal_eating_data', 'last_insulin', 'last_insulin_data', 'psychosocial_problem', 'key_presenting', 'hbpm', 'hbpm_day', 'hbpm_week', 'hbpm_month', 'hbpm_sbp_data', 'hbpm_dbp_data', 'hbpm_pulse_data', 'smbg', 'smbg_day', 'smbg_week', 'smbg_month', 'smbg_sbp_data', 'smbg_dbp_data', 'smbg_pulse_data', 'hyperglycemic', 'hyperglycemic_data', 'hypoglycemic', 'hypoglycemic_data', 'hypoglycemic_risk', 'hypoglycemic_risk1', 'hypoglycemic_risk1_data', 'hypoglycemic_risk2', 'hypoglycemic_risk2_data', 'hypoglycemic_risk3', 'hypoglycemic_risk3_data', 'diet_data1', 'diet_data2', 'exercise_data1', 'exercise_data2', 'drug_data1', 'drug_data2', 'smooking', 'smooking_ex1_day', 'smooking_ex1_year', 'smooking_ex2', 'smooking_ex2_day', 'smooking_ex2_year'], 'string', 'max' => 255],
+            [['requester', 'created_by', 'updated_by', 'last_meal_eating', 'last_meal_eating_data', 'last_insulin', 'last_insulin_data', 'psychosocial_problem', 'key_presenting', 'hbpm', 'hbpm_day', 'hbpm_week', 'hbpm_month','smooking2', 'hbpm_sbp_data', 'hbpm_dbp_data', 'hbpm_pulse_data', 'smbg', 'smbg_day', 'smbg_week', 'smbg_month', 'smbg_sbp_data', 'smbg_dbp_data', 'smbg_pulse_data', 'hyperglycemic', 'hyperglycemic_data', 'hypoglycemic', 'hypoglycemic_data', 'hypoglycemic_risk', 'hypoglycemic_risk1', 'hypoglycemic_risk1_data', 'hypoglycemic_risk2', 'hypoglycemic_risk2_data', 'hypoglycemic_risk3', 'hypoglycemic_risk3_data', 'diet_data1', 'diet_data2', 'exercise_data1', 'exercise_data2', 'drug_data1', 'drug_data2', 'smooking', 'smooking_ex1_day', 'smooking_ex1_year', 'smooking_ex2', 'smooking_ex2_day', 'smooking_ex2_year'], 'string', 'max' => 255],
             [['id'], 'unique'],
         ];
     }
@@ -137,7 +137,7 @@ class DmAssessment extends \yii\db\ActiveRecord
             'blurred_vision' => 'Blurred vision',
             'numbness' => 'Numbness',
             'foot_ulcer' => 'Foot Ulcer',
-            'hbpm' => 'HBPM',
+            'hbpm' => '5. HBPM',
             'hbpm_frequency' => 'Frequency',
             'hbpm_day' => 'Day',
             'hbpm_week' => 'Week',
@@ -149,7 +149,7 @@ class DmAssessment extends \yii\db\ActiveRecord
             'hbpm_dbp_data' => 'Hbpm Dbp Data',
             'hbpm_pulse' => 'PULSE',
             'hbpm_pulse_data' => 'Hbpm Pulse Data',
-            'smbg' => 'SMBG',
+            'smbg' => '6. SMBG',
             'smbg_frequency' => 'Frequency',
             'smbg_day' => 'Day',
             'smbg_week' => 'Week',
@@ -179,10 +179,11 @@ class DmAssessment extends \yii\db\ActiveRecord
             'drug_data1' => '11. Drug Adherence',
             'drug_data2' => 'Previous data',
             'smooking' => '12. Smooking',
+            'smooking2' => 'Previous data',
             'smooking_ex1' => 'Ex',
             'smooking_ex1_day' => 'Peak',
             'smooking_ex1_year' => 'When',
-            'smooking_ex2' => 'Previous data',
+            'smooking_ex2' => 'Ex.',
             'smooking_ex2_day' => 'Peak',
             'smooking_ex2_year' => 'When',
             'vaccination_date1' => '13. Vaccination : Name & Data 1.',

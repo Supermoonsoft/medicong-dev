@@ -4,6 +4,17 @@ use yii\helpers\Html;
 use kartik\detail\DetailView;
 use app\components\PatientHelper;
 
+$this->title = "Vital Signs";
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = $this->title;
+
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
+
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
+
 ?>
 <?php
 $this->registerCss("
@@ -15,18 +26,16 @@ $this->registerCss("
 ?>
 <div class="nurse-screen-view">
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['#', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 <div class="col-md-2"></div>
 <div class="col-md-8">
+<h3>บันทึก Screening : 
+    <?= Html::a('<i class="glyphicon glyphicon-plus-sign"> Screening </i>', 
+                ['/screen/nurse-screening/update', 'id' => $model->id], 
+                ['class' => 'btn btn-info']) 
+    ?>
+</h3>
+ 
+
 <div class="row ">
     <div class="col-md-12">
         <?= DetailView::widget([
@@ -35,7 +44,9 @@ $this->registerCss("
             'hover'=>true,
             'mode'=>DetailView::MODE_VIEW,
             'panel'=>[
-                'heading'=>'Detail '.PatientHelper::getPatientTitleByHn($model->hn),
+                'heading'=>'Detail '
+                        .PatientHelper::getPatientTitleByHn($model->hn)
+                        .' : '. Html::a('<i class="glyphicon glyphicon-pencil"></i>', ['update', 'id' => $model->id]) ,
                 'type'=>DetailView::TYPE_INFO,
                 'headingOptions'=>[
                     'template'=>'{title}'
@@ -48,7 +59,6 @@ $this->registerCss("
         ]) ?>
     </div>
 </div>
-<h1>Vital Signs</h1>
 <div class="row">
     <div class="col-md-6">
         <?= DetailView::widget([
@@ -59,7 +69,7 @@ $this->registerCss("
             'panel'=>[
                 'heading'=>'PRE HD',
                 'type'=>DetailView::TYPE_SUCCESS,
-                'headingOptions'=>[
+                'headingOptions'=>[ 
                     'template'=>'{title}'
                 ]
             ],

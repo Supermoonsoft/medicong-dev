@@ -10,7 +10,7 @@ use yii\helpers\Url;
             <ul class="nav navbar-nav na">
 
                 <li>
-                    <a href="<?= Url::to(['/patiententry/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a>
+                    <a href="<?= Url::to(['/screen/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a><!-- POND -->
                 </li>              
                 <li>
                     <a href="#"><i class="fa fa-bullhorn"></i> Q.manage</a>
@@ -19,10 +19,10 @@ use yii\helpers\Url;
                     <a href="#"><i class="fa fa-thermometer"></i> LAB</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a>
+                    <a href="<?= Url::to(['/screen/dm-assessment/index']) ?>"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a><!-- POND -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bed"></i> Dietitian</a>
+                    <a href="<?= Url::to(['/dietitian']) ?>"><i class="fa fa-bed"></i> Dietitian</a>
                 </li>
                 <li>
                     <a href="<?= Url::to(['/foot/default/index']) ?>"><i class="fa fa-wheelchair"></i> FOOT</a>
@@ -35,7 +35,7 @@ use yii\helpers\Url;
                     <a href="#"><i class="fa fa-support"></i> HD</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-ambulance"></i> EMR</a>
+                    <a href="<?= Url::to(['/emr/default/index']) ?>"><i class="fa fa-ambulance"></i> EMR</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-clipboard"></i> Print Out</a>

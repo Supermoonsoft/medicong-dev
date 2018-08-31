@@ -7,68 +7,24 @@ use phpnt\ICheck\ICheck;
 use app\components\PatientHelper;
 $hn = PatientHelper::getCurrentHn();
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
+$this->registerCss($this->render('../../dist/css/style.css'));
+
+$this->title = 'ULCER VISIT FU VISIT OPD';
+$this->params['breadcrumbs'][] = ['label' => 'FOOT', 'url' => ['/foot/default/index']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-OPD', 'url' => ['/foot/foot-assessment-summary-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-IPD', 'url' => ['/foot/foot-assessment-summary-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'COMPLATE', 'url' => ['/foot/foot-assessment-complate']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT OPD', 'url' => ['/foot/foot-ulcer-first-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT IPD', 'url' => ['/foot/foot-ulcer-first-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT OPD', 'url' => ['/foot/foot-ulcer-fu-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT IPD', 'url' => ['/foot/foot-ulcer-fu-ipd']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<style>
-    .box {
-        border: 1px solid #ccc;
-    height: 46px;
-    padding: 9px;
-    text-align: center;
-    font-size: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    }
-    .content{
-        margin-left:20px;
-    }
 
-    #footulcerfuopd-vessel_palpation_dp_right{
-        display: inline-block;
-    }
-    #footulcerfuopd-vessel_palpation_dp_left{
-        display: inline-block;
-    }
-    #footulcerfuopd-vessel_palpation_pt_right{
-        display: inline-block;
-    }
-    #footulcerfuopd-vessel_palpation_pt_left{
-        display: inline-block;
-    }
-    #footulcerfuopd-off_loading_technique{
-        display: inline-block;
-    }
-    #footulcerfuopd-local_procedure_performed{
-        display: inline-block;
-    }
-    #footulcerfuopd-local_dressing_performed{
-        display: inline-block;
-    }
-    #footulcerfuopd-post_revascularization{
-        display: inline-block;
-    }
-    #footulcerfuopd-post_hbot{
-        display: inline-block;
-    }
-    #footulcerfuopd-period_number{
-        width: 300px;
-        display: inline-block;
-        background-color: #fff0;
-        background-image: none;
-        border: none;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
-        color: #0875f4;
-    }
-    #footulcerfuopd-post_amputation{
-        display: inline-block;
-    }
-  
-
-</style>
-
-<h3 style="color:#777;margin-left: 20px;">OPD DIABETIC FOOT ULCER VISIT RECORD : OPD DFU FIRST VISIT</h3>
+<div class="box-content">
+<h3 style="color:#777;">OPD DIABETIC FOOT ULCER VISIT RECORD : OPD DFU FIRST VISIT</h3>
 <?php $form = ActiveForm::begin(); ?>
-<div class="content">
+
 Visit date ……./………/…………                               First visit                                        Recorder………………………………
 <br><br>
           <table width="100%" class="table table-bordered">
@@ -703,7 +659,5 @@ Visit date ……./………/…………                               First
               return '<input type="radio" id="post_amputation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="post_amputation'.$index.'">'.$label.'</label>';
           } ]])->label('6. Post amputation : ');?>
 
-
-      
+<?php $form = ActiveForm::end(); ?> 
 </div>
-<?php $form = ActiveForm::end(); ?>

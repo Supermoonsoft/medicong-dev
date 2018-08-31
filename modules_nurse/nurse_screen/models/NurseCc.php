@@ -110,7 +110,7 @@ class NurseCc extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'hn', 'date_start_service', 'time_start_service'], 'required'],
+            //[['id', 'hn', 'date_start_service', 'time_start_service'], 'required'],
             [['id', 'nurse_text'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service'], 'safe'],
             [['chk_cc_1', 'chk_cc_2', 'chk_cc_3', 'chk_cc_4', 'chk_cc_5', 'chk_cc_6', 'chk_cc_7', 'chk_cc_8', 'chk_cc_9', 'chk_cc_10', 'chk_cc_11', 'chk_cc_12', 'chk_cc_13', 'chk_con_1', 'chk_con_2', 'chk_con_3', 'chk_con_4', 'chk_con_5', 'chk_con_6', 'chk_con_7', 'chk_fu_1', 'chk_fu_2', 'chk_fu_3', 'chk_fu_4', 'chk_fu_5', 'chk_fu_6', 'chk_fu_7', 'chk_fu_8', 'chk_fu_9', 'chk_fu_10', 'chk_fu_11', 'chk_chk_1', 'chk_chk_2', 'chk_chk_3', 'chk_chk_4', 'chk_chk_5'], 'boolean'],

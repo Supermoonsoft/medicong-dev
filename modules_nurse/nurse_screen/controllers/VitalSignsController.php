@@ -49,16 +49,16 @@ class VitalSignsController extends Controller
 
     public function actionCreate()
     {
-        $model = new VitalSigns();
+       // $model = new VitalSigns();
         $id="35cd1195-6165-42d8-9425-bf0084db192c";
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        //if ($model->load(Yii::$app->request->post()) && $model->save(FALSE)) {
+            return $this->redirect(['view', 'id' => $id]);
+        //}
         
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+       // return $this->render('create', [
+        //    'model' => $model,
+       // ]);
         
             
 

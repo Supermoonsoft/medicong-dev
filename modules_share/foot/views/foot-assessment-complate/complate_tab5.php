@@ -10,7 +10,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>['L'=> 'Low ','M' => 'Moderate','H' => 'High '],
-        'color'  => 'red',
+        'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessment-risk_categorization_diabetic'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-risk_categorization_diabetic'.$index.'">'.$label.'</label>';

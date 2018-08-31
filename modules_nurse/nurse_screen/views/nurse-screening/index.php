@@ -5,11 +5,19 @@ use kartik\grid\GridView;
 use yii\widgets\Pjax;
 use app\components\PatientHelper;
 
-$this->title = 'Nurseing Assessment';
+$this->title = "Nurseing Assessment";
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = $this->title;
+
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
+
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 <div class="nurse-screening-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

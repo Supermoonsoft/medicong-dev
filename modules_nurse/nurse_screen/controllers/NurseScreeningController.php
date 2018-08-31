@@ -55,15 +55,15 @@ class NurseScreeningController extends Controller
 
     public function actionCreate()
     {
-        $model = new NurseScreening();
+        //$model = new NurseScreening();
         $id="35cd1195-6165-42d8-9425-bf0084db192c";
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        //if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $id]);
+        //}
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        //return $this->render('create', [
+        //    'model' => $model,
+        //]);
     }
 
   
@@ -91,6 +91,7 @@ class NurseScreeningController extends Controller
 
     protected function findModel($id)
     {
+        $id="35cd1195-6165-42d8-9425-bf0084db192c";
         if (($model = NurseScreening::findOne($id)) !== null) {
             return $model;
         }
