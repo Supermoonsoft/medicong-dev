@@ -45,6 +45,7 @@ class OpdVisitSearch extends OpdVisit
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort'=> ['defaultOrder' => ['vn'=>SORT_DESC]]
         ]);
 
         $this->load($params=null);
