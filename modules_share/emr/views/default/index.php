@@ -95,7 +95,9 @@ Modal::begin([
         // user must click cancel or X to close
         //'clientOptions' => ['backdrop' => 'static', 'keyboard' => FALSE]
 ]);
-echo "<div id='emrModalContent'></div>";
+?>
+<div id='emrModalContent' style="height: 400px"></div>
+<?php
 Modal::end();
 ?>
 
