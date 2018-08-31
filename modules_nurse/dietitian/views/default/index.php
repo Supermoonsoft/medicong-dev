@@ -1,6 +1,16 @@
 <?php
 
 use kartik\tabs\TabsX;
+use yii\helpers\Html;
+use yii\grid\GridView;
+Use app\components\MessageHelper;
+use app\components\PatientHelper;
+
+$hn = PatientHelper::getCurrentHn();
+if (empty($hn)) {
+    MessageHelper::errorNullHn();
+}
+$this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
 
 

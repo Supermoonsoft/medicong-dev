@@ -66,7 +66,7 @@ $hn = PatientHelper::getCurrentHn();
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
-                        <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-bell"  style="font-size:20px;color:white"></i><span class="badge badge-light">9</span></a></li>
+                        <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-bell"  style="font-size:20px;color:white"></i><span class="badge badge-light">4</span></a></li>
 
                         <li style="padding-right: 30px;"><a data-toggle="modal" data-target="#myModal2"><i class="fa fa-user-o"  style="font-size:20px;color:white;"></i></a></li>
 
