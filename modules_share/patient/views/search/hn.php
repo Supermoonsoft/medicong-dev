@@ -2,6 +2,8 @@
 
 use app\components\PatientHelper;
 use yii\widgets\DetailView;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>

@@ -1,10 +1,19 @@
 <?php
-$this->params['pt_title']= 'dddddd';
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
+
 ?>
 <div class="test2-default-index">
-   
     <p>
-        You may customize this page by editing the following file:<br>
-        <code><?= __FILE__ ?></code>
+        <?php
+        for ($i = 0; $i < 100000; $i++) {
+            $n = $i % 2;
+            echo " บรรทัดที่".$i;
+            echo "<br/>";
+        }
+        ?>
     </p>
 </div>
+
+
+

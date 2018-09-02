@@ -1,0 +1,19 @@
+#tehnnn_load_screen{
+    background: #FFF;
+    opacity: 1;
+    position: absolute;
+    z-index:999;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    
+}
+#tehnnn_loading{
+    color:#000;
+    width:120px;
+    height:24px;
+    margin: 300px auto;
+    font-weight: bolder;
+    font-size:  xx-large;
+}
