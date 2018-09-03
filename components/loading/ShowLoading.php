@@ -12,7 +12,7 @@ class ShowLoading extends Widget {
 
     public function run() {
         parent::run();
-        return $this->render('index');
+        return $this->render('load');
     }
 
 }

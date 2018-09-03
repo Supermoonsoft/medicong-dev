@@ -5,6 +5,8 @@ use app\components\PatientHelper;
 use yii\helpers\Html;
 use yii\bootstrap\Modal;
 use yii\helpers\Url;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 
 $hn = PatientHelper::getCurrentHn();
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);

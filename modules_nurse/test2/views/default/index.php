@@ -6,7 +6,7 @@ echo ShowLoading::widget();
 <div class="test2-default-index">
     <p>
         <?php
-        for ($i = 0; $i < 100000; $i++) {
+        for ($i = 0; $i < 50000; $i++) {
             $n = $i % 2;
             echo " บรรทัดที่".$i;
             echo "<br/>";
