@@ -1,3 +1,6 @@
+
+$('#emr-modal').removeClass('fade');
+
 $('.lab').click(function () {
     $('#emr-modal')
             .modal('show')

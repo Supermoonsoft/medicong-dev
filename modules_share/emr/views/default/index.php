@@ -1,6 +1,7 @@
 <?php
 $this->registerCss($this->render('./../../css/style.css'));
 
+USE app\components\MessageHelper;
 use app\components\PatientHelper;
 use yii\helpers\Html;
 use yii\bootstrap\Modal;
@@ -11,6 +12,7 @@ echo ShowLoading::widget();
 $hn = PatientHelper::getCurrentHn();
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
+<?= MessageHelper::Note('ปรับให้ timeline ซ้ายขวา อยู่ระนาบเดียวกัน เหลี่อมกันเล็กน้อย ไม่ให้มีพื้นที่เหลือมาก กดส่งเข้า line ได้')?>
 <div class="timeline-body" style="margin: 0 auto; margin-bottom: 5px">
     <div class="timeline">
         <div class="contrainer-tm left">
