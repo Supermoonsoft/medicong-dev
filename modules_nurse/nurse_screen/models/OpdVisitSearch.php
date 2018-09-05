@@ -45,7 +45,6 @@ class OpdVisitSearch extends OpdVisit
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'=> ['defaultOrder' => ['vn'=>SORT_DESC]]
         ]);
 
         $this->load($params=null);
@@ -70,8 +69,8 @@ class OpdVisitSearch extends OpdVisit
         ]);
 
         $query->andFilterWhere(['ilike', 'id', $this->id])
-            ->andFilterWhere(['ilike', 'vn', $this->vn])
-            ->andFilterWhere(['ilike', 'hn', $this->hn])
+            //->andFilterWhere(['ilike', 'vn', $this->vn])
+            //->andFilterWhere(['ilike', 'hn', $this->hn])
             ->andFilterWhere(['ilike', 'data_json', $this->data_json])
             ->andFilterWhere(['ilike', 'requester', $this->requester])
             ->andFilterWhere(['ilike', 'created_by', $this->created_by])

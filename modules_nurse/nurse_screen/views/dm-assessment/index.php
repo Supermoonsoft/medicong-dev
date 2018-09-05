@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\widgets\Pjax;
 use app\components\PatientHelper;
+use app\components\MessageHelper;
 
 $this->title = "Dm Assessments";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
@@ -14,6 +15,7 @@ $hn = PatientHelper::getCurrentHn();
 if (empty($hn)) {
     MessageHelper::errorNullHn();
 }
+
 
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 

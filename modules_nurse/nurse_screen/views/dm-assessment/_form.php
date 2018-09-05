@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use kartik\widgets\ActiveForm;
 use yii\widgets\Pjax;
 use app\components\PatientHelper;
+use app\components\MessageHelper;
 
 $session = Yii::$app->session;
 $vn_session = Yii::$app->request->get('vn_session');

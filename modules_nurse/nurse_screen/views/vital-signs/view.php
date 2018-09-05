@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use kartik\detail\DetailView;
 use app\components\PatientHelper;
+use app\components\MessageHelper;
 
 $this->title = "Vital Signs";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
@@ -45,7 +46,6 @@ $this->registerCss("
             'mode'=>DetailView::MODE_VIEW,
             'panel'=>[
                 'heading'=>'Detail '
-                        .PatientHelper::getPatientTitleByHn($model->hn)
                         .' : '. Html::a('<i class="glyphicon glyphicon-pencil"></i>', ['update', 'id' => $model->id]) ,
                 'type'=>DetailView::TYPE_INFO,
                 'headingOptions'=>[

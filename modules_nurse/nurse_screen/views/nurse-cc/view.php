@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use kartik\detail\DetailView;
 use app\components\PatientHelper;
+use app\components\MessageHelper;
 
 $this->title = "Nurse Chief complaint";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];

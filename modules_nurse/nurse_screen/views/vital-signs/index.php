@@ -5,6 +5,8 @@ use yii\helpers\Html;
 use yii\widgets\Pjax;
 use kartik\grid\GridView;
 use app\components\PatientHelper;
+use app\components\MessageHelper;
+
 ?>
 <div class="vital-signs-index">
 

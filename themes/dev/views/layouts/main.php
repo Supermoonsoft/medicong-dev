@@ -22,6 +22,26 @@ $hn = PatientHelper::getCurrentHn();
         <meta charset="<?= Yii::$app->charset ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #user-display > a:link {
+                color: white;
+            }
+
+            /* visited link */
+            #user-display > a:visited {
+                color: white;
+            }
+
+            /* mouse over link */
+            #user-display > a:hover {
+                color: whitesmoke;
+            }
+
+            /* selected link */
+            #user-display > a:active {
+                color: whitesmoke;
+            }
+        </style>
         <?= Html::csrfMetaTags() ?>
         <title>MedicoNG Dev</title>
         <?php $this->head() ?>
@@ -66,22 +86,36 @@ $hn = PatientHelper::getCurrentHn();
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
-                        <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-bell"  style="font-size:20px;color:white"></i><span class="badge badge-light">4</span></a></li>
+                        <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-bell"  style="font-size:20px;color:white"></i><span class="badge badge-light">9</span></a></li>
 
                         <li style="padding-right: 30px;"><a data-toggle="modal" data-target="#myModal2"><i class="fa fa-user-o"  style="font-size:20px;color:white;"></i></a></li>
 
                         <li><img src="img\profile.png" height="40px" class="img-circle" style="padding-top: 6px;" /></li>
-                        <li  style="padding-top: 5px;padding-left: 5px;"><h4>Dr.Kob</h4></li>
+                        <li  style="padding-top: 5px;padding-left: 5px;">
+                            <h4>
+                                <div id='user-display'>
+                                    <?php if (\Yii::$app->user->isGuest): ?>
+                                        <?= Html::a('Login', ['/site/login']) ?>
+                                    <?php else: ?>
+
+                                        <?= Html::a(\Yii::$app->user->identity->username, ['/site/logout']) ?>
+                                    <?php endif; ?>
+                                </div>
+                            </h4>
+                        </li>
                     </ul>
                 </div><!--/.nav-collapse -->
 
             </div>
         </nav>
-
-        <?php if (1==1): ?>
+        <?php
+        //\Yii::$app->user->can($permissionName);
+        ?>
+        <?php if (1 == 1): //nurse ?>
             <?= $this->render('@app/components/_toolbar_nurse') ?>
+        <?php else: ?>
+            <?= $this->render('@app/components/_toolbar_doctor') ?>
         <?php endif; ?>
-
 
 
         <div  style="width: 99%; padding-top: 10px;margin: 0 auto;">

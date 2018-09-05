@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use app\components\PatientHelper;
+use app\components\MessageHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules_nurse\nurse_screen\models\NurseCc */
