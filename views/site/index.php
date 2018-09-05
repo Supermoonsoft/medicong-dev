@@ -1,4 +1,7 @@
-
+<?php
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
+?>
 <div class="site-index">
 
     <div class="jumbotron">
