@@ -10,8 +10,11 @@ use yii\helpers\Url;
             <ul class="nav navbar-nav na">
 
                 <li>
-                    <a href="<?= Url::to(['/screen/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a><!-- POND -->
-                </li>              
+                    <a href="<?= Url::to(['/patiententry/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a>
+                </li>
+                <li>
+                    <a href="<?= Url::to(['/servicedummy/default/index']) ?>"><i class="fa fa-medkit"></i>  Service Dummy</a>
+                </li>
                 <li>
                     <a href="#"><i class="fa fa-bullhorn"></i> Q.manage</a>
                 </li>
@@ -19,10 +22,10 @@ use yii\helpers\Url;
                     <a href="#"><i class="fa fa-thermometer"></i> LAB</a>
                 </li>
                 <li>
-                    <a href="<?= Url::to(['/screen/dm-assessment/index']) ?>"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a><!-- POND -->
+                    <a href="#"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a>
                 </li>
                 <li>
-                    <a href="<?= Url::to(['/dietitian']) ?>"><i class="fa fa-bed"></i> Dietitian</a>
+                    <a href="#"><i class="fa fa-bed"></i> Dietitian</a>
                 </li>
                 <li>
                     <a href="<?= Url::to(['/foot/default/index']) ?>"><i class="fa fa-wheelchair"></i> FOOT</a>
@@ -35,10 +38,10 @@ use yii\helpers\Url;
                     <a href="#"><i class="fa fa-support"></i> HD</a>
                 </li>
                 <li>
-                    <a href="<?= Url::to(['/emr/default/index']) ?>"><i class="fa fa-ambulance"></i> EMR</a>
+                    <a href="#"><i class="fa fa-ambulance"></i> EMR</a>
                 </li>
                 <li>
-                    <a href="<?= Url::to(['/printout']) ?>"><i class="fa fa-clipboard"></i> Print Out</a>
+                    <a href="#"><i class="fa fa-clipboard"></i> Print Out</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-file-text"></i> Report</a>

@@ -15,6 +15,7 @@ $modules['foot'] = ['class' => 'app\modules_share\foot\Foot']; //oh
 $modules['screen'] = ['class' => 'app\modules_nurse\nurse_screen\Screen']; //pond
 $modules['emr'] = ['class' => 'app\modules_share\emr\Emr']; //jub
 $modules['dietitian'] = ['class' => 'app\modules_nurse\dietitian\Dietitian']; //jub
+$modules['printout'] = ['class' => 'app\modules_share\printout\PrintOut']; //tehnn
 
 return $modules;
 

@@ -20,7 +20,7 @@ class MessageHelper extends Component {
     }
 
     public static function errorNullHn() {
-        throw new UserException('ไม่พบผู้รับบริการ');
+        throw new UserException('วันที่ 7/9/61 ,ยกเลิกการใช้ errorNullHn ,ใช้ VisitController,NoVisitController แทน');
     }
     
     public static function Note($note_text){
