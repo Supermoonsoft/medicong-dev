@@ -55,6 +55,28 @@ class PatientHelper extends Component {
     public static function getCurrentVn() {
         return \Yii::$app->session->get('vn');
     }
+    
+    public static function getDateVisitByVn($vn){
+        //vn=180822204836
+        if(empty($vn) || strlen($vn)<> 12){
+            return '0000-00-00';
+        }
+        $date_visit = '20'.substr($vn,0,6);
+        $date_visit = date_format(date_create($date_visit), 'Y-m-d');
+        return $date_visit;
+        
+    }
+    public static function getTimeVisitByVn($vn){
+        //vn=180822204836
+        if(empty($vn) || strlen($vn)<> 12){
+            return '00:00:00';
+        }
+        $time_visit = substr($vn,-6);
+        $time_visit = date_format(date_create($time_visit), 'H:i:s');
+        return $time_visit;
+        
+    }
+    
 
     public static function removeCurrentHn() {
         \Yii::$app->session->remove('hn');
