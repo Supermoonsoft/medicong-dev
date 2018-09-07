@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use kartik\detail\DetailView;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\modules_nurse\nurse_screen\models\NurseScreening;
 
 $this->title = "Vital Signs";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
@@ -30,9 +31,18 @@ $this->registerCss("
 <div class="col-md-2"></div>
 <div class="col-md-8">
 <h3>บันทึก Screening : 
-    <?= Html::a('<i class="glyphicon glyphicon-plus-sign"> Screening </i>', 
-                ['/screen/nurse-screening/update', 'id' => $model->id], 
-                ['class' => 'btn btn-info']) 
+    <?php 
+        if(NurseScreening::find()->where(['vn'=>$model->vn])->count()>0){
+            echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Screening </i>',
+                ['/screen/nurse-screening/update','vn'=>$model->vn],
+                ['class' => 'btn btn-info']
+            );
+        }else{
+            echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Screening </i>',
+                ['/screen/nurse-screening/create',],
+                ['class' => 'btn btn-info']
+            );
+        }
     ?>
 </h3>
  

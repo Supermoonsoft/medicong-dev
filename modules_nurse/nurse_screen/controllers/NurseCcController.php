@@ -8,6 +8,8 @@ use app\modules_nurse\nurse_screen\models\NurseCcSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\components\PatientHelper;
+use app\components\MessageHelper;
 
 /**
  * NurseCcController implements the CRUD actions for NurseCc model.
@@ -46,49 +48,47 @@ class NurseCcController extends Controller
 
     /**
      * Displays a single NurseCc model.
-     * @param string $id
+     * @param string $vn
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($vn)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($vn),
         ]);
     }
 
-    /**
-     * Creates a new NurseCc model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
+
     public function actionCreate()
     {
-        //$model = new NurseCc();
-        $id="35cd1195-6165-42d8-9425-bf0084db192c";
-        //if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $id]);
-        //}
 
-        //return $this->render('create', [
-        //    'model' => $model,
-        //]);
+        $vn = PatientHelper::getCurrentVn();
+        if(empty($vn)){
+            MessageHelper::setFlashWarning('กรุณาส่งตรวจคนไข้ ก่อนให้บริการ');
+            return $this->redirect(['/patiententry/default/index']);
+        }
+        $model = new NurseCc();
+        $model->hn = PatientHelper::getCurrentHn();
+        $model->vn = $vn;
+    
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'vn' => $model->vn]);
+        
+        }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+
     }
-
-    /**
-     * Updates an existing NurseCc model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
+    
+    public function actionUpdate($vn)
     {
-        $id="35cd1195-6165-42d8-9425-bf0084db192c";
-        $model = $this->findModel($id);
+        $model = $this->findModel($vn);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'vn' => $model->vn]);
         }
 
         return $this->render('update', [
@@ -96,30 +96,18 @@ class NurseCcController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing NurseCc model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
+
+    public function actionDelete($vn)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($vn)->delete();
 
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the NurseCc model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return NurseCc the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
+
+    protected function findModel($vn)
     {
-        if (($model = NurseCc::findOne($id)) !== null) {
+        if (($model = NurseCc::findOne(['vn'=>$vn])) !== null) {
             return $model;
         }
 

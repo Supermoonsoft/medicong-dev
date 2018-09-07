@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\components\NurseHelper;
 use app\components\PatientHelper;
+use app\components\MessageHelper;
 
 class DefaultController extends Controller
 {

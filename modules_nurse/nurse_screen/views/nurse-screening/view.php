@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\modules_nurse\nurse_screen\models\NurseCc;
 
 $this->title = "Nurseing Assessment";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
@@ -32,10 +33,19 @@ $this->registerCss("
 
 
 <h3>บันทึก Chief Complaint : 
-<?= Html::a('<i class="glyphicon glyphicon-plus-sign"> Chief complaint </i>',
-             ['/screen/nurse-cc/update', 'id' => $model->id],
-             ['class' => 'btn btn-success']) 
-?>
+    <?php 
+        if(NurseCc::find()->where(['vn'=>$model->vn])->count()>0){
+            echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Chief Complaint </i>',
+                ['/screen/nurse-cc/update','vn'=>$model->vn],
+                ['class' => 'btn btn-success']
+            );
+        }else{
+            echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Chief Complaint </i>',
+                ['/screen/nurse-cc/create',],
+                ['class' => 'btn btn-success']
+            );
+        }
+    ?>
 </h3>
 
 <div class="panel panel-success box-shadow">

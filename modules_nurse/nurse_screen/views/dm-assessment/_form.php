@@ -5,16 +5,20 @@ use kartik\widgets\ActiveForm;
 use yii\widgets\Pjax;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\modules_nurse\nurse_screen\models\OpdVisit;
 
 $session = Yii::$app->session;
-$vn_session = Yii::$app->request->get('vn_session');
-$id="35cd1195-6165-42d8-9425-bf0084db192c"; //DEMO
+//$visit = OpdVisit::find()->where(['vn'=>$this->vn])->one();
+
 
 
 $hn = PatientHelper::getCurrentHn();
 if (empty($hn)) {
     MessageHelper::errorNullHn();
 }
+$vn = PatientHelper::getCurrentVn();
+$Sdate = PatientHelper::getDateVisitByVn($vn);
+$Stime = PatientHelper::getTimeVisitByVn($vn);
 
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
@@ -35,8 +39,12 @@ $this->registerCss("
     ]); 
     
     ?>
-    <?= $form->field($model, 'hn')->hiddenInput(['value' => '000000034'])->label(false); ?>
-    <?= $form->field($model, 'vn')->hiddenInput(['value' => $vn_session])->label(false); ?>
+        <?= $form->field($model, 'hn')->hiddenInput(['value' => $hn])->label(false); ?>
+        <?= $form->field($model, 'vn')->hiddenInput(['value' => $vn])->label(false); ?>
+
+        <?= $form->field($model, 'date_start_service')->hiddenInput(['value' => $Sdate])->label(false); ?>
+        <?= $form->field($model, 'time_start_service')->hiddenInput(['value' => $Stime])->label(false); ?>
+        
 <div class="col-md-1"></div>
 <div class="col-md-10">
 

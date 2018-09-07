@@ -6,7 +6,7 @@ use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
-use app\modules_nurse\nurse_screen\models\OpdVisit;
+
 
 class VitalSigns extends \yii\db\ActiveRecord
 {
@@ -19,7 +19,7 @@ class VitalSigns extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['hn', 'date_start_service', 'time_start_service','requester'], 'required'],
+            [['requester', 'hn','vn', 'date_start_service', 'time_start_service'], 'required'],
             [['id'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service'], 'safe'],
             [['btemp_1', 'sbp_1', 'dbp_1', 'position_1', 'arm_1', 'pr_1', 'pr_rhythm_1', 'rr_1', 'o2sat_1', 'btemp_2', 'sbp_2', 'dbp_2', 'position_2', 'arm_2', 'pr_2', 'pr_rhythm_2', 'rr_2', 'o2sat_2', 'bheight', 'bweight'], 'number'],
@@ -69,28 +69,19 @@ class VitalSigns extends \yii\db\ActiveRecord
         ];
     }
 
-/*
+
 	public function getVisit() {
         return $this->hasOne(OpdVisit::className(), ['vn' => 'vn']);
     }
-*/
 
-/*
-    public function beforeSave($insert){
-            //$visit = OpdVisit::find()->where(['vn'=>$this->vn])->one();
-
-    	if (VitalSigns::beforeSave($insert)) {
-            $this->date_start_service = date('Y-m-d');
-            $this->time_start_service = date('H:i:s');
-
-    		return true;
-    	} else {
-    		$this->date_start_service = date('Y-m-d');
-            $this->time_start_service = date('H:i:s');
-
-    		return false;
-    	}
+    public function getDvisit() {
+        return $this->visit->service_start_date;
     }
+
+    public function getTvisit() {
+        return $this->visit->service_start_time;
+    }
+
 
     public function behaviors() {
         return[
@@ -107,5 +98,5 @@ class VitalSigns extends \yii\db\ActiveRecord
             ]
         ];
       }
-*/
+
 }

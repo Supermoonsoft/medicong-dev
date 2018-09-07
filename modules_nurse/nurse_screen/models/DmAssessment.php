@@ -1,86 +1,13 @@
 <?php
 
 namespace app\modules_nurse\nurse_screen\models;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 use Yii;
 
-/**
- * This is the model class for table "{{%s_dm_assessment}}".
- *
- * @property string $id
- * @property string $vn
- * @property string $hn
- * @property array $data_json
- * @property string $requester
- * @property string $created_at
- * @property string $created_by
- * @property string $updated_at
- * @property string $updated_by
- * @property string $date_start_service
- * @property string $time_start_service
- * @property string $date_end_service
- * @property string $time_end_service
- * @property string $last_meal_eating 1. Last meal eating time
- * @property string $last_meal_eating_data
- * @property string $last_insulin 2. Last insulin or SU usage time
- * @property string $last_insulin_data
- * @property string $psychosocial_problem 3. Psychosocial problem
- * @property string $key_presenting 4. Key Presenting Symptom
- * @property bool $chest_discomfort  Chest discomfort
- * @property bool $blurred_vision Blurred vision
- * @property bool $numbness Numbness
- * @property bool $foot_ulcer Foot Ulcer
- * @property string $hbpm HBPM
- * @property bool $hbpm_frequency Frequency
- * @property string $hbpm_day Day
- * @property string $hbpm_week Week
- * @property string $hbpm_month Month
- * @property bool $hbpm_result Average Result
- * @property bool $hbpm_sbp SBP
- * @property string $hbpm_sbp_data
- * @property bool $hbpm_dbp DBP
- * @property string $hbpm_dbp_data
- * @property bool $hbpm_pulse PULSE
- * @property string $hbpm_pulse_data
- * @property string $smbg SMBG
- * @property bool $smbg_frequency Frequency
- * @property string $smbg_day Day
- * @property string $smbg_week Week
- * @property string $smbg_month Month
- * @property bool $smbg_result Average Result
- * @property bool $smbg_sbp SBP
- * @property string $smbg_sbp_data
- * @property bool $smbg_dbp DBP
- * @property string $smbg_dbp_data
- * @property bool $smbg_pulse PULSE
- * @property string $smbg_pulse_data
- * @property string $hyperglycemic 7. Hyperglycemic Symptom at home
- * @property string $hyperglycemic_data
- * @property string $hypoglycemic 8. Hypoglycemic Symptom at home
- * @property string $hypoglycemic_data
- * @property string $hypoglycemic_risk 8.1 Hypoglycemia Risk
- * @property string $hypoglycemic_risk1 8.2 Hypoglycemia Level 1
- * @property string $hypoglycemic_risk1_data
- * @property string $hypoglycemic_risk2 8.3 Hypoglycemia Level 2
- * @property string $hypoglycemic_risk2_data
- * @property string $hypoglycemic_risk3 8.4 Hypoglycemia Level 3
- * @property string $hypoglycemic_risk3_data
- * @property string $diet_data1 9. Diet
- * @property string $diet_data2 Previous data
- * @property string $exercise_data1 10. Exercise
- * @property string $exercise_data2 Previous data
- * @property string $drug_data1 11. Drug Adherence
- * @property string $drug_data2 Previous data
- * @property string $smooking 12. Smooking
- * @property bool $smooking_ex1 Ex
- * @property string $smooking_ex1_day Peak
- * @property string $smooking_ex1_year When
- * @property string $smooking_ex2 Previous data
- * @property string $smooking_ex2_day Peak
- * @property string $smooking_ex2_year When
- * @property string $vaccination_date1 13. Vaccination : Name & Data 1.
- * @property string $vaccination_date2 Vaccination : Name & Data 2.
- */
+
 class DmAssessment extends \yii\db\ActiveRecord
 {
     /**
@@ -97,7 +24,7 @@ class DmAssessment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'hn', 'date_start_service', 'time_start_service'], 'required'],
+            [['requester', 'hn','vn', 'date_start_service', 'time_start_service'], 'required'],
             [['id'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service', 'vaccination_date1', 'vaccination_date2'], 'safe'],
             [['chest_discomfort', 'blurred_vision', 'numbness', 'foot_ulcer', 'hbpm_frequency', 'hbpm_result', 'hbpm_sbp', 'hbpm_dbp', 'hbpm_pulse', 'smbg_frequency', 'smbg_result', 'smbg_sbp', 'smbg_dbp', 'smbg_pulse','smooking_ex1'], 'boolean'],
@@ -190,4 +117,34 @@ class DmAssessment extends \yii\db\ActiveRecord
             'vaccination_date2' => 'Vaccination : Name & Data 2.',
         ];
     }
+
+    public function getVisit() {
+        return $this->hasOne(OpdVisit::className(), ['vn' => 'vn']);
+    }
+
+    public function getDvisit() {
+        return $this->visit->service_start_date;
+    }
+
+    public function getTvisit() {
+        return $this->visit->service_start_time;
+    }
+
+
+    public function behaviors() {
+        return[
+            [
+              'class' => BlameableBehavior::className(),
+              'createdByAttribute' => 'created_by',
+              'updatedByAttribute' => 'updated_by',
+            ],
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => new Expression('NOW()')
+            ]
+        ];
+      }
+
 }

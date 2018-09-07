@@ -8,10 +8,9 @@ use app\modules_nurse\nurse_screen\models\NurseScreeningSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\components\PatientHelper;
+use app\components\MessageHelper;
 
-/**
- * NurseScreeningController implements the CRUD actions for NurseScreening model.
- */
 class NurseScreeningController extends Controller
 {
     /**
@@ -45,34 +44,44 @@ class NurseScreeningController extends Controller
     }
 
 
-    public function actionView($id)
+    public function actionView($vn)
     {
-        //$id="35cd1195-6165-42d8-9425-bf0084db192c";
+        //$vn="35cd1195-6165-42d8-9425-bf0084db192c";
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($vn),
         ]);
     }
 
+
     public function actionCreate()
     {
-        //$model = new NurseScreening();
-        $id="35cd1195-6165-42d8-9425-bf0084db192c";
-        //if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $id]);
-        //}
 
-        //return $this->render('create', [
-        //    'model' => $model,
-        //]);
+        $vn = PatientHelper::getCurrentVn();
+        if(empty($vn)){
+            MessageHelper::setFlashWarning('กรุณาส่งตรวจคนไข้ ก่อนให้บริการ');
+            return $this->redirect(['/patiententry/default/index']);
+        }
+        $model = new NurseScreening();
+        $model->hn = PatientHelper::getCurrentHn();
+        $model->vn = $vn;
+    
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'vn' => $model->vn]);
+        
+        }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+
     }
 
   
-    public function actionUpdate($id)
+    public function actionUpdate($vn)
     {
-        $model = $this->findModel($id);
-        $id="35cd1195-6165-42d8-9425-bf0084db192c";
+        $model = $this->findModel($vn);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'vn' => $model->vn]);
         }
 
         return $this->render('update', [
@@ -81,18 +90,18 @@ class NurseScreeningController extends Controller
     }
 
  
-    public function actionDelete($id)
+    public function actionDelete($vn)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($vn)->delete();
 
         return $this->redirect(['index']);
     }
 
 
-    protected function findModel($id)
+    protected function findModel($vn)
     {
-        $id="35cd1195-6165-42d8-9425-bf0084db192c";
-        if (($model = NurseScreening::findOne($id)) !== null) {
+
+        if (($model = NurseScreening::findOne(['vn'=>$vn])) !== null) {
             return $model;
         }
 

@@ -1,6 +1,9 @@
 <?php
 
 namespace app\modules_nurse\nurse_screen\models;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 use Yii;
 
@@ -74,4 +77,35 @@ class OpdVisit extends \yii\db\ActiveRecord
             'service_department' => 'Service Department',
         ];
     }
+
+    public function getVisit() {
+        return $this->hasOne(OpdVisit::className(), ['vn' => 'vn']);
+    }
+
+    public function getDvisit() {
+        return $this->visit->service_start_date;
+    }
+
+    public function getTvisit() {
+        return $this->visit->service_start_time;
+    }
+
+
+    public function behaviors() {
+        return[
+            [
+              'class' => BlameableBehavior::className(),
+              'createdByAttribute' => 'created_by',
+              'updatedByAttribute' => 'updated_by',
+            ],
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => new Expression('NOW()')
+            ]
+        ];
+      }
+
+
 }

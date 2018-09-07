@@ -1,99 +1,13 @@
 <?php
 
 namespace app\modules_nurse\nurse_screen\models;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 use Yii;
 
-/**
- * This is the model class for table "{{%s_nurse_cc}}".
- *
- * @property string $id
- * @property string $vn
- * @property string $hn
- * @property array $data_json
- * @property string $requester
- * @property string $created_at
- * @property string $created_by
- * @property string $updated_at
- * @property string $updated_by
- * @property string $date_start_service
- * @property string $time_start_service
- * @property string $date_end_service
- * @property string $time_end_service
- * @property bool $chk_cc_1  1.ไข้ เป็นมา
- * @property string $chk_cc_1_data
- * @property bool $chk_cc_2 2.เจ็บคอ เป็นมา
- * @property string $chk_cc_2_data
- * @property bool $chk_cc_3 3.ไอ เป็นมา
- * @property string $chk_cc_3_data
- * @property bool $chk_cc_4 4.ปวดท้อง เป็นมา
- * @property string $chk_cc_4_data
- * @property bool $chk_cc_5 5.คลื่นไส้อาเจียน
- * @property string $chk_cc_5_data
- * @property bool $chk_cc_6 6.เวียนศีรษะ เป็นมา
- * @property string $chk_cc_6_data
- * @property bool $chk_cc_7 7.ปวดศีรษะ เป็นมา
- * @property string $chk_cc_7_data
- * @property bool $chk_cc_8 8.มึนงง เป็นมา
- * @property string $chk_cc_8_data
- * @property bool $chk_cc_9 9.ใจสั่น เป็นมา
- * @property string $chk_cc_9_data
- * @property bool $chk_cc_10 10.เจ็บแน่นหน้าอก เป็นมา
- * @property string $chk_cc_10_data
- * @property bool $chk_cc_11 11.เหนื่อยหอบหายใจลำบาก เป็นมา
- * @property string $chk_cc_11_data
- * @property bool $chk_cc_12 12.ปัสสาวะแสบขัด เป็นมา
- * @property string $chk_cc_12_data
- * @property bool $chk_cc_13 13.ถ่ายเหลว เป็นมา
- * @property string $chk_cc_13_data
- * @property bool $chk_con_1 1.ปรึกษาตรวจเบาหวาน
- * @property string $chk_con_1_data
- * @property bool $chk_con_2 2.ปรึกษาตรวจไทรอยด์
- * @property string $chk_con_2_data
- * @property bool $chk_con_3 3.ปรึกษาตรวจความดันสูง
- * @property string $chk_con_3_data
- * @property bool $chk_con_4 4.ปรึกษาตรวจไขมัน
- * @property string $chk_con_4_data
- * @property bool $chk_con_5 5.ปรึกษาตรวจโปรแกรมตรวจสุขภาพ
- * @property string $chk_con_5_data
- * @property bool $chk_con_6 6.ปรึกษารับยาต่อเนื่อง
- * @property string $chk_con_6_data
- * @property bool $chk_con_7 7.ปรึกษาเรื่องวัคซีน
- * @property string $chk_con_7_data
- * @property bool $chk_fu_1 1.ติดตามตามนัด เบาหวาน
- * @property string $chk_fu_1_data
- * @property bool $chk_fu_2 2.ติดตามตามนัด ไทยรอยด์
- * @property string $chk_fu_2_data
- * @property bool $chk_fu_3 3.ติดตามตามนัด ความดันสูง
- * @property string $chk_fu_3_data
- * @property bool $chk_fu_4 4.ติดตามตามนัด ไขมัน
- * @property string $chk_fu_4_data
- * @property bool $chk_fu_5 5.ติดตามตามนัด อาการทั่วไปปกติ
- * @property string $chk_fu_5_data
- * @property bool $chk_fu_6 6.ติดตามตามนัด หลังผ่าตัด
- * @property string $chk_fu_6_data
- * @property bool $chk_fu_7 7.ติดตามตามนัด ทำแผลบริเวณ
- * @property string $chk_fu_7_data
- * @property bool $chk_fu_8 8.ติดตามตามนัด ตัดเล็บเท้า
- * @property string $chk_fu_8_data
- * @property bool $chk_fu_9 9.ติดตามตามนัด รับบริการวัคซีนไข้หวัดใหญ่
- * @property string $chk_fu_9_data
- * @property bool $chk_fu_10 10.ติดตามตามนัด รับบริการวัคซีน
- * @property string $chk_fu_10_data
- * @property bool $chk_fu_11 11.ติดตามตามนัด เรื่องแผลที่เท้า
- * @property string $chk_fu_11_data
- * @property bool $chk_chk_1 1.ตรวจสุขภาพประจำปี โปรแกรม
- * @property string $chk_chk_1_data
- * @property bool $chk_chk_2 2.ตรวจสุขภาพก่อนแต่งงานหรือวางแผนตั้งครรภ์
- * @property string $chk_chk_2_data
- * @property bool $chk_chk_3 3.ตรวจสุขภาพก่อนทำประกัน
- * @property string $chk_chk_3_data
- * @property bool $chk_chk_4 4.ตรวจสุขภาพขอใบขับขี่
- * @property string $chk_chk_4_data
- * @property bool $chk_chk_5 5.ตรวจสุขภาพขอใบรับรองแพทย์
- * @property string $chk_chk_5_data
- * @property string $nurse_text
- */
+
 class NurseCc extends \yii\db\ActiveRecord
 {
     /**
@@ -110,7 +24,7 @@ class NurseCc extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['id', 'hn', 'date_start_service', 'time_start_service'], 'required'],
+            [['requester', 'hn','vn', 'date_start_service', 'time_start_service'], 'required'],
             [['id', 'nurse_text'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service'], 'safe'],
             [['chk_cc_1', 'chk_cc_2', 'chk_cc_3', 'chk_cc_4', 'chk_cc_5', 'chk_cc_6', 'chk_cc_7', 'chk_cc_8', 'chk_cc_9', 'chk_cc_10', 'chk_cc_11', 'chk_cc_12', 'chk_cc_13', 'chk_con_1', 'chk_con_2', 'chk_con_3', 'chk_con_4', 'chk_con_5', 'chk_con_6', 'chk_con_7', 'chk_fu_1', 'chk_fu_2', 'chk_fu_3', 'chk_fu_4', 'chk_fu_5', 'chk_fu_6', 'chk_fu_7', 'chk_fu_8', 'chk_fu_9', 'chk_fu_10', 'chk_fu_11', 'chk_chk_1', 'chk_chk_2', 'chk_chk_3', 'chk_chk_4', 'chk_chk_5'], 'boolean'],
@@ -215,4 +129,34 @@ class NurseCc extends \yii\db\ActiveRecord
             'nurse_text' => 'Nurse Text',
         ];
     }
+
+    public function getVisit() {
+        return $this->hasOne(OpdVisit::className(), ['vn' => 'vn']);
+    }
+
+    public function getDvisit() {
+        return $this->visit->service_start_date;
+    }
+
+    public function getTvisit() {
+        return $this->visit->service_start_time;
+    }
+
+
+    public function behaviors() {
+        return[
+            [
+              'class' => BlameableBehavior::className(),
+              'createdByAttribute' => 'created_by',
+              'updatedByAttribute' => 'updated_by',
+            ],
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => new Expression('NOW()')
+            ]
+        ];
+      }
+
 }

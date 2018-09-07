@@ -1,55 +1,13 @@
 <?php
 
 namespace app\modules_nurse\nurse_screen\models;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 use Yii;
 
-/**
- * This is the model class for table "{{%s_nurse_screening}}".
- *
- * @property string $id
- * @property string $vn
- * @property string $hn
- * @property array $data_json
- * @property string $requester
- * @property string $created_at
- * @property string $created_by
- * @property string $updated_at
- * @property string $updated_by
- * @property string $date_start_service
- * @property string $time_start_service
- * @property string $date_end_service
- * @property string $time_end_service
- * @property bool $cnk_er
- * @property bool $chk_dm
- * @property string $chk_dm_type
- * @property bool $chk_followup
- * @property bool $chk_insurace
- * @property bool $chk_contract
- * @property bool $chk_im
- * @property bool $chk_anc
- * @property bool $chk_other
- * @property string $chk_other_text
- * @property string $chk_triage
- * @property string $chk_access
- * @property string $chk_contact_type
- * @property string $chk_loc
- * @property string $pain_score
- * @property string $pain_type
- * @property string $pain_scale
- * @property bool $chk_risk
- * @property bool $chk_risk_1
- * @property bool $chk_risk_2
- * @property bool $chk_risk_3
- * @property bool $chk_risk_4
- * @property bool $chk_risk_5
- * @property string $chk_risk_infe
- * @property bool $chk_thyroid
- * @property string $chk_thyroid_type
- * @property bool $chk_eye
- * @property bool $chk_illness
- * @property bool $chk_checkup
- */
+
 class NurseScreening extends \yii\db\ActiveRecord
 {
     /**
@@ -66,7 +24,7 @@ class NurseScreening extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['id', 'hn', 'date_start_service', 'time_start_service'], 'required'],
+            [['requester', 'hn','vn', 'date_start_service', 'time_start_service'], 'required'],
             [['id'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service'], 'safe'],
             [['cnk_er', 'chk_dm', 'chk_followup', 'chk_insurace', 'chk_contract', 'chk_im', 'chk_anc', 'chk_other', 'chk_risk', 'chk_risk_1', 'chk_risk_2', 'chk_risk_3', 'chk_risk_4', 'chk_risk_5', 'chk_thyroid', 'chk_eye', 'chk_illness', 'chk_checkup'], 'boolean'],
@@ -129,4 +87,34 @@ class NurseScreening extends \yii\db\ActiveRecord
             
         ];
     }
+
+    public function getVisit() {
+        return $this->hasOne(OpdVisit::className(), ['vn' => 'vn']);
+    }
+
+    public function getDvisit() {
+        return $this->visit->service_start_date;
+    }
+
+    public function getTvisit() {
+        return $this->visit->service_start_time;
+    }
+
+
+    public function behaviors() {
+        return[
+            [
+              'class' => BlameableBehavior::className(),
+              'createdByAttribute' => 'created_by',
+              'updatedByAttribute' => 'updated_by',
+            ],
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => new Expression('NOW()')
+            ]
+        ];
+      }
+
 }

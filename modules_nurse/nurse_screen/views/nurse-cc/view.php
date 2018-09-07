@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use kartik\detail\DetailView;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\modules_nurse\nurse_screen\models\DmAssessment;
 
 $this->title = "Nurse Chief complaint";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
@@ -21,10 +22,19 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 <div class="col-md-10">
 
 <h3>บันทึก DM Assessment : 
-<?= Html::a('<i class="glyphicon glyphicon-plus-sign"> DM Assessment </i>',
-             ['/screen/dm-assessment/update', 'id' => $model->id],
-             ['class' => 'btn btn-success']) 
-?>
+    <?php 
+        if(DmAssessment::find()->where(['vn'=>$model->vn])->count()>0){
+            echo Html::a('<i class="glyphicon glyphicon-plus-sign"> DM Assessment </i>',
+                ['/screen/dm-assessment/update','vn'=>$model->vn],
+                ['class' => 'btn btn-success']
+            );
+        }else{
+            echo Html::a('<i class="glyphicon glyphicon-plus-sign"> DM Assessment </i>',
+                ['/screen/dm-assessment/create',],
+                ['class' => 'btn btn-success']
+            );
+        }
+    ?>
 </h3>
 
 <div class="row ">

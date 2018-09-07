@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\components\PatientHelper;
+use app\components\MessageHelper;
+use yii\helpers\ArrayHelper;
 
 class VitalSignsController extends Controller
 {
@@ -20,6 +22,7 @@ class VitalSignsController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+
                 ],
             ],
         ];
@@ -38,39 +41,44 @@ class VitalSignsController extends Controller
     }
 
 
-    public function actionView($id)
+    public function actionView($vn)
     {
-        //$id="35cd1195-6165-42d8-9425-bf0084db192c";
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($vn),
         ]);
     }
 
 
     public function actionCreate()
     {
-       // $model = new VitalSigns();
-        $id="35cd1195-6165-42d8-9425-bf0084db192c";
 
-        //if ($model->load(Yii::$app->request->post()) && $model->save(FALSE)) {
-            return $this->redirect(['view', 'id' => $id]);
-        //}
+        $vn = PatientHelper::getCurrentVn();
+        if(empty($vn)){
+            MessageHelper::setFlashWarning('กรุณาส่งตรวจคนไข้ ก่อนให้บริการ');
+            return $this->redirect(['/patiententry/default/index']);
+        }
+        $model = new VitalSigns();
+        $model->hn = PatientHelper::getCurrentHn();
+        $model->vn = $vn;
+    
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'vn' => $model->vn]);
         
-       // return $this->render('create', [
-        //    'model' => $model,
-       // ]);
-        
-            
+        }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
 
     }
 
 
-    public function actionUpdate($id)
+    public function actionUpdate($vn)
     {
-        $model = $this->findModel($id);
-        $id="35cd1195-6165-42d8-9425-bf0084db192c";
+        $model = $this->findModel($vn);
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'vn' => $model->vn]);
         }
         
         return $this->render('update', [
@@ -80,18 +88,17 @@ class VitalSignsController extends Controller
         //return $this->redirect(['view', 'id' => $model->id]);
     }
 
-    public function actionDelete($id)
+    public function actionDelete($vn)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($vn)->delete();
 
         return $this->redirect(['index']);
     }
 
 
-    protected function findModel($id)
+    protected function findModel($vn)
     {
-        $id="35cd1195-6165-42d8-9425-bf0084db192c";
-        if (($model = VitalSigns::findOne($id)) !== null) {
+        if (($model = VitalSigns::findOne(['vn'=>$vn])) !== null) {
             return $model;
         }
 
