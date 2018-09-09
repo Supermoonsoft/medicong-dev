@@ -1,16 +1,44 @@
 <?php
 
 namespace app\modules_share\foot\controllers;
-use app\modules_share\foot\models\FootSummaryIpd;
+use yii;
+use app\modules_share\foot\models\SFootAssessmentSummaryIpd;
+use app\components\PatientHelper;
+use yii\web\Response;
+use app\components\VisitController;
 
-class FootAssessmentSummaryIpdController extends \yii\web\Controller
+class FootAssessmentSummaryIpdController extends VisitController
 {
     public function actionIndex()
     {
-        $model = new FootSummaryIpd();
-        return $this->render('index',[
-            'model' => $model
-            ]);
+        $request = Yii::$app->request;
+        $hn = PatientHelper::getCurrentHn();
+        $vn = PatientHelper::getCurrentVn();
+        $Sdate = PatientHelper::getDateVisitByVn($vn);
+        $Stime = PatientHelper::getTimeVisitByVn($vn);
+        $visit = SFootAssessmentSummaryIpd::findOne(['hn' => $hn,'vn' => $vn]);
+        if($visit){
+            $model = SFootAssessmentSummaryIpd::findOne(['hn' => $hn,'vn' => $vn]);
+        }else{
+            $model = new SFootAssessmentSummaryIpd();
+        }
+        if ($model->load($request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $model->hn = $hn;
+            $model->vn = $vn;
+            $model->date_start_service = $Sdate;
+            $model->time_start_service = $Stime;
+            $model->save();
+            return [
+                'data' => $model
+            ];
+        } else {
+            return $this->render('index',[
+                'model' => $model,
+                'hn' => $hn,
+                'vn' => $vn
+                ]);
+        }
     }
     
 

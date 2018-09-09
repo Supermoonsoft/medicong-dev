@@ -1,0 +1,53 @@
+<?php
+use yii\helpers\Html;
+$this->title = 'ULCER VISIT FIRST VISIT IPD';
+$this->params['breadcrumbs'][] = ['label' => 'FOOT', 'url' => ['/foot/default/index']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-OPD', 'url' => ['/foot/foot-assessment-summary-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'SUMMARY-IPD', 'url' => ['/foot/foot-assessment-summary-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'COMPLATE', 'url' => ['/foot/foot-assessment-complate']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT OPD', 'url' => ['/foot/foot-ulcer-first-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FIRST VISIT IPD', 'url' => ['/foot/foot-ulcer-first-ipd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT OPD', 'url' => ['/foot/foot-ulcer-fu-opd']];
+$this->params['breadcrumbs'][] = ['label' => 'ULCER VISIT FU VISIT IPD', 'url' => ['/foot/foot-ulcer-fu-ipd']];
+$this->params['breadcrumbs'][] = $this->title;
+
+
+?>
+
+
+<div class="panel panel-info" style="margin-left: 20px;margin-right: 20px">
+	<div class="panel-heading">
+		<h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span> FOOT ASSESSMENT</h3>
+	</div>
+	<div class="panel-body">
+		<!-- tabs -->
+		<div class="tabbable">
+			<ul class="nav nav-tabs">
+				<li class="dropdown <?=$tabsummary;?>">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">FOOT ASSESSMENT SUMMARY<span class="caret"></span></a>
+					<ul class="dropdown-menu" style="width: 250px;">
+					<li><?=Html::a('OPD',['/foot/foot-assessment-summary-opd'])?></li>
+					<li><?=Html::a('IPD',['/foot/foot-assessment-summary-ipd'])?></li>
+					</ul>
+				</li>
+				<!-- <li > -->
+				<li class="<?=$tabcomplate;?>"><?=Html::a('FOOT ASSESSMENT RECORD COMPLATE',['/foot/foot-assessment-complate'])?></li>
+				</li>
+				<li class="dropdown <?=$tabfirst;?>">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">FOOT ULCER VISIT FIRST VISIT<span class="caret"></span></a>
+					<ul class="dropdown-menu" style="width: 250px;">
+					<li><?=Html::a('OPD',['/foot/foot-ulcer-first-opd'])?></li>
+					<li><?=Html::a('IPD',['/foot/foot-ulcer-first-ipd'])?></li>
+					</ul>
+				</li>
+				<li class="dropdown <?=$tabfu;?>">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">FOOT ULCER VISIT FU VISIT<span class="caret"></span></a>
+					<ul class="dropdown-menu" style="width: 250px;">
+					<li><?=Html::a('OPD',['/foot/foot-ulcer-fu-opd'])?></li>
+					<li><?=Html::a('IPD',['/foot/foot-ulcer-fu-ipd'])?></li>
+					</ul>
+				</li>
+
+			</ul>
+			<div class="tab-content">
+

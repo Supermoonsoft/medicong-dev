@@ -2,14 +2,52 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use phpnt\ICheck\ICheck;
-
+use kartik\datecontrol\DateControl;
 ?>
+<style>
+.field-sfootassessmentcomplate-evt_right{display: inline-block;}
+.field-sfootassessmentcomplate-evt_note_right{display: inline-block;}
+.field-sfootassessmentcomplate-evt_left{display: inline-block;}
+.field-sfootassessmentcomplate-evt_note_left{display: inline-block;}
 
-<p style="text-align:center;font-size: 20px;">Record number .............. / ........... Record date ........... / ............. / ........... Recorder...................</p>
+/* .field-sfootassessmentcomplate-smoking_pack {
+    position: absolute;
+    top: 641px;
+    left: 137px;
+}
+.field-sfootassessmentcomplate-smoking_whene{
+    position: absolute;
+    top: 641px;
+    left: 370px;
+} */
+
+</style>
+
 <div class="box">
 (1) Personal and Past Medical History
 </div>
-<div class="box_form">
+
+<div class="row">
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+<fieldset class="scheduler-border" style="height: 375px;">
+	<legend class="scheduler-border">Record</legend>
+<?= $form->field($model, 'record_number')->textInput();?>
+<?=$form->field($model, 'record_date')->widget(DateControl::classname(), [
+    'type'=>DateControl::FORMAT_DATE,
+    'ajaxConversion'=>false,
+    'widgetOptions' => [
+        'pluginOptions' => [
+            'autoclose' => true
+        ]
+    ]
+]);?>
+<?= $form->field($model, 'recorder')->textInput();?>
+</fieldset>
+</div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        
+<fieldset class="scheduler-border" style="height: 375px;">
+	<legend class="scheduler-border">1. occupation</legend>
 <?= $form->field($model, 'occupation')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
@@ -24,30 +62,66 @@ use phpnt\ICheck\ICheck;
             '8' => 'ธุระกิจส่วนตัว',
             '9' => 'รับราชการสวมเครื่องแบบพระภิกษุ',
             '10' => 'พระภิกษุ',
-            '11' => 'อื่นๆ ระบุ ......',
+            '11' => 'อื่นๆ ระบุ',
         ],
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-occupation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-occupation'.$index.'">'.$label.'</label>';
+              return '<input type="radio" id="footassessmentcomplate-occupation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-occupation'.$index.'">'.$label.'</label></br>';
           }
-      ]])->label('1. occupation');
+      ]])->label(false);
          ?>
+
+         <?= $form->field($model, 'occupation_other')->textArea(['rows'=>2,'placeholder' => 'Occupation Other ...'])->label(false);?>
+    
+</fieldset>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        
+   <fieldset class="scheduler-border">
+	<legend class="scheduler-border">2. Smoking</legend>
+    
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">    
          <?= $form->field($model, 'smoking')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    => [
             'N' => 'N',
-            'Y' => 'Y .......... pack/day',
-            'EX' => 'Ex Whene .......... yr'
+            'Y' => 'Ypack',
+            'EX' => 'Ex Whene'
         ],
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-smoking'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-smoking'.$index.'">'.$label.'</label>';
+              return '<input type="radio" id="footassessmentcomplate-smoking'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-smoking'.$index.'">'.$label.'</label></br>';
           }
-      ]])->label('2. Smoking');
+      ]])->label(false);
          ?>
+            
+            </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+       <div style="padding-top: 10px;">
+       
+           <?= $form->field($model, 'smoking_pack')->textInput(['style' => 'width:120px;height: 30px;margin-bottom: 20px;'])->label(false);?>
+         <?= $form->field($model, 'smoking_whene')->textInput(['style' => 'width:120px;height: 30px;'])->label(false);?>
+         </div>
+         </div>
+         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+         <div style="padding-top: 10px;">
+         /pack<br><br>
+         ry
+         </div>
+
+         </div>
+         </div>
+    </div>
+         </fieldset>
+       
+       
+
+    <fieldset class="scheduler-border">
+	<legend class="scheduler-border">3. Activity</legend>
                   <?= $form->field($model, 'activity')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
@@ -61,8 +135,11 @@ use phpnt\ICheck\ICheck;
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessmentcomplate-activity'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-activity'.$index.'">'.$label.'</label>';
           }
-      ]])->label('3. Activity');?>
+      ]])->label(false);?>
+ </fieldset>
 
+     <fieldset class="scheduler-border">
+	<legend class="scheduler-border">4. Using ambulation aid ON</legend>
          <?= $form->field($model, 'using_ambulation')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
@@ -79,7 +156,10 @@ use phpnt\ICheck\ICheck;
           'item' => function ($index, $label, $name, $checked, $value){
               return '<input type="radio" id="footassessmentcomplate-using_ambulation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-using_ambulation'.$index.'">'.$label.'</label>';
           }
-      ]])->label('4. Using ambulation aid ON');?>
+      ]])->label(false);?>
+       </fieldset>
+       </div>
+</div>
          </div>
 <table width="100%" border="0" class="table table-bordered">
   <tr>
@@ -88,12 +168,12 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-  <td width="259">&nbsp;</td>
-    <td width="186" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
-    <td width="198" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
+  <td width="30%">&nbsp;</td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
   </tr>
   <tr>
-    <td>5. Provider fiit ulcer</td>
+    <td><strong>5. Provider fiit ulcer</strong></td>
     <td bgcolor="#ddd">&nbsp;</td>
     <td bgcolor="#ddd">&nbsp;</td>
   </tr>
@@ -149,7 +229,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td>6. Previous amputation</td>
+    <td><strong>6. Previous amputation</strong></td>
     <td bgcolor="#ddd">&nbsp;</td>
     <td bgcolor="#ddd">&nbsp;</td>
   </tr>
@@ -212,7 +292,7 @@ use phpnt\ICheck\ICheck;
   </tr>
   
   <tr>
-    <td>Prosthesis</td>
+    <td><strong>Prosthesis</strong></td>
     <td bgcolor="#ddd">&nbsp;</td>
     <td bgcolor="#ddd">&nbsp;</td>
   </tr>
@@ -268,7 +348,7 @@ use phpnt\ICheck\ICheck;
   </tr>
 
   <tr>
-    <td>7. Previous revascularization</td>
+    <td><strong>7. Previous revascularization<</strong>/td>
     <td bgcolor="#ddd">&nbsp;</td>
     <td bgcolor="#ddd">&nbsp;</td>
   </tr>
@@ -327,10 +407,26 @@ use phpnt\ICheck\ICheck;
   <tr>
     <td>&nbsp;</td>
     <td>
-    <?= $form->field($model, 'evt_date_right')->textInput()->label(false);?>
+    <?=$form->field($model, 'evt_date_right')->widget(DateControl::classname(), [
+    'type'=>DateControl::FORMAT_DATE,
+    'ajaxConversion'=>false,
+    'widgetOptions' => [
+        'pluginOptions' => [
+            'autoclose' => true
+        ]
+    ]
+])->label(false);?>
     </td>
     <td>
-    <?= $form->field($model, 'evt_date_left')->textInput()->label(false);?>
+    <?=$form->field($model, 'evt_date_left')->widget(DateControl::classname(), [
+    'type'=>DateControl::FORMAT_DATE,
+    'ajaxConversion'=>false,
+    'widgetOptions' => [
+        'pluginOptions' => [
+            'autoclose' => true
+        ]
+    ]
+])->label(false);?>
     </td>
   </tr>
   <tr>
@@ -368,11 +464,27 @@ use phpnt\ICheck\ICheck;
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>
-    <?= $form->field($model, 'bypass_date_right')->textInput()->label(false);?>
+        <td>
+    <?=$form->field($model, 'bypass_date_right')->widget(DateControl::classname(), [
+    'type'=>DateControl::FORMAT_DATE,
+    'ajaxConversion'=>false,
+    'widgetOptions' => [
+        'pluginOptions' => [
+            'autoclose' => true
+        ]
+    ]
+])->label(false);?>
     </td>
     <td>
-    <?= $form->field($model, 'bypass_date_left')->textInput()->label(false);?>
+    <?=$form->field($model, 'bypass_date_left')->widget(DateControl::classname(), [
+    'type'=>DateControl::FORMAT_DATE,
+    'ajaxConversion'=>false,
+    'widgetOptions' => [
+        'pluginOptions' => [
+            'autoclose' => true
+        ]
+    ]
+])->label(false);?>
     </td>
   </tr>
   <tr>
@@ -382,7 +494,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_CHECBOX_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    => [
-            '1' => 'Baypass',
+            '1' => 'Hybrid',
             
         ],
         'color'  => 'green',
@@ -397,8 +509,7 @@ use phpnt\ICheck\ICheck;
         'type'  => ICheck::TYPE_CHECBOX_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    => [
-            '1' => 'Baypass',
-            
+            '1' => 'Hybrid',
         ],
         'color'  => 'green',
         'options' => [
@@ -411,10 +522,22 @@ use phpnt\ICheck\ICheck;
   <tr>
     <td>&nbsp;</td>
     <td>
-    <?= $form->field($model, 'hybrid_date_right')->widget(\yii\widgets\MaskedInput::className(), ['mask' => '99/99/9999'])->label(false); ?>
+    <?=$form->field($model, 'hybrid_date_right')->widget(DateControl::classname(), [
+    'type'=>DateControl::FORMAT_DATE,
+    'ajaxConversion'=>false,
+    'widgetOptions' => [
+        'pluginOptions' => [
+            'autoclose' => true
+        ]]])->label(false);?>
     </td>
     <td>
-    <?= $form->field($model, 'hybrid_date_left')->widget(\yii\widgets\MaskedInput::className(), ['mask' => '99/99/9999'])->label(false); ?>
+    <?=$form->field($model, 'hybrid_date_left')->widget(DateControl::classname(), [
+    'type'=>DateControl::FORMAT_DATE,
+    'ajaxConversion'=>false,
+    'widgetOptions' => [
+        'pluginOptions' => [
+            'autoclose' => true
+        ]]])->label(false);?>
     </td>
   </tr>
 </table>

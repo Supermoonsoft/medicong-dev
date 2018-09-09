@@ -4,23 +4,81 @@ use yii\helpers\ArrayHelper;
 use phpnt\ICheck\ICheck;
 
 ?>
+<style>
+#sfootassessmentcomplate-vessel_palpation_dp_right{display: inline-block;}
+#sfootassessmentcomplate-vessel_palpation_dp_left{display: inline-block;}
+#sfootassessmentcomplate-vessel_palpation_pt_right{display: inline-block;}
+#sfootassessmentcomplate-vessel_palpation_pt_left{display: inline-block;}
+.field-sfootassessmentcomplate-abi1_right{display: inline-block;}
+.field-sfootassessmentcomplate-abi2_right{display: inline-block;}
+.field-sfootassessmentcomplate-abi3_right{display: inline-block;}
+.field-sfootassessmentcomplate-abi1_left{display: inline-block;}
+.field-sfootassessmentcomplate-abi2_left{display: inline-block;}
+.field-sfootassessmentcomplate-abi3_left{display: inline-block;}
+
+.field-sfootassessmentcomplate-tbi1_right{display: inline-block;}
+.field-sfootassessmentcomplate-tbi2_right{display: inline-block;}
+.field-sfootassessmentcomplate-tbi3_right{display: inline-block;}
+.field-sfootassessmentcomplate-tbi1_left{display: inline-block;}
+.field-sfootassessmentcomplate-tbi2_left{display: inline-block;}
+.field-sfootassessmentcomplate-tbi3_left{display: inline-block;}
+
+/* .field-sfootassessmentcomplate-callus_right_number{
+    position: absolute;
+    position: ;
+    top: 1366px;
+    left: 536px;
+}
+.field-sfootassessmentcomplate-com_right_number{
+    position: absolute;
+    position: ;
+    top: 1393px;
+    left: 536px;
+}
+.field-sfootassessmentcomplate-wart_right_number{
+    position: absolute;
+    top: 1420px;
+    left: 536px;
+} */
+
+/* .field-sfootassessmentcomplate-callus_left_number{
+    position: absolute;
+    position: ;
+    top: 1366px;
+    left: 853px;
+}
+.field-sfootassessmentcomplate-com_left_number{
+    position: absolute;
+    position: ;
+    top: 1393px;
+    left: 853px;
+}
+.field-sfootassessmentcomplate-wart_left_number{
+    position: absolute;
+    top: 1420px;
+    left: 853px;
+} */
+</style>
 <div class="box">
 (2) Current foot problem and Examination
 </div>
 </br>
 <div>
+<strong>
 1. Chief Complaint 
+</strong>
+
 </div>
 <?= $form->field($model, 'chief_complaint')->textArea(['rows' =>4, 'cols' =>200])->label(false); ?>
-
+<br>
 <table width="100%" class="table table-bordered">
   <tr>
     <td colspan="3" align="center"><strong id="docs-internal-guid-8ffb6b17-7fff-0d44-c1e9-fb8212c67b99" style="font-size: 20px;">2. Dermatologic examination</strong></td>
   </tr>
   <tr>
-    <td width="259">&nbsp;</td>
-    <td width="186" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
-    <td width="198" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
+    <td width="30%">&nbsp;</td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
   </tr>
   <tr>
     <td><strong id="docs-internal-guid-b225c98d-7fff-d49b-9376-053f290c1ee3">2.1 Hair loss</strong></td>
@@ -231,16 +289,6 @@ use phpnt\ICheck\ICheck;
           }
       ]])->label(false);?>
     </td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
   </tr>
   <tr>
     <td><strong id="docs-internal-guid-2d5543a5-7fff-8885-9aa4-4656e8b1f338">2.7 Toenail problem</strong>
@@ -581,7 +629,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-  <td>2.8 Skin Lesion></td>
+  <td><strong>2.8 Skin Lesion</strong></td>
   <td bgcolor="#CCCCCC">&nbsp;</td>
   <td bgcolor="#CCCCCC">&nbsp;</td>
   </tr>
@@ -603,29 +651,37 @@ use phpnt\ICheck\ICheck;
       ]])->label(false);?>
   </td>
   <td>
+  <div style="display: inline-block;">
     <?= $form->field($model, 'skin_lesion_type_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>[
-            '1'=> 'Callus , number………….',
-            '2' => 'Com , number………….',
-            '3' => 'Wart , number………….',
+            '1'=> 'Callus , number',
+            '2' => 'Com , number',
+            '3' => 'Wart , number',
         ],
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessment-skin_lesion_type_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-skin_lesion_type_right'.$index.'">'.$label.'</label></br>';
+              return '<input type="radio" style="margin-bottom: 20px;" id="footassessment-skin_lesion_type_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-skin_lesion_type_right'.$index.'">'.$label.'</label></br>';
           }
       ]])->label(false);?>
+      </div>
+      <div style="display: inline-block;">
+      <?= $form->field($model, 'callus_right_number')->textInput(['style'=> 'height: 26px;width: 100px;'])->label(false);?>
+      <?= $form->field($model, 'com_right_number')->textInput(['style'=> 'height: 26px;width: 100px;'])->label(false);?>
+      <?= $form->field($model, 'wart_right_number')->textInput(['style'=> 'height: 26px;width: 100px;'])->label(false);?>
+      </div>
     </td>
     <td>
+    <div style="display: inline-block;">
     <?= $form->field($model, 'skin_lesion_type_left')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    =>[
-            '1'=> 'Callus , number………….',
-            '2' => 'Com , number………….',
-            '3' => 'Wart , number………….',
+            '1'=> 'Callus , number',
+            '2' => 'Com , number',
+            '3' => 'Wart , number',
         ],
         'color'  => 'green',
         'options' => [
@@ -633,6 +689,12 @@ use phpnt\ICheck\ICheck;
               return '<input type="radio" id="footassessment-skin_lesion_type_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-skin_lesion_type_left'.$index.'">'.$label.'</label></br>';
           }
       ]])->label(false);?>
+      </div>
+      <div style="display: inline-block;">
+       <?= $form->field($model, 'callus_left_number')->textInput(['style'=> 'height: 26px;width: 100px;'])->label(false);?>
+      <?= $form->field($model, 'com_left_number')->textInput(['style'=> 'height: 26px;width: 100px;'])->label(false);?>
+      <?= $form->field($model, 'wart_left_number')->textInput(['style'=> 'height: 26px;width: 100px;'])->label(false);?>
+   </div>
     </td>
   </tr>
 </table>
@@ -640,16 +702,16 @@ use phpnt\ICheck\ICheck;
 
 <table border="1" cellspacing="0" cellpadding="0" width="100%" class="table table-bordered">
   <tr>
-    <td width="643" colspan="3" valign="top"><p align="center" style="font-size: 20px;"><strong>3. Musculoskeletal examination</strong><strong> </strong></p></td>
+    <td width="643" colspan="3" valign="top"><p align="center" style="font-size: 20px;"><strong>3. Musculoskeletal examination</strong></strong></td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p align="center">&nbsp;</p></td>
-    <td width="186" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
-    <td width="198" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
+    <td width="30%" valign="top"><p align="center">&nbsp;</p></td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>
-    3.1    Foot type </p></td>
+    <td width="30%" valign="top">
+    <strong>3.1 Foot type</strong></td>
     <td>
     <?= $form->field($model, 'foot_type_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -688,7 +750,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.2    Silfverskiold    test<strong> </strong></p></td>
+    <td width="30%" valign="top"><strong> 3.2 Silfverskiold test</strong></td>
     <td>
     <?= $form->field($model, 'silfverskiold_test_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -722,12 +784,12 @@ use phpnt\ICheck\ICheck;
   </tr>
 
   <tr>
-    <td width="259" valign="top"><p>3.3    Deformities<strong> </strong></p></td>
-    <td width="186" valign="top"><p>&nbsp;</p></td>
-    <td width="198" valign="top"><p>&nbsp;</p></td>
+    <td width="30%" valign="top"><strong> 3.3    Deformities</strong></td>
+    <td width="35%" valign="top"><strong>&nbsp;</p></td>
+    <td width="35%" valign="top"><strong>&nbsp;</p></td>
   </tr>
   <tr>
-    <td width="259" valign="top">
+    <td width="30%" valign="top">
     <?= $form->field($model, 'deformities')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
@@ -743,11 +805,11 @@ use phpnt\ICheck\ICheck;
       ]])->label(false);?>
     </td>
     </td>
-    <td width="186" valign="top"><p>&nbsp;</p></td>
-    <td width="198" valign="top"><p>&nbsp;</p></td>
+    <td width="35%" valign="top"><strong>&nbsp;</p></td>
+    <td width="35%" valign="top"><strong>&nbsp;</p></td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.1 Claw toe<strong> </strong></p></td>
+    <td width="30%" valign="top"><strong>3.3.1 Claw toe </strong></td>
     <td valign="top">
     <?= $form->field($model, 'claw_toe_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -786,7 +848,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.2 Hammer toe </p></td>
+    <td width="30%" valign="top"><strong>3.3.2 Hammer toe</strong></td>
     <td valign="top">
     <?= $form->field($model, 'hammer_toe_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -825,7 +887,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.3 Mallet toe </p></td>
+    <td width="30%" valign="top"><strong>3.3.3 Mallet toe </strong></td>
     <td valign="top">
     <?= $form->field($model, 'mallet_toe_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -864,7 +926,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.4 Hallux Valgus<strong> </strong></p></td>
+    <td width="30%" valign="top"><strong>3.3.4 Hallux Valgus</strong></td>
     <td valign="top">
     <?= $form->field($model, 'hallux_valgus_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -903,7 +965,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.5 Hallux Varus </p></td>
+    <td width="30%" valign="top"><strong>3.3.5 Hallux Varus <strong></td>
     <td valign="top">
     <?= $form->field($model, 'hallux_varus_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -942,7 +1004,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.6 Hallux Rigidus/Limitus </p></td>
+    <td width="30%" valign="top"><strong>3.3.6 Hallux Rigidus/Limitus <strong></td>
     <td valign="top">
     <?= $form->field($model, 'hallux_rigidus_limitus_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -981,7 +1043,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.7 Bunion<strong> </strong></p></td>
+    <td width="30%" valign="top"><strong>3.3.7 Bunion</strong></td>
     <td valign="top">
     <?= $form->field($model, 'bunion_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -1020,7 +1082,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.8 Bunionette<strong> </strong></p></td>
+    <td width="30%" valign="top"><strong>3.3.8 Bunionette</strong></td>
     <td valign="top">
     <?= $form->field($model, 'bunionette_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -1059,7 +1121,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.9 Charcot Foot<strong> </strong></p></td>
+    <td width="30%" valign="top"><strong>3.3.9 Charcot Foot</strong></td>
     <td valign="top">
     <?= $form->field($model, 'charcot_foot_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -1098,7 +1160,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>3.3.10 Post surgical deformity<strong> </strong></p></td>
+    <td width="30%" valign="top"><strong>3.3.10 Post surgical deformity</strong></td>
     <td valign="top">
     <?= $form->field($model, 'post_surgical_deformity_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -1145,17 +1207,17 @@ use phpnt\ICheck\ICheck;
     <td width="643" colspan="3" valign="top"><p align="center" class="table-title"><strong>4. </strong><strong>Neuropathy assessment</strong></p></td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p align="center">&nbsp;</p></td>
-    <td width="186" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
-    <td width="198" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
+    <td width="30%" valign="top"><p align="center">&nbsp;</p></td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>4.1    Neuropathic symptom </p></td>
+    <td width="30%" valign="top"><strong>4.1    Neuropathic symptom </p></td>
     <td valign="top" bgcolor="#ddd">&nbsp;</td>
     <td valign="top" bgcolor="#ddd">&nbsp;</td>
   </tr>
   <tr>
-    <td width="259" valign="top">
+    <td width="30%" valign="top">
     <?= $form->field($model, 'neuropathic_symptom')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
@@ -1206,7 +1268,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>4.2    Monofilament (10g)<strong> </strong></p></td>
+    <td width="30%" valign="top"><strong>4.2    Monofilament (10g)</strong></td>
     <td valign="top">
     <?= $form->field($model, 'monofilament_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -1239,7 +1301,7 @@ use phpnt\ICheck\ICheck;
     </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>4.3    Tuning fork (128 Hz) at hallux<strong></strong></p></td>
+    <td width="30%" valign="top"><strong>4.3    Tuning fork (128 Hz) at hallux<strong></strong></p></td>
     <td valign="top">
     <?= $form->field($model, 'tuning_fork_right')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -1281,98 +1343,384 @@ use phpnt\ICheck\ICheck;
     <td width="643" colspan="3" valign="top"><p class="table-title" align="center"><strong>5. </strong><strong>Vascular assessment</strong></p></td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p align="center">&nbsp;</p></td>
-    <td width="186" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
-    <td width="198" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
+    <td width="30%" valign="top"><p align="center">&nbsp;</p></td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
+    <td width="35%" valign="top"><p align="center"><strong class="table-left">Left</strong></p></td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>5.1    Vascular symptom </p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>5.1    Vascular symptom </p>
+    <?= $form->field($model, 'vascular_symptom')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            'N'=> 'N',
+            'Y' => 'Y , specify type and site',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
+    <td width="35%" valign="top"></td>
+    <td width="35%" valign="top"></td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>&nbsp;</p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>5.1.1    Intermittent claudication</strong></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'intermittent_claudication_right')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            'N'=> 'N&nbsp&nbsp&nbsp/',
+            'Y' => 'Y',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'intermittent_claudication_left')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            'N'=> 'N&nbsp&nbsp&nbsp/',
+            'Y' => 'Y',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>5.1.1    Intermittent claudication<strong> </strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>5.1.2    Rest pain </p></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'rest_pain_right')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            'N'=> 'N&nbsp&nbsp&nbsp/',
+            'Y' => 'Y',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'rest_pain_left')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            'N'=> 'N&nbsp&nbsp&nbsp/',
+            'Y' => 'Y',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
+  <tr>
+    <td width="30%" valign="top"><strong>5.1.3    Gangrene</p></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'gangrene_right')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '1' => '1',
+            '2' => '2',
+            '3' => '3',
+            '4' => '4',
+            '5' => '5'
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'gangrene_left')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '1' => '1',
+            '2' => '2',
+            '3' => '3',
+            '4' => '4',
+            '5' => '5'
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>5.1.2    Rest pain </p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>5.1.4    Edema , specfify type</strong></td>
+    <td width="35%" valign="top">&nbsp;</td>
+    <td width="35%" valign="top">&nbsp;</td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>5.1.3    Gangrene</p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>pitting    edema</strong></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'pitting_edema_right')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '1' => '1+',
+            '2' => '2+',
+            '3' => '3+',
+            '4' => '4+',
+            '5' => '5+'
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'pitting_edema_left')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '1' => '1+',
+            '2' => '2+',
+            '3' => '3+',
+            '4' => '4+',
+            '5' => '5+'
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>5.1.4    Edema , specfify type<strong> </strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>non-pitting    edema</strong></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'non_pitting_edema_right')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            'N'=> 'N&nbsp&nbsp&nbsp/',
+            'Y' => 'Y',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'non_pitting_edema_left')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            'N'=> 'N&nbsp&nbsp&nbsp/',
+            'Y' => 'Y',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label(false);?>
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>pitting    edema<strong> </strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>5.2    Vessel palpation</strong></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'vessel_palpation_dp_right')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '0'=> '0',
+            '1' => '1',
+            '2' => '2',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input style="display: inline-block;" type="radio" id="vessel_palpation_dp_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label('DP :');?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'vessel_palpation_dp_left')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '0'=> '0',
+            '1' => '1',
+            '2' => '2',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label('DP :');?>
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>non-pitting    edema<strong> </strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong><strong>&nbsp;</strong></p></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'vessel_palpation_pt_right')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '0'=> '0',
+            '1' => '1',
+            '2' => '2',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label('PT :');?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'vessel_palpation_pt_left')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '0'=> '0',
+            '1' => '1',
+            '2' => '2',
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="footassessment-monofilament_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label>';
+          }
+      ]])->label('PT :');?>
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>5.2    Vessel palpation<strong> </strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>5.3    Doppler</strong></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'doppler_right')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '1' => 'Non-audible',
+            '2' => 'Monophasic',
+            '3' => 'Biphsic',
+            '4' => 'Triphasic'
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="doppler_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label></br>';
+          }
+      ]])->label(false);?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'doppler_left')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_RADIO_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            '1' => 'Non-audible',
+            '2' => 'Monophasic',
+            '3' => 'Biphsic',
+            '4' => 'Triphasic'
+        ],
+        'color'  => 'green',
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="radio" id="doppler_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-monofilament_left'.$index.'">'.$label.'</label></br>';
+          }
+      ]])->label(false);?>
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p><strong>&nbsp;</strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>5.4    Ankle/Brachial Index (ABI)</strong></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'abi1_right')->textInput(['style' => 'width: 80px;'])->label(false);?>&nbsp/
+    <?= $form->field($model, 'abi2_right')->textInput(['style' => 'width: 80px;'])->label(false);?>&nbsp=
+    <?= $form->field($model, 'abi3_right')->textInput(['style' => 'width: 80px;'])->label(false);?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'abi1_left')->textInput(['style' => 'width: 80px;'])->label(false);?>&nbsp/
+    <?= $form->field($model, 'abi2_left')->textInput(['style' => 'width: 80px;'])->label(false);?>&nbsp=
+    <?= $form->field($model, 'abi3_left')->textInput(['style' => 'width: 80px;'])->label(false);?>
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p>5.3    Doppler<strong> </strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong><strong>&nbsp;</strong></p></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'abi4_right')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_CHECBOX_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            'Y'=> 'Non-compressible(>1.3)',
+        ],
+        'color'  => 'green',                   // цвет
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="checkbox" id="abi4_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-contact_your'.$index.'">'.$label.'</label></br>';
+          }
+      ]])->label(false);?>
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'abi4_left')->widget(ICheck::className(), [
+        'type'  => ICheck::TYPE_CHECBOX_LIST,
+        'style'  => ICheck::STYLE_FLAT,
+        'items'    =>[
+            'Y'=> 'Non-compressible(>1.3)',
+        ],
+        'color'  => 'green',                   // цвет
+        'options' => [
+          'item' => function ($index, $label, $name, $checked, $value){
+              return '<input type="checkbox" id="abi4_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessment-contact_your'.$index.'">'.$label.'</label></br>';
+          }
+      ]])->label(false);?>
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p><strong>&nbsp;</strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>5.5    Toe pressure (mmHg)</strong></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'mmhg_right')->textInput(['style' => 'width: 170px;'])->label(false);?>
+    
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'mmhg_left')->textInput(['style' => 'width: 170px;'])->label(false);?>
+    
+    </td>
   </tr>
   <tr>
-    <td width="259" valign="top"><p><strong>&nbsp;</strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="259" valign="top"><p><strong>&nbsp;</strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="259" valign="top"><p>5.4    Ankle/Brachial Index (ABI)<strong> </strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="259" valign="top"><p><strong>&nbsp;</strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="259" valign="top"><p>5.5    Toe pressure (mmHg)<strong> </strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="259" valign="top"><p>5.6    Toe/Brachial Index (TBI)<strong> </strong></p></td>
-    <td width="186" valign="top">&nbsp;</td>
-    <td width="198" valign="top">&nbsp;</td>
+    <td width="30%" valign="top"><strong>5.6    Toe/Brachial Index (TBI)</strong></td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'tbi1_right')->textInput(['style' => 'width: 80px;'])->label(false);?>&nbsp/
+    <?= $form->field($model, 'tbi2_right')->textInput(['style' => 'width: 80px;'])->label(false);?>&nbsp=
+    <?= $form->field($model, 'tbi3_right')->textInput(['style' => 'width: 80px;'])->label(false);?>
+    
+    </td>
+    <td width="35%" valign="top">
+    <?= $form->field($model, 'tbi1_left')->textInput(['style' => 'width: 80px;'])->label(false);?>&nbsp/
+    <?= $form->field($model, 'tbi2_left')->textInput(['style' => 'width: 80px;'])->label(false);?>&nbsp=
+    <?= $form->field($model, 'tbi3_left')->textInput(['style' => 'width: 80px;'])->label(false);?>
+    </td>
   </tr>
 </table>

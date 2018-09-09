@@ -3,7 +3,6 @@
 namespace app\modules_share\foot\assets;
 
 use yii\web\AssetBundle;
-
 /**
  * Main application asset bundle.
  *
@@ -12,7 +11,7 @@ use yii\web\AssetBundle;
  */
 class FootAsset extends AssetBundle
 {
-    public $sousePath = '@app\modules_share\foot\assets\dist';
+    public $sousePath = '@app/modules_share/foot/assets/dist/';
     public $css = [
         'css/style.css'
     ];

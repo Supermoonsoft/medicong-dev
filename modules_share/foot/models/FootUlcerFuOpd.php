@@ -121,7 +121,6 @@ class FootUlcerFuOpd extends ActiveRecord{
         'post_hbot',
         'post_amputation',
         'period_number',
-
     ], 'safe'],
     ];
 }
