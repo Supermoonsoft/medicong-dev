@@ -9,7 +9,8 @@ use kartik\datecontrol\DateControl;
 $hn = PatientHelper::getCurrentHn();
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 $this->registerCss($this->render('../../dist/css/style.css'));
-
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 ?>
 <style>
 .field-sfootulcerfuopd-first_visit{margin-top: 8px;}

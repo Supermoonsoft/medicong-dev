@@ -1,4 +1,5 @@
 <?php
+use \kartik\datecontrol\Module;
 
 //เพิ่ม module ที่นี่ที่เดียว
 $modules = [];
@@ -16,6 +17,26 @@ $modules['screen'] = ['class' => 'app\modules_nurse\nurse_screen\Screen']; //pon
 $modules['emr'] = ['class' => 'app\modules_share\emr\Emr']; //jub
 $modules['dietitian'] = ['class' => 'app\modules_nurse\dietitian\Dietitian']; //jub
 $modules['printout'] = ['class' => 'app\modules_share\printout\PrintOut']; //tehnn
+$modules['datecontrol'] = [
+    'class' => 'kartik\datecontrol\Module',
+    'displaySettings' => [
+        Module::FORMAT_DATE => 'dd/MM/yyyy',
+        Module::FORMAT_TIME => 'hh:mm:ss a',
+        Module::FORMAT_DATETIME => 'dd/MM/yyyy hh:mm:ss a', 
+    ],
+    'saveSettings' => [
+        Module::FORMAT_DATE => 'php:Y-m-d',
+        Module::FORMAT_TIME => 'php:H:i:s',
+        Module::FORMAT_DATETIME => 'php:Y-m-d H:i:s',
+    ],
+    'displayTimezone' => 'Asia/Bankok',
+    'saveTimezone' => 'UTC',
+    'autoWidget' => true,
+    'autoWidgetSettings' => [
+        Module::FORMAT_DATE => ['type'=>2, 'pluginOptions'=>['autoclose'=>true]], // example
+        Module::FORMAT_DATETIME => [],
+        Module::FORMAT_TIME => [], 
+    ],]; //Oh
 
 return $modules;
 

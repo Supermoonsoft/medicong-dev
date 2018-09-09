@@ -7,6 +7,8 @@ use kartik\datecontrol\DateControl;
 use phpnt\ICheck\ICheck;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 $this->registerCss($this->render('../../dist/css/style.css'));
 $hn = PatientHelper::getCurrentHn();
 if (empty($hn)) {
