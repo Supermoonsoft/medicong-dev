@@ -10,7 +10,7 @@ echo ShowLoading::widget();
 $this->registerCss($this->render('../../dist/css/style.css'));
 $hn = PatientHelper::getCurrentHn();
 if (empty($hn)) {
-    MessageHelper::errorNullHn();
+    //MessageHelper::errorNullHn();
 }
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
