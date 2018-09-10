@@ -5,15 +5,21 @@ namespace app\modules_nurse\nurse_screen\controllers;
 use Yii;
 use app\modules_nurse\nurse_screen\models\VitalSigns;
 use app\modules_nurse\nurse_screen\models\VitalSignsSearch;
-use yii\web\Controller;
+
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
 use yii\helpers\ArrayHelper;
-
-class VitalSignsController extends Controller
+use app\components\VisitController;
+use app\components\NoVisitController;
+ 
+class VitalSignsController extends VisitController
 {
+    // extends  VisitController  กรณีการบริการนั้นต้องมี hn และ vn
+    // extends  NoVisitController  กรณีการบันทึกข้อมูลนั้นต้องมี hn แต่ไม่ต้องมี vn
+    // extends   Controller ปกติ   กรณี controller oั้น ไม่เกี่ยวข้องกับคนไข้เลย
+    // กลไกใน controller แต่ละประเภท ที่่เลือก extends  จะทำงานอัตโนมัติเอง
 
     public function behaviors()
     {

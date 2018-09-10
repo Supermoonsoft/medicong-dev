@@ -24,8 +24,12 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            //'identityClass' => 'app\models\User',// old
+            'identityClass' => 'dektrium\user\models\User',
             'enableAutoLogin' => true,
+        ],
+        'authManager' => [
+            'class' => 'dektrium\rbac\components\DbManager',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

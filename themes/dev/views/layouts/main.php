@@ -97,7 +97,7 @@ $hn = PatientHelper::getCurrentHn();
                             <h4>
                                 <div id='user-display'>
                                     <?php if (\Yii::$app->user->isGuest): ?>
-                                        <?= Html::a('Login', ['/site/login']) ?>
+                                        <?= Html::a('Login', ['/user/security/login']) ?>
                                     <?php else: ?>
 
                                         <?= Html::a(\Yii::$app->user->identity->username, ['/site/about']) ?>
