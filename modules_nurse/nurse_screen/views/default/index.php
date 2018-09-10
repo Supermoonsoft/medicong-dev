@@ -12,9 +12,7 @@ use app\modules_nurse\nurse_screen\models\VitalSigns;
 
 $hn = PatientHelper::getCurrentHn();
 $vn_session = PatientHelper::getCurrentVn();
-if (empty($hn)) {
-    MessageHelper::errorNullHn();
-}
+
 
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 

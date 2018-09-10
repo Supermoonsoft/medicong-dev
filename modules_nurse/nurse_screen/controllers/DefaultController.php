@@ -11,8 +11,10 @@ use yii\filters\VerbFilter;
 use app\components\NurseHelper;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\components\VisitController;
+use app\components\NoVisitController;
 
-class DefaultController extends Controller
+class DefaultController extends NoVisitController
 {
 
     public function behaviors()

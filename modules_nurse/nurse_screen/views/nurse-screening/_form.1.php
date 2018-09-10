@@ -7,6 +7,7 @@ use yii\helpers\Button;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
 use app\modules_nurse\nurse_screen\models\OpdVisit;
+use kartik\tabs\TabsX;
 
 $session = Yii::$app->session;
 //$visit = OpdVisit::find()->where(['vn'=>$this->vn])->one();

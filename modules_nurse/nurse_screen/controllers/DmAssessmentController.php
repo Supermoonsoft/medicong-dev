@@ -10,11 +10,10 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\components\VisitController;
+use app\components\NoVisitController;
 
-/**
- * DmAssessmentController implements the CRUD actions for DmAssessment model.
- */
-class DmAssessmentController extends Controller
+class DmAssessmentController extends NoVisitController
 {
     /**
      * {@inheritdoc}
@@ -31,10 +30,7 @@ class DmAssessmentController extends Controller
         ];
     }
 
-    /**
-     * Lists all DmAssessment models.
-     * @return mixed
-     */
+
     public function actionIndex()
     {
         $searchModel = new DmAssessmentSearch();
@@ -58,14 +54,10 @@ class DmAssessmentController extends Controller
     public function actionCreate()
     {
 
-        $vn = PatientHelper::getCurrentVn();
-        if(empty($vn)){
-            MessageHelper::setFlashWarning('กรุณาส่งตรวจคนไข้ ก่อนให้บริการ');
-            return $this->redirect(['/patiententry/default/index']);
-        }
+
         $model = new DmAssessment();
         $model->hn = PatientHelper::getCurrentHn();
-        $model->vn = $vn;
+
     
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'vn' => $model->vn]);

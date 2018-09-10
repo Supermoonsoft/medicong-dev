@@ -10,8 +10,10 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\components\VisitController;
+use app\components\NoVisitController;
 
-class NurseScreeningController extends Controller
+class NurseScreeningController extends VisitController
 {
     /**
      * {@inheritdoc}
@@ -28,10 +30,6 @@ class NurseScreeningController extends Controller
         ];
     }
 
-    /**
-     * Lists all NurseScreening models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new NurseScreeningSearch();
@@ -46,7 +44,6 @@ class NurseScreeningController extends Controller
 
     public function actionView($vn)
     {
-        //$vn="35cd1195-6165-42d8-9425-bf0084db192c";
         return $this->render('view', [
             'model' => $this->findModel($vn),
         ]);
