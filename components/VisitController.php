@@ -14,7 +14,7 @@ class VisitController extends LogController {
             return $this->redirect(['/site/index']);
         }
         if(empty($vn)){
-            return $this->redirect(['/screen']);
+            return $this->redirect(['/nursescreen']);
         }
         return parent::beforeAction($action);
     }

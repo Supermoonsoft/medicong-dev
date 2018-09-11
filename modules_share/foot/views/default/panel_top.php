@@ -34,34 +34,34 @@ li.dropdown:hover > .dropdown-menu {
 
 <div class="panel panel-info" style="margin-left: 20px;margin-right: 20px">
 	<div class="panel-heading">
-		<h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span> FOOT ASSESSMENT</h3>
+		<div class="panel-title"><span class="fa fa-wheelchair"></span> FOOT ASSESSMENT</div>
 	</div>
 	<div class="panel-body">
 		<!-- tabs -->
 		<div class="tabbable">
 			<ul class="nav nav-tabs">
 				<li class="dropdown <?=$tabsummary;?>">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">FOOT ASSESSMENT SUMMARY<span class="caret"></span></a>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-check-square" aria-hidden="true"></i> FOOT ASSESSMENT SUMMARY<span class="caret"></span></a>
 					<ul class="dropdown-menu" style="width: 250px;">
-					<li><?=Html::a('OPD',['/foot/foot-assessment-summary-opd'])?></li>
-					<li><?=Html::a('IPD',['/foot/foot-assessment-summary-ipd'])?></li>
+					<li><?=Html::a('<i class="fa fa-check-square-o" aria-hidden="true"></i> OPD',['/foot/foot-assessment-summary-opd'])?></li>
+					<li><?=Html::a('<i class="fa fa-check-square-o" aria-hidden="true"></i> IPD',['/foot/foot-assessment-summary-ipd'])?></li>
 					</ul>
 				</li>
 				<!-- <li > -->
-				<li class="<?=$tabcomplate;?>"><?=Html::a('FOOT ASSESSMENT RECORD COMPLATE',['/foot/foot-assessment-complate'])?></li>
+				<li class="<?=$tabcomplate;?>"><?=Html::a('<i class="fa fa-check-square" aria-hidden="true"></i>  FOOT ASSESSMENT RECORD COMPLATE',['/foot/foot-assessment-complate'])?></li>
 				</li>
 				<li class="dropdown <?=$tabfirst;?>">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">FOOT ULCER VISIT FIRST VISIT<span class="caret"></span></a>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-check-square" aria-hidden="true"></i> FOOT ULCER VISIT FIRST VISIT<span class="caret"></span></a>
 					<ul class="dropdown-menu" style="width: 250px;">
-					<li><?=Html::a('OPD',['/foot/foot-ulcer-first-opd'])?></li>
-					<li><?=Html::a('IPD',['/foot/foot-ulcer-first-ipd'])?></li>
+					<li><?=Html::a('<i class="fa fa-check-square-o" aria-hidden="true"></i> OPD',['/foot/foot-ulcer-first-opd'])?></li>
+					<li><?=Html::a('<i class="fa fa-check-square-o" aria-hidden="true"></i> IPD',['/foot/foot-ulcer-first-ipd'])?></li>
 					</ul>
 				</li>
 				<li class="dropdown <?=$tabfu;?>">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">FOOT ULCER VISIT FU VISIT<span class="caret"></span></a>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-check-square" aria-hidden="true"></i> FOOT ULCER VISIT FU VISIT<span class="caret"></span></a>
 					<ul class="dropdown-menu" style="width: 250px;">
-					<li><?=Html::a('OPD',['/foot/foot-ulcer-fu-opd'])?></li>
-					<li><?=Html::a('IPD',['/foot/foot-ulcer-fu-ipd'])?></li>
+					<li><?=Html::a('<i class="fa fa-check-square-o" aria-hidden="true"></i> OPD',['/foot/foot-ulcer-fu-opd'])?></li>
+					<li><?=Html::a('<i class="fa fa-check-square-o" aria-hidden="true"></i> IPD',['/foot/foot-ulcer-fu-ipd'])?></li>
 					</ul>
 				</li>
 

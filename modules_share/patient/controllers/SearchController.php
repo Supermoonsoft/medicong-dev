@@ -27,11 +27,8 @@ class SearchController extends Controller {
             return $this->redirect(['/site/index']);
         }
         PatientHelper::setCurrentHn($hn);
+        return $this->redirect(['/nursescreen/default/index']);
         
-        return $this->render('hn', [
-                    'hn' => $hn,
-                    'model'=>$model
-        ]);
     }
 
 }

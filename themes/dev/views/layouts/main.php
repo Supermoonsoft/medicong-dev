@@ -77,7 +77,11 @@ $hn = PatientHelper::getCurrentHn();
                                 <div class="form-group">
                                     <input type="text" name="hn" id="hn" class="form-control" value="<?= $hn ?>" placeholder="HN">
                                 </div>
-                                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                                <?php if (empty($hn)): ?>
+                                    <button type="submit" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
+                                <?php else: ?>
+                                    <button type="submit" class="btn btn-default" disabled ><i class="glyphicon glyphicon-search"></i></button>
+                                <?php endif; ?>
 
                                 <?php ActiveForm::end() ?>
                             </div>

@@ -1,157 +1,74 @@
 <?php
 
-use yii\helpers\Html;
-use kartik\grid\GridView;
-use yii\widgets\Pjax;
-Use app\components\MessageHelper;
 use app\components\PatientHelper;
-use app\modules_nurse\nurse_screen\models\NurseCc;
-use app\modules_nurse\nurse_screen\models\DmAssessment;
-use app\modules_nurse\nurse_screen\models\NurseScreening;
-use app\modules_nurse\nurse_screen\models\VitalSigns;
+use yii\widgets\DetailView;
+use app\components\loading\ShowLoading;
+use app\modules_share\newpatient\models\mPatient;
+use yii\widgets\Pjax;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
+echo ShowLoading::widget();
 $hn = PatientHelper::getCurrentHn();
 $vn_session = PatientHelper::getCurrentVn();
-
+$model = mPatient::findOne($hn);
 
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
-
-$this->title = 'บริการ dummy';
-$this->params['breadcrumbs'][] = $this->title;
-
 ?>
-<div class="sservice-dummy-index">
 
-<?php Pjax::begin(); ?>
-<?= Html::beginForm(['index'], 'post', ['data-pjax' => '', 'class' => 'form-inline', 'id' => 'vn-open']); ?>
-<?= Html::hiddenInput('hn', $hn) ?>
-    <?php if (empty($vn_session)): ?>
-        <?=
-        Html::submitButton('ส่งตรวจ', ['class' => 'btn btn-lg btn-success',
-            'data' => [
-                'confirm' => 'ส่งผู้ป่วยเข้าตรวจ ?',
-            //'method' => 'post',
-            ]
-        ])
-        ?>
-    <?php endif; ?>
-    <?= Html::endForm() ?>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <div class="panel-title"><i class="fa fa-sticky-note-o" aria-hidden="true"></i> Patient Entry</div>            
+    </div>
+    <div class="panel-body">
+        <div  style="margin-bottom: 3px">
 
- <?php if (!empty($vn_session)) { 
-     //
-    echo    GridView::widget([
-            'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
-            'pjax'=>true,
-            'pjaxSettings'=>[
-                'neverTimeout'=>true,
-                //'beforeGrid'=>'.',
-                //'afterGrid'=>'My fancy content after.',
-            ],
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'vn',
-            [
-                'attribute'=>'service_start_date',
-                'value'=>function ($model, $key, $index) { 
-                    return $model->service_start_date.' '.$model->service_start_time;
-                },
-            ],
-            'hn',
-            [
-                'attribute'=>'hn',
-                'label'=>'ชื่อผู้ป่วย',
-                'value'=>function ($model, $key, $index) { 
-                    return PatientHelper::getPatientTitleByHn($model->hn);
-                },
-            ],
-            [
-                'label'=>'Vital Signs',
-                'format' => 'raw',
-                'vAlign'=>'middle',
-                'hAlign'=>'center',
-                'value'=>function ($model, $key, $index) { 
-                    if(VitalSigns::find()->where(['vn'=>$model->vn])->count()>0){
-                        return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/nursescreen/vital-signs/update','vn'=>$model->vn],
-                            ['class' => 'btn btn-info']
-                        );
-                    }else{
-                        return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/nursescreen/vital-signs/create',],
-                            ['class' => 'btn btn-info']
-                        );
-                    }
-                },
-            ],
-            [
-                'label'=>'Screening',
-                'format' => 'raw',
-                'vAlign'=>'middle',
-                'hAlign'=>'center',
-                'value'=>function ($model, $key, $index) { 
-                    if(NurseScreening::find()->where(['vn'=>$model->vn])->count()>0){
-                        return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/nursescreen/nurse-screening/update','vn'=>$model->vn],
-                            ['class' => 'btn btn-success']
-                        );
-                    }else{
-                        return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/nursescreen/nurse-screening/create',],
-                            ['class' => 'btn btn-success']
-                        );
-                    }
-                },
-            ],
-            [
-                'label'=>'CC',
-                'format' => 'raw',
-                'vAlign'=>'middle',
-                'hAlign'=>'center',
-                'value'=>function ($model, $key, $index) { 
-                    if(NurseCc::find()->where(['vn'=>$model->vn])->count()>0){
-                        return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/nursescreen/nurse-cc/update','vn'=>$model->vn],
-                            ['class' => 'btn btn-warning']
-                        );
-                    }else{
-                        return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/nursescreen/nurse-cc/create',],
-                            ['class' => 'btn btn-warning']
-                        );
-                    }
 
-                },
-            ],
+            <?= Html::beginForm(['index'], 'post', ['data-pjax' => '', 'class' => 'form-inline', 'id' => 'vn-open']); ?>
+            <?= Html::hiddenInput('hn', $hn) ?>
+            <?php if (empty($vn_session)): ?>
+                <?=
+                Html::submitButton('<i class="fa fa-check" aria-hidden="true"></i> Open Visit', ['class' => 'btn btn-danger',
+                    'data' => [
+                        'confirm' => 'ส่งเข้ารับบริการ ?',
+                    //'method' => 'post',
+                    ]
+                ])
+                ?>
+            <?php endif; ?>
+            <?= Html::endForm() ?>
 
-            [
-                'label'=>'DM',
-                'format' => 'raw',
-                'vAlign'=>'middle',
-                'hAlign'=>'center',
-                'value' => function($model) {
-                    if(DmAssessment::find()->where(['vn'=>$model->vn])->count()>0){
-                        return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/nursescreen/dm-assessment/update','vn'=>$model->vn],
-                            ['class' => 'btn btn-danger']
-                        );
-                    }else{
-                        return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/nursescreen/dm-assessment/create',],
-                            ['class' => 'btn btn-danger']
-                        );
-                    }
 
-                }
-            ],
-        ]
-
-    ]); 
-    //
-    } else {
-            echo 'รอเลข vn';
+            <?php if (!empty($vn_session)): ?>
+                <a href="<?= Url::to(['/nursescreen/vital-signs/create']) ?>" class="btn btn-success">VS</a>
+                <a href="<?= Url::to(['/nursescreen/nurse-cc/create']) ?>" class="btn btn-info">CC</a>
+                <a href="<?= Url::to(['/nursescreen/dm-assessment/create']) ?>" class="btn btn-warning">DM</a>
+                <div class="pull-right">VN: <?= $vn_session ?></div>
+            <?php endif; ?>
+        </div>
+        <?php
+        if ($model) {
+            echo DetailView::widget([
+                'model' => $model,
+                'attributes' => [
+                    'hn',
+                    'prename',
+                    'fname',
+                    'mname',
+                    'lname',
+                    'agey',
+                    'agem',
+                    'aged'
+                ]
+            ]);
         }
         ?>
-
-    <?php Pjax::end(); ?>
+    </div>
 </div>
+
+
+
+
+
+
+

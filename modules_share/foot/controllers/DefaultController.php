@@ -10,8 +10,9 @@ use app\modules_share\foot\models\SFootAssessmentSummaryIpd;
 use app\modules_share\foot\models\SFootUlcerFirstOpd;
 use app\components\PatientHelper;
 use yii\web\Response;
+use app\components\VisitController;
 
-class DefaultController extends Controller
+class DefaultController extends VisitController
 {
 
     public function actionIndex()

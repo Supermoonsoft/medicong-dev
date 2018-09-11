@@ -32,7 +32,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     'tabfirst' =>'',
     'tabfu'=>'' 
     ])?>
-  <h3 style="color:#777;text-align: center;">IPD DIABETIC FOOT ASSESSMENT RECORD : SUMMARY</h3>
+  <h4 style="color:#777;text-align: center;">IPD DIABETIC FOOT ASSESSMENT RECORD : SUMMARY</h4>
   <?php $form = ActiveForm::begin(['id' => 'form','action' =>['/foot/2Ffoot-assessment-summary-ipd']]); ?>
     <fieldset class="scheduler-border">
 	<legend class="scheduler-border">Risk of foot ulceration</legend>

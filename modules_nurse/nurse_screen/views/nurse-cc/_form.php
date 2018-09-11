@@ -54,31 +54,33 @@ $this->registerJS($js);
         </button>
     </div>
     <div class="modal-body">
-        <form action="#">
+    <form name="form1" method="post">
             <div class="row"><div class="col-md-12">
-                <button class=" btn btn-pop ">ไข้ </button>
-                <button class=" btn btn-pop ">เจ็บคอ </button>
-                <button class=" btn btn-pop ">ไอ </button>
-                <button class=" btn btn-pop ">ปวดท้อง </button>
-                <button class=" btn btn-pop ">คลื่นไส้อาเจียน</button>
-                <button class=" btn btn-pop ">เวียนศีรษะ </button>
-                <button class=" btn btn-pop ">ปวดศีรษะ </button>
-                <button class=" btn btn-pop ">มึนงง </button>
-                <button class=" btn btn-pop ">ใจสั่น </button>
-                <button class=" btn btn-pop ">เจ็บแน่นหน้าอก </button>
-                <button class=" btn btn-pop ">เหนื่อยหอบหายใจลำบาก </button>
-                <button class=" btn btn-pop ">ปัสสาวะแสบขัด </button>
-                <button class=" btn btn-pop ">ถ่ายเหลว </button>
+                <input type="button" name="btn11" class=" btn btn-pop " value="ไข้" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'ไข้ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="เจ็บคอ" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'เจ็บคอ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ไอ" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'ไอ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปวดท้อง" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'ปวดท้อง '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="คลื่นไส้อาเจียน" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'คลื่นไส้อาเจียน '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="เวียนศีรษะ" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'เวียนศีรษะ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปวดศีรษะ" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'ปวดศีรษะ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="มึนงง" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'มึนงง '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ใจสั่น" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'ใจสั่น '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="เจ็บแน่นหน้าอก" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'เจ็บแน่นหน้าอก '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="เหนื่อยหอบหายใจลำบาก" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'เหนื่อยหอบหายใจลำบาก '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปัสสาวะแสบขัด" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'ปัสสาวะแสบขัด '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ถ่ายเหลว" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'ถ่ายเหลว '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="เป็นมา" OnClick="document.form1.tmp_cc1.value = document.form1.tmp_cc1.value + 'เป็นมา 1 วัน '; ">
+
             </div></div>
             <hr>
             <div class="row"><div class="col-md-12">
-                TEXT : <textarea class="form-control"  name="chk_cc_1_data" rows="6"></textarea>
+                TEXT : <textarea class="form-control"  id="tmp_cc1" rows="6"></textarea>
             </div></div>
-        </form>
+  </FORM>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send to CC</button>
+        <input type="button" name="btn2" class="btn btn-primary" data-dismiss="modal" value="Send to CC" OnClick="document.nurse-cc-form.chk_cc_1_data.value = document.form1.tmp_cc1.value ">
     </div>
   </div>
 </div>
@@ -92,19 +94,19 @@ $this->registerJS($js);
         </button>
     </div>
     <div class="modal-body">
-        <form action="#">
+    <form name="form2" method="post">
             <div class="row"><div class="col-md-12">
-                <button class=" btn btn-pop ">ปรึกษาตรวจเบาหวาน</button>
-                <button class=" btn btn-pop ">ปรึกษาตรวจไทรอยด์</button>
-                <button class=" btn btn-pop ">ปรึกษาตรวจความดันสูง</button>
-                <button class=" btn btn-pop ">ปรึกษาตรวจไขมัน</button>
-                <button class=" btn btn-pop ">ปรึกษาตรวจโปรแกรมตรวจสุขภาพ</button>
-                <button class=" btn btn-pop ">ปรึกษารับยาต่อเนื่อง</button>
-                <button class=" btn btn-pop ">ปรึกษาเรื่องวัคซีน</button>
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปรึกษาตรวจเบาหวาน" OnClick="document.form2.tmp_cc2.value = document.form2.tmp_cc2.value + 'ปรึกษาตรวจเบาหวาน '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปรึกษาตรวจไทรอยด์" OnClick="document.form2.tmp_cc2.value = document.form2.tmp_cc2.value + 'ปรึกษาตรวจไทรอยด์'; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปรึกษาตรวจความดันสูง" OnClick="document.form2.tmp_cc2.value = document.form2.tmp_cc2.value + 'ปรึกษาตรวจความดันสูง '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปรึกษาตรวจไขมัน" OnClick="document.form2.tmp_cc2.value = document.form2.tmp_cc1.value + 'ปรึกษาตรวจไขมัน '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปรึกษาตรวจโปรแกรมตรวจสุขภาพ" OnClick="document.form2.tmp_cc2.value = document.form2.tmp_cc2.value + 'ปรึกษาตรวจโปรแกรมตรวจสุขภาพ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปรึกษารับยาต่อเนื่อง" OnClick="document.form2.tmp_cc2.value = document.form2.tmp_cc2.value + 'ปรึกษารับยาต่อเนื่อง '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ปรึกษาเรื่องวัคซีน" OnClick="document.form2.tmp_cc2.value = document.form2.tmp_cc2.value + 'ปรึกษาเรื่องวัคซีน '; ">
             </div></div>
             <hr>
             <div class="row"><div class="col-md-12">
-                TEXT : <textarea  class="form-control" name="chk_cc_2_data" rows="6"></textarea>
+                TEXT : <textarea  class="form-control" name="tmp_cc2" rows="6"></textarea>
             </div></div>
         </form>
     </div>
@@ -124,23 +126,23 @@ $this->registerJS($js);
         </button>
     </div>
     <div class="modal-body">
-        <form action="#">
+    <form name="form3" method="post">
             <div class="row"><div class="col-md-12">
-                <button class=" btn btn-pop ">ติดตามตามนัด</button> 
-                <button class=" btn btn-pop ">เบาหวาน</button>
-                <button class=" btn btn-pop ">ไทยรอยด์</button>
-                <button class=" btn btn-pop ">ความดันสูง</button>
-                <button class=" btn btn-pop ">ไขมัน</button>
-                <button class=" btn btn-pop ">อาการทั่วไปปกติ</button>
-                <button class=" btn btn-pop ">หลังผ่าตัด</button>
-                <button class=" btn btn-pop ">ทำแผลบริเวณ</button>
-                <button class=" btn btn-pop ">ตัดเล็บเท้า</button>
-                <button class=" btn btn-pop ">รับบริการวัคซีนไข้หวัดใหญ่</button>
-                <button class=" btn btn-pop ">เรื่องแผลที่เท้า</button>
+                <input type="button" name="btn1" class=" btn btn-pop " value="ติดตามตามนัด" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'ติดตามตามนัด '; "> 
+                <input type="button" name="btn1" class=" btn btn-pop " value="เบาหวาน" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'เบาหวาน '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ไทยรอยด์" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'ไทยรอยด์ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ความดันสูง" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'ความดันสูง '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ไขมัน" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'ไขมัน '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="อาการทั่วไปปกติ" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'อาการทั่วไปปกติ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="หลังผ่าตัด" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'หลังผ่าตัด '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ทำแผลบริเวณ" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'ทำแผลบริเวณ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="ตัดเล็บเท้า" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'ตัดเล็บเท้า '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="รับบริการวัคซีนไข้หวัดใหญ่" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'รับบริการวัคซีนไข้หวัดใหญ่ '; ">
+                <input type="button" name="btn1" class=" btn btn-pop " value="เรื่องแผลที่เท้า" OnClick="document.form3.tmp_cc3.value = document.form3.tmp_cc3.value + 'เรื่องแผลที่เท้า '; ">
             </div></div>
             <hr>
             <div class="row"><div class="col-md-12">
-                TEXT : <textarea class="form-control"  name="chk_cc_3_data" rows="6"></textarea>
+                TEXT : <textarea class="form-control"  name="tmp_cc3" rows="6"></textarea>
             </div></div>
         </form>
     </div>
@@ -160,17 +162,17 @@ $this->registerJS($js);
         </button>
     </div>
     <div class="modal-body">
-        <form action="#">
+    <form name="form4" method="post">
             <div class="row"><div class="col-md-12">
-                <button class=" btn btn-pop ">ตรวจสุขภาพประจำปี โปรแกรม</button> 
-                <button class=" btn btn-pop ">ตรวจสุขภาพก่อนแต่งงานหรือวางแผนตั้งครรภ์</button> 
-                <button class=" btn btn-pop ">ตรวจสุขภาพก่อนทำประกัน</button> 
-                <button class=" btn btn-pop ">ตรวจสุขภาพขอใบขับขี่</button> 
-                <button class=" btn btn-pop ">ตรวจสุขภาพขอใบรับรองแพทย์</button> 
+                <input type="button" name="btn1" class=" btn btn-pop " value="ตรวจสุขภาพประจำปี " OnClick="document.form4.tmp_cc4.value = document.form4.tmp_cc4.value + 'ตรวจสุขภาพประจำปี โปรแกรม '; "> 
+                <input type="button" name="btn1" class=" btn btn-pop " value="ตรวจสุขภาพก่อนแต่งงานหรือวางแผนตั้งครรภ์" OnClick="document.form4.tmp_cc4.value = document.form4.tmp_cc4.value + 'ตรวจสุขภาพก่อนแต่งงานหรือวางแผนตั้งครรภ์'; "> 
+                <input type="button" name="btn1" class=" btn btn-pop " value="ตรวจสุขภาพก่อนทำประกัน" OnClick="document.form4.tmp_cc4.value = document.form4.tmp_cc4.value + 'ตรวจสุขภาพก่อนทำประกัน '; "> 
+                <input type="button" name="btn1" class=" btn btn-pop " value="ตรวจสุขภาพขอใบขับขี่" OnClick="document.form4.tmp_cc4.value = document.form4.tmp_cc4.value + 'ตรวจสุขภาพขอใบขับขี่ '; "> 
+                <input type="button" name="btn1" class=" btn btn-pop " value="ตรวจสุขภาพขอใบรับรองแพทย์" OnClick="document.form4.tmp_cc4.value = document.form4.tmp_cc4.value + 'ตรวจสุขภาพขอใบรับรองแพทย์ '; "> 
             </div></div>
             <hr>
             <div class="row"><div class="col-md-12">
-                TEXT : <textarea class="form-control" name="chk_cc_4_data" rows="6"></textarea>
+                TEXT : <textarea class="form-control" name="tmp_cc4" rows="6"></textarea>
             </div></div>
         </form>
     </div>
@@ -187,6 +189,7 @@ $this->registerJS($js);
 <?php Pjax::begin(); ?>
     <?php $form = ActiveForm::begin([
         'type' => ActiveForm::TYPE_HORIZONTAL,
+        'id' => 'nurse-cc-form',
         'formConfig' => ['labelSpan' => 2, 'deviceSize' => ActiveForm::SIZE_SMALL]
     ]); 
     

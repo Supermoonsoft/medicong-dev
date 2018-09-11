@@ -5,9 +5,12 @@
         padding: 9px;
         text-align: center;
         font-size: 20px;
-        border-radius: 5px;
+        /* border-radius: 5px; */
         margin-bottom: 20px;
         margin-top: 20px;
+        background-color: #b0daf3;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
       }
       .box-content{
         width: 90%;

@@ -56,7 +56,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     'tabfirst' =>'active',
     'tabfu'=>'' 
     ])?>
-<h3 style="text-align: center;color:#777;">IPD DIABETIC FOOT ULCER VISIT RECORD : OPD DFU FIRST VISIT</h3>
+<h4 style="text-align: center;color:#777;">IPD DIABETIC FOOT ULCER VISIT RECORD : OPD DFU FIRST VISIT</h4>
 <hr>    
 
 <?php $form = ActiveForm::begin([
@@ -1028,6 +1028,16 @@ year
     year
 
           </fieldset>
+
+          <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
+          </div>
+          
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a class="btn btn-success" id="save">บันทึก</a>
+          </div>    
+      </div>
           </div>
 </div>
 

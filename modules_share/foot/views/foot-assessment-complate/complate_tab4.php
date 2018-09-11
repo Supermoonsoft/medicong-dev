@@ -59,7 +59,15 @@ use phpnt\ICheck\ICheck;
           }
       ]])->label(false);?> 
 </fieldset>
-
+<div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
+          </div>
+          
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a class="btn btn-success" id="save">บันทึก</a>
+          </div>    
+      </div>
  	
 </div>
     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">

@@ -37,7 +37,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     'tabfu'=>'' 
     ])?>
 <div>
- <h3 style='text-align: center;17px;color: #777;'>DIABETIC FOOT ASSESSMENT RECORD : COMPLETE </h3>
+ <h4 style='text-align: center;17px;color: #777;'>DIABETIC FOOT ASSESSMENT RECORD : COMPLETE </h4>
  </div>
         <hr/>
         <?php $form = ActiveForm::begin([

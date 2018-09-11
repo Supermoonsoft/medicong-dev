@@ -57,7 +57,7 @@ echo ShowLoading::widget();
     'tabfirst' =>'',
     'tabfu'=>'active' 
     ])?>
-<h3 style="text-align: center;color:#777;">ipd DIABETIC FOOT ULCER VISIT RECORD : ipd DFU FIRST VISIT</h3>
+<h4 style="text-align: center;color:#777;">ipd DIABETIC FOOT ULCER VISIT RECORD : ipd DFU FIRST VISIT</h4>
 <br>
 <?php $form = ActiveForm::begin([
     'id' => 'form',
@@ -785,7 +785,7 @@ echo ShowLoading::widget();
         'style'  => ICheck::STYLE_FLAT,
         'items'    => [
            'N' => 'N',
-           'Y' => 'Y, type .......... duration .......... days .......... months .......... year',
+           'Y' => 'Y',
         ],
         'color'  => 'green',
         'options' => [
@@ -856,6 +856,16 @@ year
     year
 
           </fieldset>
+
+          <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
+          </div>
+          
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a class="btn btn-success" id="save">บันทึก</a>
+          </div>    
+      </div>
           </div>
 </div>
 <?php $form = ActiveForm::end(); ?> 

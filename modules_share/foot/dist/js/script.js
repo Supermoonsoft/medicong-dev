@@ -7,7 +7,8 @@ $('#save').click(function(){
             } else {
             // submit form
             SaveData();
-            alert('บันทึกสำเร็จ');         
+            alert('บันทึกสำเร็จ');  
+            $('#requester').val("")       
         }
 });
 // $('input').iCheck('disable');

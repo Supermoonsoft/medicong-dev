@@ -35,7 +35,7 @@ $sum = 'aa';
      'tabfirst' =>'',
      'tabfu'=>'' 
     ])?>
-<h3 style="color:#777;text-align: center;">OPD DIABETIC FOOT ASSESSMENT RECORD : SUMMARY</h3>
+<h4 style="color:#777;text-align: center;">OPD DIABETIC FOOT ASSESSMENT RECORD : SUMMARY</h4>
   <?php $form = ActiveForm::begin([
       'id' => 'form','action' => ['/foot/foot-assessment-summary-opd'],
       ]); ?>
