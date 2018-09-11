@@ -13,9 +13,6 @@ $session = Yii::$app->session;
 
 
 $hn = PatientHelper::getCurrentHn();
-if (empty($hn)) {
-    MessageHelper::errorNullHn();
-}
 $vn = PatientHelper::getCurrentVn();
 $Sdate = PatientHelper::getDateVisitByVn($vn);
 $Stime = PatientHelper::getTimeVisitByVn($vn);

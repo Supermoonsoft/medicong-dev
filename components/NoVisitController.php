@@ -2,10 +2,10 @@
 
 namespace app\components;
 
-use yii\web\Controller;
+use app\components\LogController;
 use app\components\PatientHelper;
 
-class NoVisitController extends Controller {
+class NoVisitController extends LogController {
 
     public function beforeAction($action) {
         $hn = PatientHelper::getCurrentHn();        

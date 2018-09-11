@@ -64,15 +64,11 @@ class NurseCcController extends Controller
     {
 
         $vn = PatientHelper::getCurrentVn();
-        if(empty($vn)){
-            MessageHelper::setFlashWarning('กรุณาส่งตรวจคนไข้ ก่อนให้บริการ');
-            return $this->redirect(['/patiententry/default/index']);
-        }
         $model = new NurseCc();
         $model->hn = PatientHelper::getCurrentHn();
         $model->vn = $vn;
     
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save(false)) {
             return $this->redirect(['view', 'vn' => $model->vn]);
         
         }
@@ -104,6 +100,10 @@ class NurseCcController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionGetdata1($vn)
+    {
+        return $this->redirect(['data1']);
+    }
 
     protected function findModel($vn)
     {

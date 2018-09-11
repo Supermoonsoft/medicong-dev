@@ -25,12 +25,12 @@ class NurseCc extends \yii\db\ActiveRecord
     {
         return [
             [['requester', 'hn','vn', 'date_start_service', 'time_start_service'], 'required'],
-            [['id', 'nurse_text'], 'string'],
+            [['id', 'nurse_text','chk_cc_1_data', 'chk_cc_2_data'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service'], 'safe'],
             [['chk_cc_1', 'chk_cc_2', 'chk_cc_3', 'chk_cc_4', 'chk_cc_5', 'chk_cc_6', 'chk_cc_7', 'chk_cc_8', 'chk_cc_9', 'chk_cc_10', 'chk_cc_11', 'chk_cc_12', 'chk_cc_13', 'chk_con_1', 'chk_con_2', 'chk_con_3', 'chk_con_4', 'chk_con_5', 'chk_con_6', 'chk_con_7', 'chk_fu_1', 'chk_fu_2', 'chk_fu_3', 'chk_fu_4', 'chk_fu_5', 'chk_fu_6', 'chk_fu_7', 'chk_fu_8', 'chk_fu_9', 'chk_fu_10', 'chk_fu_11', 'chk_chk_1', 'chk_chk_2', 'chk_chk_3', 'chk_chk_4', 'chk_chk_5'], 'boolean'],
             [['vn'], 'string', 'max' => 12],
             [['hn'], 'string', 'max' => 9],
-            [['requester', 'created_by', 'updated_by', 'chk_cc_1_data', 'chk_cc_2_data', 'chk_cc_3_data', 'chk_cc_4_data', 'chk_cc_5_data', 'chk_cc_6_data', 'chk_cc_7_data', 'chk_cc_8_data', 'chk_cc_9_data', 'chk_cc_10_data', 'chk_cc_11_data', 'chk_cc_12_data', 'chk_cc_13_data', 'chk_con_1_data', 'chk_con_2_data', 'chk_con_3_data', 'chk_con_4_data', 'chk_con_5_data', 'chk_con_6_data', 'chk_con_7_data', 'chk_fu_1_data', 'chk_fu_2_data', 'chk_fu_3_data', 'chk_fu_4_data', 'chk_fu_5_data', 'chk_fu_6_data', 'chk_fu_7_data', 'chk_fu_8_data', 'chk_fu_9_data', 'chk_fu_10_data', 'chk_fu_11_data', 'chk_chk_1_data', 'chk_chk_2_data', 'chk_chk_3_data', 'chk_chk_4_data', 'chk_chk_5_data'], 'string', 'max' => 255],
+            [['requester', 'created_by', 'updated_by', 'chk_cc_3_data', 'chk_cc_4_data', 'chk_cc_5_data', 'chk_cc_6_data', 'chk_cc_7_data', 'chk_cc_8_data', 'chk_cc_9_data', 'chk_cc_10_data', 'chk_cc_11_data', 'chk_cc_12_data', 'chk_cc_13_data', 'chk_con_1_data', 'chk_con_2_data', 'chk_con_3_data', 'chk_con_4_data', 'chk_con_5_data', 'chk_con_6_data', 'chk_con_7_data', 'chk_fu_1_data', 'chk_fu_2_data', 'chk_fu_3_data', 'chk_fu_4_data', 'chk_fu_5_data', 'chk_fu_6_data', 'chk_fu_7_data', 'chk_fu_8_data', 'chk_fu_9_data', 'chk_fu_10_data', 'chk_fu_11_data', 'chk_chk_1_data', 'chk_chk_2_data', 'chk_chk_3_data', 'chk_chk_4_data', 'chk_chk_5_data'], 'string', 'max' => 255],
             [['id'], 'unique'],
         ];
     }
