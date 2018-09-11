@@ -73,12 +73,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>function ($model, $key, $index) { 
                     if(VitalSigns::find()->where(['vn'=>$model->vn])->count()>0){
                         return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/screen/vital-signs/update','vn'=>$model->vn],
+                            ['/nursescreen/vital-signs/update','vn'=>$model->vn],
                             ['class' => 'btn btn-info']
                         );
                     }else{
                         return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/screen/vital-signs/create',],
+                            ['/nursescreen/vital-signs/create',],
                             ['class' => 'btn btn-info']
                         );
                     }
@@ -92,12 +92,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>function ($model, $key, $index) { 
                     if(NurseScreening::find()->where(['vn'=>$model->vn])->count()>0){
                         return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/screen/nurse-screening/update','vn'=>$model->vn],
+                            ['/nursescreen/nurse-screening/update','vn'=>$model->vn],
                             ['class' => 'btn btn-success']
                         );
                     }else{
                         return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/screen/nurse-screening/create',],
+                            ['/nursescreen/nurse-screening/create',],
                             ['class' => 'btn btn-success']
                         );
                     }
@@ -111,12 +111,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>function ($model, $key, $index) { 
                     if(NurseCc::find()->where(['vn'=>$model->vn])->count()>0){
                         return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/screen/nurse-cc/update','vn'=>$model->vn],
+                            ['/nursescreen/nurse-cc/update','vn'=>$model->vn],
                             ['class' => 'btn btn-warning']
                         );
                     }else{
                         return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/screen/nurse-cc/create',],
+                            ['/nursescreen/nurse-cc/create',],
                             ['class' => 'btn btn-warning']
                         );
                     }
@@ -132,12 +132,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($model) {
                     if(DmAssessment::find()->where(['vn'=>$model->vn])->count()>0){
                         return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/screen/dm-assessment/update','vn'=>$model->vn],
+                            ['/nursescreen/dm-assessment/update','vn'=>$model->vn],
                             ['class' => 'btn btn-danger']
                         );
                     }else{
                         return Html::a('<i class="glyphicon glyphicon-ok"></i>',
-                            ['/screen/dm-assessment/create',],
+                            ['/nursescreen/dm-assessment/create',],
                             ['class' => 'btn btn-danger']
                         );
                     }

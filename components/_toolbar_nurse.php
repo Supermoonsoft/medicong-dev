@@ -10,7 +10,7 @@ use yii\helpers\Url;
             <ul class="nav navbar-nav na">
 
                 <li>
-                    <a href="<?= Url::to(['/screen/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a><!-- POND -->
+                    <a href="<?= Url::to(['/nursescreen/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a><!-- POND -->
                 </li>              
                 <li>
                     <a href="#"><i class="fa fa-bullhorn"></i> Q.manage</a>
@@ -19,7 +19,7 @@ use yii\helpers\Url;
                     <a href="#"><i class="fa fa-thermometer"></i> LAB</a>
                 </li>
                 <li>
-                    <a href="<?= Url::to(['/screen/dm-assessment/index']) ?>"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a><!-- POND -->
+                    <a href="<?= Url::to(['/nursescreen/dm-assessment/index']) ?>"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a><!-- POND -->
                 </li>
                 <li>
                     <a href="<?= Url::to(['/dietitian']) ?>"><i class="fa fa-bed"></i> Dietitian</a>

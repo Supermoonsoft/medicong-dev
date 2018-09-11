@@ -54,10 +54,6 @@ class NurseScreeningController extends VisitController
     {
 
         $vn = PatientHelper::getCurrentVn();
-        if(empty($vn)){
-            MessageHelper::setFlashWarning('กรุณาส่งตรวจคนไข้ ก่อนให้บริการ');
-            return $this->redirect(['/patiententry/default/index']);
-        }
         $model = new NurseScreening();
         $model->hn = PatientHelper::getCurrentHn();
         $model->vn = $vn;

@@ -4,8 +4,8 @@ namespace app\modules_share\foot\controllers;
 use app\modules_share\foot\models\SFootUlcerFirstOpd;
 use yii;
 use app\components\PatientHelper;
-use yii\web\Response;
 use app\components\VisitController;
+use yii\web\Response;
 
 class FootUlcerFirstOpdController extends \yii\web\Controller
 {

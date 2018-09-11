@@ -10,10 +10,9 @@ use app\components\MessageHelper;
 use app\components\loading\ShowLoading;
 echo ShowLoading::widget();
 $this->registerCss($this->render('../../dist/css/style.css'));
+$this->registerJs($this->render('../../dist/js/script.js'));
+
 $hn = PatientHelper::getCurrentHn();
-if (empty($hn)) {
-    MessageHelper::errorNullHn();
-}
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 <style>
@@ -61,7 +60,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 <hr>    
 
 <?php $form = ActiveForm::begin([
-    'id' => 'form-first-opd',
+    'id' => 'form',
     'action' => ['/foot/foot-ulcer-first-opd'],
     ]); ?>
     <?=$form->field($model, 'hn')->hiddenInput(['value' => $hn])->label(false);?>
@@ -1033,29 +1032,3 @@ year
 </div>
 
 <?php $form = ActiveForm::end(); ?>
-  <?php
-$js = <<< JS
-// $('input').iCheck('disable');
-$('input').on('ifUnchecked', function(event){
-    SaveData();
-
-});
-$('input').on('ifChecked', function(event){
-    SaveData();
-});
-function SaveData(){
-
-    $.ajax({
-        url:$('#form-first-opd').attr('action'),
-        method:'post',
-        data:$('#form-first-opd').serialize(),
-        success: function (data){
-        console.log(data.data);
-       // $('#results').html(JSON.stringify(data));
-      console.log($('#form-first-opd').attr('action'));
-        }
-    });
-}
-JS;
-$this->registerJS($js);
-?>

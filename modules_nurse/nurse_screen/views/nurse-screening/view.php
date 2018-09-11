@@ -11,9 +11,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen
 $this->params['breadcrumbs'][] = $this->title;
 
 $hn = PatientHelper::getCurrentHn();
-if (empty($hn)) {
-    MessageHelper::errorNullHn();
-}
 
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
@@ -36,12 +33,12 @@ $this->registerCss("
     <?php 
         if(NurseCc::find()->where(['vn'=>$model->vn])->count()>0){
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Chief Complaint </i>',
-                ['/screen/nurse-cc/update','vn'=>$model->vn],
+                ['/nursescreen/nurse-cc/update','vn'=>$model->vn],
                 ['class' => 'btn btn-success']
             );
         }else{
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Chief Complaint </i>',
-                ['/screen/nurse-cc/create',],
+                ['/nursescreen/nurse-cc/create',],
                 ['class' => 'btn btn-success']
             );
         }

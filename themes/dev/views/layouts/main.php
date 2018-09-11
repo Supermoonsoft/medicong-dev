@@ -83,7 +83,15 @@ $hn = PatientHelper::getCurrentHn();
                             </div>
                         </li>
                         <li>
-                            <div style="padding-top: 8px;padding-left: 50px;color: white;"><h4><?= empty($this->params['pt_title']) ? '' : $this->params['pt_title'] ?></h4></div>
+                            <div style="padding-top: 8px;padding-left: 50px;color: white;">
+                                <h4>
+                                    <?= empty($this->params['pt_title']) ? '' : $this->params['pt_title'] ?>
+                                    <?php if (!empty($hn)): ?>
+                                        <?= Html::a('  <i class="fa fa-times" aria-hidden="true"></i>', ['/site/index'], ['style' => 'color:white']) ?>
+                                    <?php endif; ?>
+                                </h4>
+
+                            </div>
                         </li>
 
                     </ul>

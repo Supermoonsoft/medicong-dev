@@ -8,10 +8,9 @@ use app\components\MessageHelper;
 use app\components\loading\ShowLoading;
 echo ShowLoading::widget();
 $this->registerCss($this->render('../../dist/css/style.css'));
+$this->registerJs($this->render('../../dist/js/script.js'));
+
 $hn = PatientHelper::getCurrentHn();
-if (empty($hn)) {
-    //MessageHelper::errorNullHn();
-}
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 <style>
@@ -42,7 +41,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
  </div>
         <hr/>
         <?php $form = ActiveForm::begin([
-            'id' => 'form-complate',
+            'id' => 'form',
             'action' =>['/foot/foot-assessment-complate']
             ]); ?>
                 <?=$form->field($model, 'hn')->hiddenInput(['value' => $hn])->label(false);?>
@@ -61,30 +60,4 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
     
 <?php $form = ActiveForm::end(); ?>
-
-<?php
-$js = <<< JS
-$('#form-complate').on('ifUnchecked', function(event){
-    SaveData();
-
-});
-$('#form-complate').on('ifChecked', function(event){
-    SaveData();
-});
-function SaveData(){
-
-    $.ajax({
-        url:$('#form-complate').attr('action'),
-        method:'post',
-        data:$('#form-complate').serialize(),
-        success: function (data){
-        console.log(data.data);
-       // $('#results').html(JSON.stringify(data));
-       // console.log($('#form-complate').attr('action'));
-        }
-    });
-}
-JS;
-$this->registerJS($js);
-?>
 <?=$this->render('@app/modules_share/foot/views/default/panel_foot')?>

@@ -14,7 +14,7 @@ $modules['patiententry'] = ['class' => 'app\modules_nurse\patiententry\PatientEn
 $modules['servicedummy'] = ['class' => 'app\modules_nurse\servicedummy\ServiceDummy']; //test
 $modules['opdvisit'] = ['class' => 'app\modules_share\opdvisit\OpdVisit'];
 $modules['foot'] = ['class' => 'app\modules_share\foot\Foot']; //oh
-$modules['screen'] = ['class' => 'app\modules_nurse\nurse_screen\Screen']; //pond
+$modules['nursescreen'] = ['class' => 'app\modules_nurse\nurse_screen\Nursescreen']; //pond
 $modules['emr'] = ['class' => 'app\modules_share\emr\Emr']; //jub
 $modules['dietitian'] = ['class' => 'app\modules_nurse\dietitian\Dietitian']; //jub
 $modules['printout'] = ['class' => 'app\modules_share\printout\PrintOut']; //tehnn

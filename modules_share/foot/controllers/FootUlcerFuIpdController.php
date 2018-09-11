@@ -1,8 +1,11 @@
 <?php
 
 namespace app\modules_share\foot\controllers;
+use yii;
 use app\modules_share\foot\models\SFootUlcerFuIpd;
+use app\components\PatientHelper;
 use app\components\VisitController;
+use yii\web\Response;
 
 class FootUlcerFuIpdController extends VisitController
 {

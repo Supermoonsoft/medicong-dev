@@ -7,13 +7,10 @@ use app\components\MessageHelper;
 use app\modules_nurse\nurse_screen\models\DmAssessment;
 
 $this->title = "Nurse Chief complaint";
-$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/nursescreen/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 $hn = PatientHelper::getCurrentHn();
-if (empty($hn)) {
-    MessageHelper::errorNullHn();
-}
 
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
@@ -25,12 +22,12 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     <?php 
         if(DmAssessment::find()->where(['vn'=>$model->vn])->count()>0){
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> DM Assessment </i>',
-                ['/screen/dm-assessment/update','vn'=>$model->vn],
+                ['/nursescreen/dm-assessment/update','vn'=>$model->vn],
                 ['class' => 'btn btn-success']
             );
         }else{
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> DM Assessment </i>',
-                ['/screen/dm-assessment/create',],
+                ['/nursescreen/dm-assessment/create',],
                 ['class' => 'btn btn-success']
             );
         }

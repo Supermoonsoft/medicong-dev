@@ -55,10 +55,10 @@ $this->registerCss("
     <div class="col-md-12">
     <h3>
         <?= Html::a('Last Vital Signs', 
-                        ['/screen/nurse-screen/create',], 
+                        ['/nursescreen/nurse-screen/create',], 
                         ['class'=>'btn btn-primary']); ?>
         <?= Html::a('Load form Machine', 
-                        ['/screen/nurse-screen/create',], 
+                        ['/nursescreen/nurse-screen/create',], 
                         ['class'=>'btn btn-info']); ?>
         <?= $form->field($model, 'hn')->hiddenInput(['value' => $hn])->label(false); ?>
         <?= $form->field($model, 'vn')->hiddenInput(['value' => $vn])->label(false); ?>

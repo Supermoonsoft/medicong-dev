@@ -5,7 +5,7 @@ namespace app\modules_nurse\nurse_screen;
 /**
  * Screen module definition class
  */
-class Screen extends \yii\base\Module
+class NurseScreen extends \yii\base\Module
 {
     /**
      * {@inheritdoc}

@@ -8,10 +8,8 @@ use app\components\MessageHelper;
 use app\components\loading\ShowLoading;
 echo ShowLoading::widget();
 $this->registerCss($this->render('../../dist/css/style.css'));
+$this->registerJs($this->render('../../dist/js/script.js'));
 $hn = PatientHelper::getCurrentHn();
-if (empty($hn)) {
-    MessageHelper::errorNullHn();
-}
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 
@@ -35,7 +33,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     'tabfu'=>'' 
     ])?>
   <h3 style="color:#777;text-align: center;">IPD DIABETIC FOOT ASSESSMENT RECORD : SUMMARY</h3>
-  <?php $form = ActiveForm::begin(['id' => 'form']); ?>
+  <?php $form = ActiveForm::begin(['id' => 'form','action' =>['/foot/2Ffoot-assessment-summary-ipd']]); ?>
     <fieldset class="scheduler-border">
 	<legend class="scheduler-border">Risk of foot ulceration</legend>
         <?= $form->field($model, 'risk_of_foot_ulceration')->widget(ICheck::className(), [
@@ -564,32 +562,15 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
           }
       ]])->label(false);?>
       </fieldset>
+      <div class="row">
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
+          </div>
+          
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a class="btn btn-success" id="save">บันทึก</a>
+          </div>    
+      </div>
   <?php $form = ActiveForm::end(); ?>
 
-  <?php
-$js = <<< JS
-// $('input').iCheck('disable');
-$('input').on('ifUnchecked', function(event){
-    SaveData();
-
-});
-$('input').on('ifChecked', function(event){
-    SaveData();
-});
-function SaveData(){
-    var form = $('#form');
-    $.ajax({
-        url:'index.php?r=foot/foot-assessment-summary-ipd',
-        method:'post',
-        data:form.serialize(),
-        success: function (data){
-        console.log(data.data);
-        $('#results').html(JSON.stringify(data));
-        
-                }
-    });
-}
-JS;
-$this->registerJS($js);
-?>
 <?=$this->render('@app/modules_share/foot/views/default/panel_foot')?>

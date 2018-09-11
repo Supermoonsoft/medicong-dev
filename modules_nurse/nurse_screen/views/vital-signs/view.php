@@ -7,14 +7,10 @@ use app\components\MessageHelper;
 use app\modules_nurse\nurse_screen\models\NurseScreening;
 
 $this->title = "Vital Signs";
-$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/nursescreen/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 $hn = PatientHelper::getCurrentHn();
-if (empty($hn)) {
-    MessageHelper::errorNullHn();
-}
-
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
 ?>
@@ -34,12 +30,12 @@ $this->registerCss("
     <?php 
         if(NurseScreening::find()->where(['vn'=>$model->vn])->count()>0){
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Screening </i>',
-                ['/screen/nurse-screening/update','vn'=>$model->vn],
+                ['/nursescreen/nurse-screening/update','vn'=>$model->vn],
                 ['class' => 'btn btn-info']
             );
         }else{
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Screening </i>',
-                ['/screen/nurse-screening/create',],
+                ['/nursescreen/nurse-screening/create',],
                 ['class' => 'btn btn-info']
             );
         }

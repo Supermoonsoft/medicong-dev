@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\components\PatientHelper;
 
 class SiteController extends Controller
 {
@@ -61,6 +62,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        PatientHelper::removeCurrentHnVn();
         return $this->render('index');
     }
 

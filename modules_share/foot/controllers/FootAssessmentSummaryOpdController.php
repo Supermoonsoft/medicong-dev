@@ -37,7 +37,9 @@ class FootAssessmentSummaryOpdController extends VisitController
             return $this->render('index',[
                 'model' => $model,
                 'hn' => $hn,
-                'vn' => $vn
+                'vn' => $vn,
+                'Sdate' => $Sdate,
+                'Stime' => $Stime
                 ]);
         }
     }

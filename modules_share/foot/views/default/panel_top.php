@@ -13,7 +13,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 ?>
-
+<style>
+.navbar-default .navbar-nav > li.dropdown:hover > a, 
+.navbar-default .navbar-nav > li.dropdown:hover > a:hover,
+.navbar-default .navbar-nav > li.dropdown:hover > a:focus {
+    background-color: rgb(231, 231, 231);
+    color: rgb(85, 85, 85);
+}
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+	background-color: #eee;
+}
+.nav-tabs > li {
+    background-color: #c7c7c7c7;
+}
+.nav-tabs > li > a {
+    color:#353535;
+}
+</style>
 
 <div class="panel panel-info" style="margin-left: 20px;margin-right: 20px">
 	<div class="panel-heading">

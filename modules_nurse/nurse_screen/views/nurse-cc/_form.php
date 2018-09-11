@@ -25,6 +25,19 @@ $this->registerCss("
     -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
     box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
 }
+.btn-pop {
+    //padding: 5px 5px;
+    margin:5px;
+    font-size: 16px;
+    color: #ffffff;
+    background: #00e676;
+    width:auto;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
+
 ");
 
 $js=<<<JS
@@ -41,26 +54,27 @@ $this->registerJS($js);
         </button>
     </div>
     <div class="modal-body">
-        <?php $form = ActiveForm::begin(['type' => ActiveForm::TYPE_HORIZONTAL,]);?>
-            <div class="row"><div class="col-md-8">
-                <button class=" btn btn-default ">ไข้ </button>
-                <button class=" btn btn-default ">เจ็บคอ </button>
-                <button class=" btn btn-default ">ไอ </button>
-                <button class=" btn btn-default ">ปวดท้อง </button>
-                <button class=" btn btn-default ">คลื่นไส้อาเจียน</button>
-                <button class=" btn btn-default ">เวียนศีรษะ </button>
-                <button class=" btn btn-default ">ปวดศีรษะ </button>
-                <button class=" btn btn-default ">มึนงง </button>
-                <button class=" btn btn-default ">ใจสั่น </button>
-                <button class=" btn btn-default ">เจ็บแน่นหน้าอก </button>
-                <button class=" btn btn-default ">เหนื่อยหอบหายใจลำบาก </button>
-                <button class=" btn btn-default ">ปัสสาวะแสบขัด </button>
-                <button class=" btn btn-default ">ถ่ายเหลว </button>
+        <form action="#">
+            <div class="row"><div class="col-md-12">
+                <button class=" btn btn-pop ">ไข้ </button>
+                <button class=" btn btn-pop ">เจ็บคอ </button>
+                <button class=" btn btn-pop ">ไอ </button>
+                <button class=" btn btn-pop ">ปวดท้อง </button>
+                <button class=" btn btn-pop ">คลื่นไส้อาเจียน</button>
+                <button class=" btn btn-pop ">เวียนศีรษะ </button>
+                <button class=" btn btn-pop ">ปวดศีรษะ </button>
+                <button class=" btn btn-pop ">มึนงง </button>
+                <button class=" btn btn-pop ">ใจสั่น </button>
+                <button class=" btn btn-pop ">เจ็บแน่นหน้าอก </button>
+                <button class=" btn btn-pop ">เหนื่อยหอบหายใจลำบาก </button>
+                <button class=" btn btn-pop ">ปัสสาวะแสบขัด </button>
+                <button class=" btn btn-pop ">ถ่ายเหลว </button>
             </div></div>
-            <div class="row"><div class="col-md-8">
-                <?= $form->field($model, 'chk_cc_1_data')->textinput()->label("เป็นมา :"); ?>
+            <hr>
+            <div class="row"><div class="col-md-12">
+                TEXT : <textarea class="form-control"  name="chk_cc_1_data" rows="6"></textarea>
             </div></div>
-        <?php ActiveForm::end(); ?>
+        </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -78,20 +92,21 @@ $this->registerJS($js);
         </button>
     </div>
     <div class="modal-body">
-        <?php $form = ActiveForm::begin(['type' => ActiveForm::TYPE_HORIZONTAL,]);?>
-            <div class="row"><div class="col-md-8">
-                <button class=" btn btn-default ">ปรึกษาตรวจเบาหวาน</button>
-                <button class=" btn btn-default ">ปรึกษาตรวจไทรอยด์</button>
-                <button class=" btn btn-default ">ปรึกษาตรวจความดันสูง</button>
-                <button class=" btn btn-default ">ปรึกษาตรวจไขมัน</button>
-                <button class=" btn btn-default ">ปรึกษาตรวจโปรแกรมตรวจสุขภาพ</button>
-                <button class=" btn btn-default ">ปรึกษารับยาต่อเนื่อง</button>
-                <button class=" btn btn-default ">ปรึกษาเรื่องวัคซีน</button>
+        <form action="#">
+            <div class="row"><div class="col-md-12">
+                <button class=" btn btn-pop ">ปรึกษาตรวจเบาหวาน</button>
+                <button class=" btn btn-pop ">ปรึกษาตรวจไทรอยด์</button>
+                <button class=" btn btn-pop ">ปรึกษาตรวจความดันสูง</button>
+                <button class=" btn btn-pop ">ปรึกษาตรวจไขมัน</button>
+                <button class=" btn btn-pop ">ปรึกษาตรวจโปรแกรมตรวจสุขภาพ</button>
+                <button class=" btn btn-pop ">ปรึกษารับยาต่อเนื่อง</button>
+                <button class=" btn btn-pop ">ปรึกษาเรื่องวัคซีน</button>
             </div></div>
-            <div class="row"><div class="col-md-8">
-                <?= $form->field($model, 'chk_cc_2_data')->textinput()->label("TEXT :"); ?>
+            <hr>
+            <div class="row"><div class="col-md-12">
+                TEXT : <textarea  class="form-control" name="chk_cc_2_data" rows="6"></textarea>
             </div></div>
-        <?php ActiveForm::end(); ?>
+        </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -109,25 +124,25 @@ $this->registerJS($js);
         </button>
     </div>
     <div class="modal-body">
-        <?php $form = ActiveForm::begin(['type' => ActiveForm::TYPE_HORIZONTAL,]);?>
-            <div class="row"><div class="col-md-8">
-                <button class=" btn btn-default ">ติดตามตามนัด</button> 
-                <button class=" btn btn-default ">เบาหวาน</button>
-                <button class=" btn btn-default ">ไทยรอยด์</button>
-                <button class=" btn btn-default ">ความดันสูง</button>
-                <button class=" btn btn-default ">ไขมัน</button>
-                <button class=" btn btn-default ">อาการทั่วไปปกติ</button>
-                <button class=" btn btn-default ">หลังผ่าตัด</button>
-                <button class=" btn btn-default ">ทำแผลบริเวณ</button>
-                <button class=" btn btn-default ">ตัดเล็บเท้า</button>
-                <button class=" btn btn-default ">รับบริการวัคซีนไข้หวัดใหญ่</button>
-                <button class=" btn btn-default ">เรื่องแผลที่เท้า</button>
-
+        <form action="#">
+            <div class="row"><div class="col-md-12">
+                <button class=" btn btn-pop ">ติดตามตามนัด</button> 
+                <button class=" btn btn-pop ">เบาหวาน</button>
+                <button class=" btn btn-pop ">ไทยรอยด์</button>
+                <button class=" btn btn-pop ">ความดันสูง</button>
+                <button class=" btn btn-pop ">ไขมัน</button>
+                <button class=" btn btn-pop ">อาการทั่วไปปกติ</button>
+                <button class=" btn btn-pop ">หลังผ่าตัด</button>
+                <button class=" btn btn-pop ">ทำแผลบริเวณ</button>
+                <button class=" btn btn-pop ">ตัดเล็บเท้า</button>
+                <button class=" btn btn-pop ">รับบริการวัคซีนไข้หวัดใหญ่</button>
+                <button class=" btn btn-pop ">เรื่องแผลที่เท้า</button>
             </div></div>
-            <div class="row"><div class="col-md-8">
-                <?= $form->field($model, 'chk_cc_3_data')->textinput()->label("TEXT :"); ?>
+            <hr>
+            <div class="row"><div class="col-md-12">
+                TEXT : <textarea class="form-control"  name="chk_cc_3_data" rows="6"></textarea>
             </div></div>
-        <?php ActiveForm::end(); ?>
+        </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -145,20 +160,19 @@ $this->registerJS($js);
         </button>
     </div>
     <div class="modal-body">
-        <?php $form = ActiveForm::begin(['type' => ActiveForm::TYPE_HORIZONTAL,]);?>
-            <div class="row"><div class="col-md-8">
-                <button class=" btn btn-default ">ตรวจสุขภาพประจำปี โปรแกรม</button> 
-                <button class=" btn btn-default ">ตรวจสุขภาพก่อนแต่งงานหรือวางแผนตั้งครรภ์</button> 
-                <button class=" btn btn-default ">ตรวจสุขภาพก่อนทำประกัน</button> 
-                <button class=" btn btn-default ">ตรวจสุขภาพขอใบขับขี่</button> 
-                <button class=" btn btn-default ">ตรวจสุขภาพขอใบรับรองแพทย์</button> 
-
-
+        <form action="#">
+            <div class="row"><div class="col-md-12">
+                <button class=" btn btn-pop ">ตรวจสุขภาพประจำปี โปรแกรม</button> 
+                <button class=" btn btn-pop ">ตรวจสุขภาพก่อนแต่งงานหรือวางแผนตั้งครรภ์</button> 
+                <button class=" btn btn-pop ">ตรวจสุขภาพก่อนทำประกัน</button> 
+                <button class=" btn btn-pop ">ตรวจสุขภาพขอใบขับขี่</button> 
+                <button class=" btn btn-pop ">ตรวจสุขภาพขอใบรับรองแพทย์</button> 
             </div></div>
-            <div class="row"><div class="col-md-8">
-                <?= $form->field($model, 'chk_cc_3_data')->textinput()->label("TEXT :"); ?>
+            <hr>
+            <div class="row"><div class="col-md-12">
+                TEXT : <textarea class="form-control" name="chk_cc_4_data" rows="6"></textarea>
             </div></div>
-        <?php ActiveForm::end(); ?>
+        </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -168,6 +182,7 @@ $this->registerJS($js);
 </div>
 </div>
 <!--- END DIALOG --->
+
 <div class="nurse-cc-form">
 <?php Pjax::begin(); ?>
     <?php $form = ActiveForm::begin([
@@ -176,30 +191,24 @@ $this->registerJS($js);
     ]); 
     
     ?>
-        <?= $form->field($model, 'hn')->hiddenInput(['value' => $hn])->label(false); ?>
-        <?= $form->field($model, 'vn')->hiddenInput(['value' => $vn])->label(false); ?>
-
-        <?= $form->field($model, 'date_start_service')->hiddenInput(['value' => $Sdate])->label(false); ?>
-        <?= $form->field($model, 'time_start_service')->hiddenInput(['value' => $Stime])->label(false); ?>
-
 <div class="row ">
 <div class="col-md-6">
 <div class="panel panel-success box-shadow">
-  <div class="panel-heading">อาการ : </div>
+  <div class="panel-heading"><h3>อาการ : </h3></div>
     <div class="panel-body">
         <div class="row"><div class="col-md-12">
-            <?= $form->field($model, 'chk_cc_1_data')->textarea(['data-toggle'=>"modal",'data-target'=>".bd-popup1-modal-lg"])->label(false); ?>
+            <?= $form->field($model, 'chk_cc_1_data')->textarea(['data-toggle'=>"modal",'data-target'=>".bd-popup1-modal-lg",'rows' => 6])->label(false); ?>
         </div></div>
     </div>
 </div>
 </div>
 
 <div class="col-md-6">
-<div class="panel panel-success box-shadow">
-  <div class="panel-heading">ปรึกษา : </div>
+<div class="panel panel-info box-shadow">
+  <div class="panel-heading"><h3>ปรึกษา : </h3></div>
     <div class="panel-body">
     <div class="row"><div class="col-md-12">
-        <?= $form->field($model, 'chk_cc_2_data')->textarea(['data-toggle'=>"modal",'data-target'=>".bd-popup2-modal-lg"])->label(false); ?>
+        <?= $form->field($model, 'chk_cc_2_data')->textarea(['data-toggle'=>"modal",'data-target'=>".bd-popup2-modal-lg",'rows' => 6])->label(false); ?>
     </div></div>
     </div>
 </div>
@@ -209,11 +218,11 @@ $this->registerJS($js);
 
 <div class="row ">
 <div class="col-md-6">
-<div class="panel panel-success box-shadow">
-  <div class="panel-heading">ติดตาม : </div>
+<div class="panel panel-info box-shadow">
+  <div class="panel-heading"><h3>ติดตาม : </h3></div>
     <div class="panel-body">
         <div class="row"><div class="col-md-12">
-            <?= $form->field($model, 'chk_cc_3_data')->textarea(['data-toggle'=>"modal",'data-target'=>".bd-popup3-modal-lg"])->label(false); ?>
+            <?= $form->field($model, 'chk_cc_3_data')->textarea(['data-toggle'=>"modal",'data-target'=>".bd-popup3-modal-lg",'rows' => 6])->label(false); ?>
         </div></div>
     </div>
 </div>
@@ -221,10 +230,10 @@ $this->registerJS($js);
 
 <div class="col-md-6">
 <div class="panel panel-success box-shadow">
-  <div class="panel-heading">ตรวจสุขภาพ : </div>
+  <div class="panel-heading"><h3>ตรวจสุขภาพ : </h3></div>
     <div class="panel-body">
         <div class="row"><div class="col-md-12">
-            <?= $form->field($model, 'chk_cc_4_data')->textarea(['data-toggle'=>"modal",'data-target'=>".bd-popup4-modal-lg"])->label(false); ?>
+            <?= $form->field($model, 'chk_cc_4_data')->textarea(['data-toggle'=>"modal",'data-target'=>".bd-popup4-modal-lg",'rows' => 6])->label(false); ?>
         </div></div>
     </div>
 </div>
@@ -234,12 +243,19 @@ $this->registerJS($js);
 <div class="row">
     <div class="col-md-6">
         <?= $form->field($model, 'nurse_text')->textarea(['onclick' => '','rows' => 6]) ?>
+
     </div>
     <div class="col-md-2">
         <?= $form->field($model, 'requester')->textInput(['placeholder'=>'requester'])->label(false) ?>
+        <?= $form->field($model, 'hn')->hiddenInput(['value' => $hn])->label(false); ?>
+        <?= $form->field($model, 'vn')->hiddenInput(['value' => $vn])->label(false); ?>
+
+        <?= $form->field($model, 'date_start_service')->hiddenInput(['value' => $Sdate])->label(false); ?>
+        <?= $form->field($model, 'time_start_service')->hiddenInput(['value' => $Stime])->label(false); ?>
     </div>
     <div class="col-md-4">
         <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : 'แก้ไข', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        
     </div>
 </div><!--END ROW 3--->
 

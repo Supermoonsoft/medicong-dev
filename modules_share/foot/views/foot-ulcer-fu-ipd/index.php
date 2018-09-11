@@ -9,6 +9,8 @@ use kartik\datecontrol\DateControl;
 $hn = PatientHelper::getCurrentHn();
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 $this->registerCss($this->render('../../dist/css/style.css'));
+$this->registerJs($this->render('../../dist/js/script.js'));
+
 use app\components\loading\ShowLoading;
 echo ShowLoading::widget();
 
@@ -57,7 +59,10 @@ echo ShowLoading::widget();
     ])?>
 <h3 style="text-align: center;color:#777;">ipd DIABETIC FOOT ULCER VISIT RECORD : ipd DFU FIRST VISIT</h3>
 <br>
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin([
+    'id' => 'form',
+    'action' => ['/foot/foot-ulcer-fu-ipd'],
+    ]); ?>
 
 <div class="row">
     <div class="col-xs-1 col-sm-1 col-md-2 col-lg-1">

@@ -7,7 +7,7 @@ use app\components\PatientHelper;
 use app\components\MessageHelper;
 
 $this->title = "Dm Assessments";
-$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/nursescreen/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 $hn = PatientHelper::getCurrentHn();

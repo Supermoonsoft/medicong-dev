@@ -5,28 +5,38 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 Use app\components\MessageHelper;
 use app\components\PatientHelper;
+use app\modules_nurse\dietitian\models\SDietitianOpdNutritionVisitRecord;
+use app\modules_nurse\dietitian\models\SDietitianIpdNutririonVisitRecord;
+use app\components\loading\ShowLoading;
+
+
+echo ShowLoading::widget();
+
 
 $hn = PatientHelper::getCurrentHn();
-if (empty($hn)) {
-    MessageHelper::errorNullHn();
-}
+//if (empty($hn)) {
+//    MessageHelper::errorNullHn();
+//}
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
+
+$modelopd = new SDietitianOpdNutritionVisitRecord();
+$modelipd = new SDietitianIpdNutririonVisitRecord();
 
 
 $items = [
         [
         'label' => '<i class="glyphicon glyphicon-heart"></i>  Vital Signs & Contour',
-       'content' => $this->render('_form3', [ ]),
-        'active' => true
+       'content' => $this->render('test', [ ]),
+        'active' => FALSE
     ],
         [
         'label' => '<i class="glyphicon glyphicon-cloud-upload"></i> OPD Visit',
-        'content' => $this->render('_form1', [ ]),
-        'active' => false
+        'content' =>$this->render('../opdrecord/create', ['model'=>$modelopd ]),
+        'active' => TRUE
     ], [
         'label' => '<i class="glyphicon glyphicon-cloud-download"></i> IPT Visit',
-        'content' => $this->render('_form2', [ ]),
+        'content' => $this->render('../ipdrecord/create', ['model'=>$modelipd ]),
         'active' => false
     ], [
         'label' => '<i class="glyphicon glyphicon-hd-video"></i> HD Visit',
