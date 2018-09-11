@@ -6,9 +6,17 @@ use Yii;
 
 class SFootAssessmentSummaryOpd extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \yii\behaviors\TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+               'value' => date('Y-m-d H:i:s')
+            ],
+        ];
+    }
     public static function tableName()
     {
         return 's_foot_assessment_summary_opd';

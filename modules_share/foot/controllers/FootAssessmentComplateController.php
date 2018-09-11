@@ -4,6 +4,7 @@ namespace app\modules_share\foot\controllers;
 use yii;
 use app\modules_share\foot\models\SFootAssessmentComplate;
 use app\components\PatientHelper;
+use app\components\MessageHelper;
 use yii\web\Response;
 use app\components\VisitController;
 
@@ -19,6 +20,7 @@ class FootAssessmentComplateController extends VisitController
         $visit = SFootAssessmentComplate::findOne(['hn' => $hn,'vn' => $vn]);
         if($visit){
             $model = SFootAssessmentComplate::findOne(['hn' => $hn,'vn' => $vn]);
+            $model->requester = '';
         }else{
             $model = new SFootAssessmentComplate();
         }

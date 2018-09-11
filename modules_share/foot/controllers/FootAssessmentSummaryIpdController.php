@@ -21,6 +21,7 @@ class FootAssessmentSummaryIpdController extends VisitController
             $model = SFootAssessmentSummaryIpd::findOne(['hn' => $hn,'vn' => $vn]);
         }else{
             $model = new SFootAssessmentSummaryIpd();
+            $model->requester = '';
         }
         if ($model->load($request->post())) {
             Yii::$app->response->format = Response::FORMAT_JSON;

@@ -23,7 +23,8 @@ function SaveData(){
             data   : form.serialize(),
             success: function (data) 
             {
-                console.log(JSON.stringify(data.data));
+               // console.log(JSON.stringify(data.data));
+               console.log('Success');
             },
             error  : function () {
                 console.log('internal server error');

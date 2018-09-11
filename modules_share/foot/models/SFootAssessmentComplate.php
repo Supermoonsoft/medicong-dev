@@ -1,183 +1,21 @@
 <?php
 
 namespace app\modules_share\foot\models;
-
 use Yii;
-
-/**
- * This is the model class for table "s_foot_assessment_complate".
- *
- * @property string $id
- * @property string $vn
- * @property string $hn
- * @property array $data_json
- * @property string $requester
- * @property string $created_at
- * @property string $created_by
- * @property string $updated_at
- * @property string $updated_by
- * @property string $date_start_service
- * @property string $time_start_service
- * @property string $date_end_service
- * @property string $time_end_service
- * @property array $occupation
- * @property array $smoking
- * @property array $activity
- * @property array $using_ambulation
- * @property array $previous_foot_ulcer
- * @property array $previous_foot_ulcer_right
- * @property array $previous_foot_ulcer_left
- * @property array $previous_amputation
- * @property array $previous_amputation_right
- * @property array $previous_amputation_left
- * @property array $prosthesis
- * @property array $prosthesis_right
- * @property array $prosthesis_left
- * @property array $previous_revascularization
- * @property array $previous_revascularization_right
- * @property array $previous_revascularization_left
- * @property array $evt_right
- * @property string $evt_note_right
- * @property string $evt_date_right
- * @property array $bypass_right
- * @property string $bypass_date_right
- * @property array $hybrid_right
- * @property string $hybrid_date_right
- * @property array $evt_left
- * @property string $evt_note_left
- * @property string $evt_date_left
- * @property array $bypass_left
- * @property string $bypass_date_left
- * @property array $hybrid_left
- * @property string $hybrid_date_left
- * @property string $chief_complaint
- * @property array $hair_loss_right
- * @property array $hair_loss_left
- * @property array $fungal_infection_right
- * @property array $fungal_infection_left
- * @property array $color_change_right
- * @property array $color_change_left
- * @property array $skin_condition_right
- * @property array $skin_condition_left
- * @property array $interspace_right
- * @property array $interspace_left
- * @property array $temperature_change_right
- * @property array $temperature_change_left
- * @property array $toenail_problem
- * @property array $fungal_nail_right
- * @property array $hypertrophic_right
- * @property array $distrophic_right
- * @property array $discolored_right
- * @property array $elongated_right
- * @property array $ingrown_right
- * @property array $involuted_right
- * @property array $fungal_nail_left
- * @property array $hypertrophic_left
- * @property array $distrophic_left
- * @property array $discolored_left
- * @property array $elongated_left
- * @property array $ingrown_left
- * @property array $involuted_left
- * @property array $splitting_right
- * @property array $splitting_left
- * @property array $skin_lesion
- * @property array $skin_lesion_type_right
- * @property array $skin_lesion_type_left
- * @property array $foot_type_right
- * @property array $foot_type_left
- * @property array $silfverskiold_test_right
- * @property array $silfverskiold_test_left
- * @property array $deformities
- * @property array $claw_toe_right
- * @property array $hammer_toe_right
- * @property array $mallet_toe_right
- * @property array $hallux_valgus_right
- * @property array $hallux_varus_right
- * @property array $hallux_rigidus_limitus_right
- * @property array $bunion_right
- * @property array $bunionette_right
- * @property array $charcot_foot_right
- * @property array $post_surgical_deformity_right
- * @property array $claw_toe_left
- * @property array $hammer_toe_left
- * @property array $mallet_toe_left
- * @property array $hallux_valgus_left
- * @property array $hallux_varus_left
- * @property array $hallux_rigidus_limitus_left
- * @property array $bunion_left
- * @property array $bunionette_left
- * @property array $charcot_foot_left
- * @property array $post_surgical_deformity_left
- * @property array $neuropathic_symptom
- * @property array $neuropathic_symptom_right
- * @property array $neuropathic_symptom_left
- * @property array $monofilament_right
- * @property array $monofilament_left
- * @property array $tuning_fork_right
- * @property array $tuning_fork_left
- * @property double $foot_size_right
- * @property double $foot_size_left
- * @property array $type_of_footwear_indoor
- * @property array $type_of_footwear_outdoor
- * @property array $type_of_footwear_exercise
- * @property array $sock
- * @property array $foot_take_care
- * @property array $foot_general_footcare
- * @property array $foot_take_care_his
- * @property array $foot_take_check_his
- * @property array $risk_categorization_diabetic
- * @property array $suggestion_for_prevention
- * @property string $record_number
- * @property string $record_date
- * @property string $recorder
- * @property string $occupation_other
- * @property array $intermittent_claudication_right
- * @property array $intermittent_claudication_left
- * @property array $rest_pain_right
- * @property array $rest_pain_left
- * @property array $gangrene_right
- * @property array $gangrene_left
- * @property array $pitting_edema_right
- * @property array $pitting_edema_left
- * @property array $non_pitting_edema_right
- * @property array $non_pitting_edema_left
- * @property array $vessel_palpation_dp_right
- * @property array $vessel_palpation_dp_left
- * @property array $vessel_palpation_pt_right
- * @property array $vessel_palpation_pt_left
- * @property array $doppler_right
- * @property array $doppler_left
- * @property array $vascular_symptom
- * @property double $abi1_right
- * @property double $abi2_right
- * @property double $abi3_right
- * @property array $abi4_right
- * @property double $abi1_left
- * @property double $abi2_left
- * @property double $abi3_left
- * @property array $abi4_left
- * @property string $mmhg_right
- * @property string $mmhg_left
- * @property double $tbi1_right
- * @property double $tbi2_right
- * @property double $tbi3_right
- * @property double $tbi1_left
- * @property double $tbi2_left
- * @property double $tbi3_left
- * @property double $smoking_pack
- * @property double $smoking_whene
- * @property int $callus_right_number
- * @property int $com_right_number
- * @property int $wart_right_number
- * @property int $callus_left_number
- * @property int $com_left_number
- * @property int $wart_left_number
- */
 class SFootAssessmentComplate extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \yii\behaviors\TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+               'value' => date('Y-m-d H:i:s')
+            ],
+        ];
+    }
+
     public static function tableName()
     {
         return 's_foot_assessment_complate';

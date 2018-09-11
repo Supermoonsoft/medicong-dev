@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-$this->title = 'ULCER VISIT FIRST VISIT IPD';
+// $this->title = 'ULCER VISIT FIRST VISIT IPD';
 $this->params['breadcrumbs'][] = ['label' => 'FOOT', 'url' => ['/foot/default/index']];
 $this->params['breadcrumbs'][] = ['label' => 'SUMMARY-OPD', 'url' => ['/foot/foot-assessment-summary-opd']];
 $this->params['breadcrumbs'][] = ['label' => 'SUMMARY-IPD', 'url' => ['/foot/foot-assessment-summary-ipd']];

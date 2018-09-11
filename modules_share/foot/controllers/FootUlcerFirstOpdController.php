@@ -19,6 +19,7 @@ class FootUlcerFirstOpdController extends \yii\web\Controller
         $visit = SFootUlcerFirstOpd::findOne(['hn' => $hn,'vn' => $vn]);
         if($visit){
             $model = SFootUlcerFirstOpd::findOne(['hn' => $hn,'vn' => $vn]);
+            $model->requester = '';
         }else{
             $model = new SFootUlcerFirstOpd();
         }

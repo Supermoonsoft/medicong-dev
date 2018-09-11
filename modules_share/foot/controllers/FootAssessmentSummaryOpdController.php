@@ -20,6 +20,7 @@ class FootAssessmentSummaryOpdController extends VisitController
         $visit = SFootAssessmentSummaryOpd::findOne(['hn' => $hn,'vn' => $vn]);
         if($visit){
             $model = SFootAssessmentSummaryOpd::findOne(['hn' => $hn,'vn' => $vn]);
+            $model->requester = '';
         }else{
             $model = new SFootAssessmentSummaryOpd();
         }

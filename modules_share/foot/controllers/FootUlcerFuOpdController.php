@@ -19,6 +19,7 @@ class FootUlcerFuOpdController extends VisitController
         $visit = SFootUlcerFuOpd::findOne(['hn' => $hn,'vn' => $vn]);
         if($visit){
             $model = SFootUlcerFuOpd::findOne(['hn' => $hn,'vn' => $vn]);
+            $model->requester = '';
         }else{
             $model = new SFootUlcerFuOpd();
         }

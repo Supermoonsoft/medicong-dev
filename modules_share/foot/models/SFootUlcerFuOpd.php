@@ -3,118 +3,19 @@
 namespace app\modules_share\foot\models;
 
 use Yii;
-
-/**
- * This is the model class for table "s_foot_ulcer_fu_opd".
- *
- * @property string $id
- * @property string $vn
- * @property string $hn
- * @property array $data_json
- * @property string $requester
- * @property string $created_at
- * @property string $created_by
- * @property string $updated_at
- * @property string $updated_by
- * @property string $date_start_service
- * @property string $time_start_service
- * @property string $date_end_service
- * @property string $time_end_service
- * @property string $visit_date
- * @property array $visit_recorder
- * @property array $wagner
- * @property array $ut_grade
- * @property array $ut_stage
- * @property array $type_of_duf
- * @property string $date_of_onset
- * @property array $duration_of_days
- * @property array $duration_of_months
- * @property array $cause_of_dfu
- * @property array $foot_wear
- * @property array $recurrent_ulcer
- * @property array $location_of_ulcer_right
- * @property array $location_of_ulcer_left
- * @property double $size_of_ulcer_width_right
- * @property double $size_of_ulcer_left
- * @property array $bone_test_right
- * @property array $bone_test_left
- * @property array $characteristics_of_ulcer_right
- * @property array $characteristics_of_ulcer_left
- * @property array $drainage_amount_right
- * @property array $drainage_amount_left
- * @property array $drainage_type_right
- * @property array $drainage_type_left
- * @property array $drainage_odor_right
- * @property array $drainage_odor_left
- * @property array $infection_right
- * @property array $infection_left
- * @property array $infection_y_right
- * @property array $infection_y_left
- * @property array $monofilament_right
- * @property array $monofilament_left
- * @property array $tuning_fork_right
- * @property array $tuning_fork_left
- * @property array $vessel_palpation_dp_right
- * @property array $vessel_palpation_dp_left
- * @property array $vessel_palpation_pt_right
- * @property array $vessel_palpation_pt_left
- * @property array $doppler_right
- * @property array $doppler_left
- * @property array $abi1_right
- * @property array $abi1_left
- * @property array $toe_pressure_right
- * @property array $toe_pressure_left
- * @property array $tbi_right
- * @property array $tbi_left
- * @property array $off_loading_technique
- * @property array $off_loading_technique_y
- * @property array $local_procedure_performed
- * @property array $local_dressing_performed
- * @property array $post_revascularization
- * @property array $post_hbot
- * @property int $period_number
- * @property array $post_amputation
- * @property array $first_visit
- * @property array $abi2_right
- * @property array $abi3_right
- * @property string $abi2_left
- * @property array $abi3_left
- * @property array $abi_right_non_compressible
- * @property array $abi_left_non_compressible
- * @property double $size_of_ulcer_length_right
- * @property double $size_of_ulcer_depth_right
- * @property double $size_of_ulcer_length_left
- * @property double $size_of_ulcer_depth_left
- * @property double $size_of_ulcer_width_left
- * @property array $ulcer_width_right
- * @property array $ulcer_length_right
- * @property array $ulcer_depth_left
- * @property array $ulcer_width_left
- * @property array $ulcer_length_left
- * @property string $type_other_right
- * @property string $type_other_left
- * @property string $location_of_ulcer_other_right
- * @property string $location_of_ulcer_other_left
- * @property string $drainage_type_other_right
- * @property string $drainage_type_other_left
- * @property string $local_dressing_performed_other
- * @property string $cause_of_dfu_other
- * @property string $foot_wear_other
- * @property string $post_amputation_type
- * @property string $post_amputation_duration
- * @property string $post_amputation_months
- * @property string $post_amputation_year
- * @property string $post_revascularization_type
- * @property string $post_revascularization_duration
- * @property string $post_revascularization_months
- * @property string $post_revascularization_year
- * @property string $progress_note
- */
 class SFootUlcerFuOpd extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \yii\behaviors\TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+               'value' => date('Y-m-d H:i:s')
+            ],
+        ];
+    }
     public static function tableName()
     {
         return 's_foot_ulcer_fu_opd';
