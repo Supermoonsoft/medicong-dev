@@ -1,7 +1,7 @@
 $('#save').click(function(){
     var form = $('#form');
     if ($('#requester').val() =="") {
-                alert("requester ต้องไม่ว่าง");
+                swal("requester ต้องไม่ว่าง");
                 $('#requester').focus();
                 return false;
             } else {

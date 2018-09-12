@@ -103,8 +103,10 @@ $this->registerJS($js);
   <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
-        <h3 class="modal-title" id="popup1ModalLabel">อาการ</h3>
-        </button>
+        <h3 class="modal-title" id="popup1ModalLabel">อาการ
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h3>
     </div>
     <div class="modal-body">
     <form name="form1" method="post">
@@ -128,13 +130,13 @@ $this->registerJS($js);
             </div></div>
             <hr>
             <div class="row"><div class="col-md-12">
-                TEXT : <textarea class="form-control"  id="tmp_cc1" rows="6"></textarea>
+                TEXT : <textarea class="form-control cctext"  id="tmp_cc1" rows="6"></textarea>
             </div></div>
   </FORM>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <input type="button" id="btnsave-tmpcc1" class="btn btn-primary" data-dismiss="modal" value="Send to CC" >
+        <input type="button" id="btnsave-tmpcc1" class="btn btn-primary" data-dismiss="modal" value="OK" >
     </div>
   </div>
 </div>
@@ -144,8 +146,10 @@ $this->registerJS($js);
   <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
-        <h3 class="modal-title" id="popup2ModalLabel">ปรึกษา</h3>
-        </button>
+        <h3 class="modal-title" id="popup2ModalLabel">ปรึกษา
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h3>
     </div>
     <div class="modal-body">
     <form name="form2" method="post">
@@ -161,13 +165,13 @@ $this->registerJS($js);
             </div></div>
             <hr>
             <div class="row"><div class="col-md-12">
-                TEXT : <textarea  class="form-control" id="tmp_cc2" rows="6"></textarea>
+                TEXT : <textarea  class="form-control cctext" id="tmp_cc2" rows="6"></textarea>
             </div></div>
         </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <input type="button" id="btnsave-tmpcc2" class="btn btn-primary" data-dismiss="modal" value="Send to CC" >
+        <input type="button" id="btnsave-tmpcc2" class="btn btn-primary" data-dismiss="modal" value="OK" >
     </div>
   </div>
 </div>
@@ -177,8 +181,10 @@ $this->registerJS($js);
   <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
-        <h3 class="modal-title" id="popup3ModalLabel">ติดตาม</h3>
-        </button>
+        <h3 class="modal-title" id="popup3ModalLabel">ติดตาม
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h3>
     </div>
     <div class="modal-body">
     <form name="form3" method="post">
@@ -200,13 +206,13 @@ $this->registerJS($js);
             </div></div>
             <hr>
             <div class="row"><div class="col-md-12">
-                TEXT : <textarea class="form-control"  id="tmp_cc3" rows="6"></textarea>
+                TEXT : <textarea class="form-control cctext"  id="tmp_cc3" rows="6"></textarea>
             </div></div>
         </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <input type="button" id="btnsave-tmpcc3" class="btn btn-primary" data-dismiss="modal" value="Send to CC" >
+        <input type="button" id="btnsave-tmpcc3" class="btn btn-primary" data-dismiss="modal" value="OK" >
     </div>
   </div>
 </div>
@@ -216,8 +222,10 @@ $this->registerJS($js);
   <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
-        <h3 class="modal-title" id="popup4ModalLabel">ตรวจสุขภาพ</h3>
-        </button>
+        <h3 class="modal-title" id="popup4ModalLabel">ตรวจสุขภาพ
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h3>
     </div>
     <div class="modal-body">
     <form name="form4" method="post">
@@ -231,13 +239,13 @@ $this->registerJS($js);
             </div></div>
             <hr>
             <div class="row"><div class="col-md-12">
-                TEXT : <textarea class="form-control" id="tmp_cc4" rows="6"></textarea>
+                TEXT : <textarea class="form-control cctext" id="tmp_cc4" rows="6"></textarea>
             </div></div>
         </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <input type="button" id="btnsave-tmpcc4" class="btn btn-primary" data-dismiss="modal" value="Send to CC" >
+        <input type="button" id="btnsave-tmpcc4" class="btn btn-primary" data-dismiss="modal" value="OK" >
     </div>
   </div>
 </div>
@@ -247,8 +255,10 @@ $this->registerJS($js);
   <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
-        <h3 class="modal-title" id="popup4ModalLabel">ตรวจสุขภาพ</h3>
-        </button>
+        <h3 class="modal-title" id="popup4ModalLabel">ตรวจสุขภาพ
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h3>
     </div>
     <div class="modal-body">
     <form name="form5" method="post">
@@ -261,13 +271,13 @@ $this->registerJS($js);
             </div></div>
             <hr>
             <div class="row"><div class="col-md-12">
-                TEXT : <textarea class="form-control" id="tmp_cc5" rows="6"></textarea>
+                TEXT : <textarea class="form-control cctext" id="tmp_cc5" rows="6"></textarea>
             </div></div>
         </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <input type="button" id="btnsave-tmpcc5" class="btn btn-primary" data-dismiss="modal" value="Send to CC" >
+        <input type="button" id="btnsave-tmpcc5" class="btn btn-primary" data-dismiss="modal" value="OK" >
     </div>
   </div>
 </div>

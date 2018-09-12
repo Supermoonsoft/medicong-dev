@@ -5,6 +5,9 @@ use yii\widgets\ActiveForm;
 use yii\data\ArrayDataProvider;
 use yii\grid\GridView;
 use yii\helpers\Html;
+use app\assets\DataTableAsset;
+
+DataTableAsset::register($this);
 
 echo ShowLoading::widget();
 $this->params['pt_title'] = "กรุณาเลือกผู้เข้ารับบริการ";
@@ -16,7 +19,7 @@ $this->params['pt_title'] = "กรุณาเลือกผู้เข้า
             <div class="panel-title"><i class="fa fa-wheelchair-alt" aria-hidden="true"></i> รายการผู้รับบริการ</div>
         </div>
         <div class="panel-body">
-            <div>
+            <div style="margin-bottom: 3px">
                 <?php ActiveForm::begin(); ?>
                 ระหว่าง <input type="date" name='date1' value="<?= $date1 ?>"/>               
                 ถึง  <input type="date" name='date2'  value="<?= $date2 ?>" max='<?= date('Y-m-d') ?>'/> 
@@ -38,7 +41,9 @@ ORDER BY t.vn DESC ";
             ]);
 
             echo GridView::widget([
+                'id'=>'grid-view-data-table',
                 'dataProvider' => $dataProvider,
+                'layout' => '{items}',
                 'columns' => [
                     [
                         'class' => 'yii\grid\SerialColumn',
@@ -69,3 +74,9 @@ ORDER BY t.vn DESC ";
 
 
 </div>
+<?php
+$js = <<< JS
+    $('#grid-view-data-table .table').DataTable();     
+JS;
+$this->registerJs($js);
+
