@@ -5,10 +5,11 @@ use kartik\grid\GridView;
 use yii\widgets\Pjax;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 
 $this->title = "Dm Assessments";
-$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];
-$this->params['breadcrumbs'][] = ['label' => 'Dm Assessments', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/nursescreen/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 $hn = PatientHelper::getCurrentHn();
@@ -17,15 +18,13 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
 ?>
 <div class="dm-assessment-index">
-
-
+<div class="panel panel-success box-shadow">
+  <div class="panel-heading">
+  <div class="panel-title">
+    <i class="fa fa-sticky-note-o"></i>HN :<?= $hn ?></div>
+  </div>
+<div class="panel-body">
     <?php Pjax::begin(); ?>
-  
-
-    <p>
-        <?= Html::a('สร้าง Dm Assessment', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -40,28 +39,22 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
             //'date_start_service',
             //'time_start_service',
             [
-                'attribute'=>'date_start_service',
+                'attribute'=>'vaccination_date1',
+                'label'=>'ประเมินครั้งที่ 1 ',
                 'value'=>function ($model, $key, $index) { 
-                    return $model->date_start_service.' '.$model->time_start_service;
+                    return $model->vaccination_date1;
+                },
+            ],
+            [
+                'attribute'=>'vaccination_date2',
+                'label'=>'ประเมินครั้งที่ 2 ',
+                'value'=>function ($model, $key, $index) { 
+                    return $model->vaccination_date2;
                 },
             ],
             //'id',
             //'vn',
-            'hn',
-            [
-                'attribute'=>'hn',
-                'label'=>'ชื่อผู้ป่วย',
-                'value'=>function ($model, $key, $index) { 
-                    return PatientHelper::getPatientTitleByHn($model->hn);
-                },
-            ],
-            [
-                'label'=>'Check',
-                'format' => 'raw',
-                'value'=>function ($model, $key, $index) { 
-                    return '<i class="label label-danger">No</i>';
-                },
-            ],
+            
             //'created_at',
             //'created_by',
             //'updated_at',
@@ -131,14 +124,10 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
             //'vaccination_date1',
             //'vaccination_date2',
 
-            [
-                'label'=>'Action',
-                'format' => 'raw',
-                'value' => function($model) {
-                    return Html::a(' <i class="glyphicon glyphicon-pencil"></i> ', ['/nursescreen/dm-assessment/update', 'id' => '35cd1195-6165-42d8-9425-bf0084db192c'], ['class' => 'btn btn-info']);
-                }
-            ],
+            ['class' => 'kartik\grid\ActionColumn']
         ],
     ]); ?>
     <?php Pjax::end(); ?>
+    </div>
+</div>    
 </div>

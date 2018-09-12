@@ -5,6 +5,8 @@ use yii\helpers\Html;
 use kartik\detail\DetailView;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 
 $this->title = "Dm Assessments";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/nursescreen/default/index']];

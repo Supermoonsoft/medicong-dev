@@ -5,6 +5,8 @@ use kartik\grid\GridView;
 use yii\widgets\Pjax;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 
 $this->title = "Nurseing Assessment";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/screen/default/index']];

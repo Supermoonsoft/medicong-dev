@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 
 $this->title = "Nurse Chief complaint";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/nursescreen/default/index']];

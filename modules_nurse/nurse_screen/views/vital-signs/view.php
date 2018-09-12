@@ -5,6 +5,8 @@ use kartik\detail\DetailView;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
 use app\modules_nurse\nurse_screen\models\NurseScreening;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget(); 
 
 $this->title = "Vital Signs";
 $this->params['breadcrumbs'][] = ['label' => 'Patient-Entry', 'url' => ['/nursescreen/default/index']];

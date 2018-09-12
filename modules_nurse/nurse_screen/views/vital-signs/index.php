@@ -6,7 +6,8 @@ use yii\widgets\Pjax;
 use kartik\grid\GridView;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
-
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 ?>
 <div class="vital-signs-index">
 
