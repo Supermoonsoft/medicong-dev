@@ -10,14 +10,14 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\components\PatientHelper;
+use app\components\UserHelper;
 
-class SiteController extends Controller
-{
+class SiteController extends Controller {
+
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -33,7 +33,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post','get'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -42,8 +42,7 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function actions()
-    {
+    public function actions() {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -60,10 +59,29 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         PatientHelper::removeCurrentHnVn();
-        return $this->render('index');
+        if (!UserHelper::isUserReadyLogin()) {
+            return $this->redirect(['/site/landing']);
+        }
+        $date1 = \Yii::$app->request->post('date1');
+        $date2 = \Yii::$app->request->post('date2');
+        $today = date('Y-m-d');
+
+        return $this->render('index', [
+                    'date1' => empty($date1) ? $today : $date1,
+                    'date2' => empty($date2) ? $today : $date2,
+        ]);
+    }
+    public function actionRevisit($vn){
+        $hn = PatientHelper::getHnByVn($vn);
+        PatientHelper::setCurrentHnVn($hn, $vn);
+        return $this->redirect(['/nursescreen/default/index']);
+    }
+
+    public function actionLanding() {
+        PatientHelper::removeCurrentHnVn();
+        return $this->render('landing');
     }
 
     /**
@@ -71,8 +89,7 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
-    public function actionLogin()
-    {
+    public function actionLogin() {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -84,7 +101,7 @@ class SiteController extends Controller
 
         $model->password = '';
         return $this->render('login', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -93,8 +110,7 @@ class SiteController extends Controller
      *
      * @return Response
      */
-    public function actionLogout()
-    {
+    public function actionLogout() {
         Yii::$app->user->logout();
 
         return $this->redirect(['/user/security/login']); //inam
@@ -105,8 +121,7 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
-    public function actionContact()
-    {
+    public function actionContact() {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
@@ -114,7 +129,7 @@ class SiteController extends Controller
             return $this->refresh();
         }
         return $this->render('contact', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -123,8 +138,8 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionAbout()
-    {
+    public function actionAbout() {
         return $this->render('about');
     }
+
 }

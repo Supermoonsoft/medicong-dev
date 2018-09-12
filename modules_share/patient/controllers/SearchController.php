@@ -6,6 +6,7 @@ use yii\web\Controller;
 use app\modules_share\newpatient\models\mPatient;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use app\components\UserHelper;
 /**
  * Default controller for the `patient` module
  */
@@ -16,7 +17,9 @@ class SearchController extends Controller {
      * @return string
      */
     public function actionHn() {
-
+        if(!UserHelper::isUserReadyLogin()){
+            return $this->redirect(['/site/landing']);
+        }
         PatientHelper::removeCurrentHnVn();        
         $hn = \Yii::$app->request->post('hn');
         $hn = '000000000' . $hn;

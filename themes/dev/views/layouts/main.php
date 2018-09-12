@@ -60,7 +60,7 @@ $hn = PatientHelper::getCurrentHn();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="img\logo-02.png" height="30px" /></a>
+                    <a class="navbar-brand" href="<?=Url::to(['/site/landing'])?>"><img src="img\logo-02.png" height="30px" /></a>
 
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
