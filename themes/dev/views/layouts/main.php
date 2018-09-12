@@ -43,6 +43,10 @@ $hn = PatientHelper::getCurrentHn();
             #user-display > a:active {
                 color: whitesmoke;
             }
+
+            .breadcrumb > li + li:before {
+                content: "|" !important;
+            }
         </style>
         <?= Html::csrfMetaTags() ?>
         <title>MedicoNG Dev</title>
@@ -60,7 +64,7 @@ $hn = PatientHelper::getCurrentHn();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?=Url::to(['/site/landing'])?>"><img src="img\logo-02.png" height="30px" /></a>
+                    <a class="navbar-brand" href="<?= Url::to(['/site/landing']) ?>"><img src="img\logo-02.png" height="30px" /></a>
 
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
@@ -136,6 +140,7 @@ $hn = PatientHelper::getCurrentHn();
 
             <?=
             Breadcrumbs::widget([
+                'homeLink' => FALSE,
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ])
             ?>
