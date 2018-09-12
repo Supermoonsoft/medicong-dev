@@ -12,10 +12,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Dm Assessments', 'url' => ['index'
 $this->params['breadcrumbs'][] = $this->title;
 
 $hn = PatientHelper::getCurrentHn();
-if (empty($hn)) {
-    MessageHelper::errorNullHn();
-}
-
 
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
@@ -139,7 +135,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
                 'label'=>'Action',
                 'format' => 'raw',
                 'value' => function($model) {
-                    return Html::a(' <i class="glyphicon glyphicon-pencil"></i> ', ['/screen/dm-assessment/update', 'id' => '35cd1195-6165-42d8-9425-bf0084db192c'], ['class' => 'btn btn-info']);
+                    return Html::a(' <i class="glyphicon glyphicon-pencil"></i> ', ['/nursescreen/dm-assessment/update', 'id' => '35cd1195-6165-42d8-9425-bf0084db192c'], ['class' => 'btn btn-info']);
                 }
             ],
         ],

@@ -41,7 +41,9 @@ $this->registerCss("
 <?php $form = ActiveForm::begin(); ?>
 
 <div class="panel panel-success">
-    <div class="panel-heading"><h3>Vital Signs</h3></div>
+    <div class="panel-heading">
+        <div class="panel-title"><i class="fa fa-sticky-note-o"></i>Vital Signs</div>
+    </div>
 <div class="panel-body">
 
 <div class="card">
@@ -55,10 +57,10 @@ $this->registerCss("
     <div class="col-md-12">
     <h3>
         <?= Html::a('Last Vital Signs', 
-                        ['/nursescreen/nurse-screen/create',], 
+                        ['',], 
                         ['class'=>'btn btn-primary']); ?>
         <?= Html::a('Load form Machine', 
-                        ['/nursescreen/nurse-screen/create',], 
+                        ['',], 
                         ['class'=>'btn btn-info']); ?>
         <?= $form->field($model, 'hn')->hiddenInput(['value' => $hn])->label(false); ?>
         <?= $form->field($model, 'vn')->hiddenInput(['value' => $vn])->label(false); ?>

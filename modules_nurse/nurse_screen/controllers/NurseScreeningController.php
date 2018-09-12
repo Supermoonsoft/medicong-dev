@@ -42,10 +42,10 @@ class NurseScreeningController extends VisitController
     }
 
 
-    public function actionView($vn)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($vn),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -59,7 +59,7 @@ class NurseScreeningController extends VisitController
         $model->vn = $vn;
     
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'vn' => $model->vn]);
+            return $this->redirect(['view', 'id' => $model->id]);
         
         }
 
@@ -70,11 +70,11 @@ class NurseScreeningController extends VisitController
     }
 
   
-    public function actionUpdate($vn)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($vn);
+        $model = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'vn' => $model->vn]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -83,18 +83,18 @@ class NurseScreeningController extends VisitController
     }
 
  
-    public function actionDelete($vn)
+    public function actionDelete($id)
     {
-        $this->findModel($vn)->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
 
-    protected function findModel($vn)
+    protected function findModel($id)
     {
 
-        if (($model = NurseScreening::findOne(['vn'=>$vn])) !== null) {
+        if (($model = NurseScreening::findOne(['id'=>$id])) !== null) {
             return $model;
         }
 

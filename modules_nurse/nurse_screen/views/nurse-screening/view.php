@@ -47,9 +47,9 @@ $this->registerCss("
 
 <div class="panel panel-success box-shadow">
   <div class="panel-heading">
-<h3>การมารับบริการ : 
-        <?= Html::a('<i class="glyphicon glyphicon-pencil"></i>', ['update', 'id' => $model->id]) ?>
-</h3>
+    <div class="panel-title"><i class="fa fa-sticky-note-o"></i> การมารับบริการ : 
+            <?= Html::a('<i class="glyphicon glyphicon-pencil"></i>', ['update', 'id' => $model->id]) ?>
+    </div>
   </div>
   <div class="panel-body">
 
@@ -120,7 +120,9 @@ $this->registerCss("
  
 </div></div>
 <div class="panel panel-warning box-shadow">
-  <div class="panel-heading"><h3>อาการ : </h3></div>
+<div class="panel-heading">
+    <div class="panel-title"><i class="fa fa-sticky-note-o"></i> อาการ : </div>
+</div>
   <div class="panel-body">
 
 
@@ -147,7 +149,9 @@ $this->registerCss("
 
 </div></div>
 <div class="panel panel-danger box-shadow">
-  <div class="panel-heading"><h3>Full Risk : </h3></div>
+<div class="panel-heading">
+    <div class="panel-title"><i class="fa fa-sticky-note-o"></i> Full Risk : </div>
+</div>
   <div class="panel-body">
 
 <div class="row"><div class="col-md-2">

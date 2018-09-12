@@ -48,7 +48,10 @@ $this->registerCss("
 <div class="row ">
 <div class="col-md-12">
 <div class="panel panel-success box-shadow">
-  <div class="panel-heading"><h1>DM Assessment</h1> : </div>
+  <div class="panel-heading">
+  <div class="panel-title">
+    <i class="fa fa-sticky-note-o"></i> DM Assessment :</div>
+  </div>
   <div class="panel-body">
 
 <div class="dm-assessment-form">

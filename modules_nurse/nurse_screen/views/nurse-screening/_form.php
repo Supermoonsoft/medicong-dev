@@ -42,7 +42,9 @@ $this->registerCss("
 
 
 <div class="panel panel-success">
-    <div class="panel-heading"><h3>Nurse Screening</h3></div>
+    <div class="panel-heading">
+        <div class="panel-title"><i class="fa fa-sticky-note-o"></i> Nurse Screening</div>
+    </div>
 <div class="panel-body">
 <div class="card">
     <ul class="nav nav-tabs" role="tablist">
@@ -171,13 +173,13 @@ $this->registerCss("
         <div class="row"><div class="col-md-2">
         <?= $form->field($model, 'chk_risk_1')->widget(CheckboxX::classname(),['pluginOptions'=>['threeState'=>false]]); ?>
         </div><div class="col-md-2">
-        <?= $form->field($model, 'chk_risk_2')->widget(CheckboxX::classname()) ?>
+        <?= $form->field($model, 'chk_risk_2')->widget(CheckboxX::classname(),['pluginOptions'=>['threeState'=>false]]); ?>
         </div><div class="col-md-2">
-        <?= $form->field($model, 'chk_risk_3')->widget(CheckboxX::classname()) ?> 
+        <?= $form->field($model, 'chk_risk_3')->widget(CheckboxX::classname(),['pluginOptions'=>['threeState'=>false]]); ?> 
         </div><div class="col-md-3">
-        <?= $form->field($model, 'chk_risk_4')->widget(CheckboxX::classname()) ?>
+        <?= $form->field($model, 'chk_risk_4')->widget(CheckboxX::classname(),['pluginOptions'=>['threeState'=>false]]); ?>
         </div><div class="col-md-2">
-        <?= $form->field($model, 'chk_risk_5')->widget(CheckboxX::classname()) ?>   
+        <?= $form->field($model, 'chk_risk_5')->widget(CheckboxX::classname(),['pluginOptions'=>['threeState'=>false]]); ?>   
         </div></div>
             
         <div class="row"><div class="col-md-12">

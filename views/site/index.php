@@ -20,7 +20,7 @@ $this->params['pt_title'] = "กรุณาเลือกผู้เข้า
                 <?php ActiveForm::begin(); ?>
                 ระหว่าง <input type="date" name='date1' value="<?= $date1 ?>"/>               
                 ถึง  <input type="date" name='date2'  value="<?= $date2 ?>" max='<?= date('Y-m-d') ?>'/> 
-                <button type="submit">ตกลง</button>
+                <button type="submit">ตกลง</button> <button type="submit" class="pull-right">Refresh</button>
                 <?php ActiveForm::end(); ?>
             </div>
 

@@ -54,16 +54,13 @@ class DmAssessmentController extends NoVisitController
     public function actionCreate()
     {
 
-
         $model = new DmAssessment();
         $model->hn = PatientHelper::getCurrentHn();
 
     
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        
         }
-
             return $this->render('create', [
                 'model' => $model,
             ]);

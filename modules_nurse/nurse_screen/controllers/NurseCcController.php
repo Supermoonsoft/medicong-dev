@@ -52,10 +52,10 @@ class NurseCcController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($vn)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($vn),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -69,7 +69,8 @@ class NurseCcController extends Controller
         $model->vn = $vn;
     
         if ($model->load(Yii::$app->request->post()) && $model->save(false)) {
-            return $this->redirect(['view', 'vn' => $model->vn]);
+            return $this->redirect(['view', 'id' => $model->id]);
+            //echo $_POST['chk_cc_1_data'];
         
         }
 
@@ -79,12 +80,12 @@ class NurseCcController extends Controller
 
     }
     
-    public function actionUpdate($vn)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($vn);
+        $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'vn' => $model->vn]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -93,21 +94,16 @@ class NurseCcController extends Controller
     }
 
 
-    public function actionDelete($vn)
+    public function actionDelete($id)
     {
-        $this->findModel($vn)->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
-    public function actionGetdata1($vn)
+    protected function findModel($id)
     {
-        return $this->redirect(['data1']);
-    }
-
-    protected function findModel($vn)
-    {
-        if (($model = NurseCc::findOne(['vn'=>$vn])) !== null) {
+        if (($model = NurseCc::findOne(['id'=>$id])) !== null) {
             return $model;
         }
 

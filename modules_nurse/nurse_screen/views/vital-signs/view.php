@@ -73,7 +73,7 @@ $this->registerCss("
             'hover'=>true,
             'mode'=>DetailView::MODE_VIEW,
             'panel'=>[
-                'heading'=>'PRE HD',
+                'heading'=>'<i class="fa fa-sticky-note-o"></i> PRE HD',
                 'type'=>DetailView::TYPE_SUCCESS,
                 'headingOptions'=>[ 
                     'template'=>'{title}'
@@ -99,7 +99,7 @@ $this->registerCss("
             'hover'=>true,
             'mode'=>DetailView::MODE_VIEW,
             'panel'=>[
-                'heading'=>'POST HD',
+                'heading'=>'<i class="fa fa-sticky-note-o"></i> POST HD',
                 'type'=>DetailView::TYPE_SUCCESS,
                 'headingOptions'=>[
                     'template'=>'{title}'

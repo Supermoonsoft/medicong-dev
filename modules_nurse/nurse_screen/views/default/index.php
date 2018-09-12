@@ -22,7 +22,11 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     </div>
     <div class="panel-body">
         <div  style="margin-bottom: 3px">
-
+            <?php
+            $today = date('Y-m-d');
+            $sql = "SELECT  count(t.vn) from s_opd_visit t WHERE t.hn = '$hn' AND t.service_start_date = '$today'";
+            $count_visit = \Yii::$app->db->createCommand($sql)->queryScalar();
+            ?>
 
             <?= Html::beginForm(['index'], 'post', ['data-pjax' => '', 'class' => 'form-inline', 'id' => 'vn-open']); ?>
             <?= Html::hiddenInput('hn', $hn) ?>
@@ -30,7 +34,8 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
                 <?=
                 Html::submitButton('<i class="fa fa-check" aria-hidden="true"></i> Open Visit', ['class' => 'btn btn-danger',
                     'data' => [
-                        'confirm' => 'ส่งเข้ารับบริการ ?',
+                        'confirm' => $count_visit > 0 ? "มีรายการให้บริการวันนี้แล้ว $count_visit ครั้ง อาจจะเกิดความซ้ำซ้อนของข้อมูลได้ ยืนยันการส่งเข้ารับบริการใหม่ " : 'ส่งเข้ารับบริการ.. ?',
+                        
                     //'method' => 'post',
                     ]
                 ])
