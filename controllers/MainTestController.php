@@ -10,8 +10,7 @@ use app\components\LogController;
 class MainTestController extends LogController {
 
     public function actionIndex() {
-        
-        echo "OK";
+        return $this->render('index');        
     }
 
 }
