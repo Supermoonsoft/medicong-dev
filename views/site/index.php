@@ -10,7 +10,7 @@ use app\assets\DataTableAsset;
 DataTableAsset::register($this);
 
 echo ShowLoading::widget();
-$this->params['pt_title'] = "กรุณาเลือกผู้เข้ารับบริการ";
+$this->params['pt_title'] = '<i class="fa fa-wheelchair" aria-hidden="true"></i> กรุณาเลือกผู้เข้ารับบริการ';
 ?>
 <div class="site-index">
 

@@ -3,6 +3,7 @@
 namespace app\modules_share\qmanage\controllers;
 
 use yii\web\Controller;
+use app\components\PatientHelper;
 
 /**
  * Default controller for the `qmanage` module
@@ -15,6 +16,7 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
+        PatientHelper::removeCurrentHnVn();
         return $this->render('index');
     }
 }

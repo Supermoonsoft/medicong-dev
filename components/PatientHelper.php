@@ -11,7 +11,7 @@ class PatientHelper extends Component {
 
     public static function getPatientTitleByHn($hn) {
 
-        $show = "ไม่มีผู้รับบริการ";
+        $show = '<i class="fa fa-wheelchair" aria-hidden="true"></i> กรุณาเลือกผู้เข้ารับบริการ';
         if (empty($hn)) {
             return $show;
         }
@@ -20,9 +20,9 @@ class PatientHelper extends Component {
             $prename = CPrename::findOne($model->prename);
             $pt_title = $prename->title_th . $model->fname . " " . $model->lname;
             $pt_title .= " :" . $model->agey . "ปี " . $model->agem . "ด " . $model->aged . "ว";
-            return "$hn : $pt_title";
+            return '<i class="fa fa-wheelchair" aria-hidden="true"></i> '. $hn .':'. $pt_title;
         } else {
-            return "ไม่มีผู้รับบริการ";
+            return '<i class="fa fa-wheelchair" aria-hidden="true"></i> กรุณาเลือกผู้เข้ารับบริการ';
         }
     }
 
