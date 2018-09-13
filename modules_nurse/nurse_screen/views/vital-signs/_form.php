@@ -25,13 +25,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
 <?php
 $this->registerCss("
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
-.nav-tabs > li > a { border: none; color: #ffffff;background: #00e676; }
-        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none;  color: #00e676 !important; background: #fff; }
-        .nav-tabs > li > a::after { content: ''; background: #00e676; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
-    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
-.nav-tabs > li  {width:25%; text-align:center;}
-.card {padding:10px;box-shadow:  0 0 10px 0 rgba(0,0,0,.10); margin: 10px; }
+.card {box-shadow:  0 0 10px 0 rgba(0,0,0,.10);}
 ");
 ?>
 

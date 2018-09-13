@@ -5,6 +5,7 @@ use kartik\grid\GridView;
 use yii\widgets\Pjax;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
+use kartik\date\DatePicker;
 use app\components\loading\ShowLoading;
 echo ShowLoading::widget();
 
@@ -21,7 +22,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 <div class="panel panel-success box-shadow">
   <div class="panel-heading">
   <div class="panel-title">
-    <i class="fa fa-sticky-note-o"></i>HN :<?= $hn ?></div>
+    <i class="fa fa-sticky-note-o"></i> รายการประเมิน </div>
   </div>
 <div class="panel-body">
     <?php Pjax::begin(); ?>

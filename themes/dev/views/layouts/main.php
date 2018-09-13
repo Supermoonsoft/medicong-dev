@@ -79,12 +79,12 @@ $hn = PatientHelper::getCurrentHn();
                                 ]);
                                 ?>
                                 <div class="form-group">
-                                    <input type="text" name="hn" id="hn" class="form-control" value="<?= $hn ?>" placeholder="HN">
+                                    <input type="text" name="hn" id="hn" class="form-control"  placeholder="HN">
                                 </div>
                                 <?php if (empty($hn)): ?>
                                     <button type="submit" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
                                 <?php else: ?>
-                                    <button type="submit" class="btn btn-default" disabled ><i class="glyphicon glyphicon-search"></i></button>
+                                    <button type="submit" class="btn btn-default" disabled title='กรุณานำผู้รับบริการคนปัจจุบันออก'><i class="glyphicon glyphicon-search"></i></button>
                                 <?php endif; ?>
 
                                 <?php ActiveForm::end() ?>
@@ -95,7 +95,7 @@ $hn = PatientHelper::getCurrentHn();
                                 <h4>
                                     <?= empty($this->params['pt_title']) ? '' : $this->params['pt_title'] ?>
                                     <?php if (!empty($hn)): ?>
-                                        <?= Html::a('  <i class="fa fa-times" aria-hidden="true"></i>', ['/site/index'], ['style' => 'color:white']) ?>
+                                        <?= Html::a('  <i class="fa fa-times" aria-hidden="true"></i>', ['/site/index'], ['style' => 'color:white','title'=>'ยกเลิกให้บริการ']) ?>
                                     <?php endif; ?>
                                 </h4>
 

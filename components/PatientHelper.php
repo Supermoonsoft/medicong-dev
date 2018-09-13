@@ -19,8 +19,8 @@ class PatientHelper extends Component {
         if ($model) {
             $prename = CPrename::findOne($model->prename);
             $pt_title = $prename->title_th . $model->fname . " " . $model->lname;
-            $pt_title .= " " . $model->agey . "ปี " . $model->agem . "ด " . $model->aged . "ว";
-            return $pt_title;
+            $pt_title .= " :" . $model->agey . "ปี " . $model->agem . "ด " . $model->aged . "ว";
+            return "$hn : $pt_title";
         } else {
             return "ไม่มีผู้รับบริการ";
         }
