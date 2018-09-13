@@ -1,6 +1,7 @@
 <?php
-
+use app\components\loading\ShowLoading;
 use app\components\UserHelper;
+echo ShowLoading::widget();
 ?>
 <div class="jumbotron">
     <h3>หน้าสำหรับประกาศข่าวประชาสัมพันธ์ขององค์กร</h3>   

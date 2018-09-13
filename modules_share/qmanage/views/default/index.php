@@ -7,11 +7,14 @@ use yii\helpers\Html;
 use app\assets\DataTableAsset;
 use app\components\DbHelper;
 use yii\web\JsExpression;
+use app\modules_share\qmanage\models\CDoctorRoom;
+use yii\helpers\ArrayHelper;
 
 DataTableAsset::register($this);
 
 
 echo ShowLoading::widget();
+
 
 $this->params['pt_title'] = '<i class="fa fa-clock-o" aria-hidden="true"></i> จัดคิวเข้าพบแพทย์';
 
@@ -34,7 +37,7 @@ $dataProvider = new ArrayDataProvider([
     </div>
     <div class="panel-body">
         <div style="margin-bottom: 3px">
-            <button class="btn btn-info"><i class="fa fa-check"></i> ส่งพบแพทย์เฉพาะที่เลือก</button>
+            <button class="btn btn-info" onclick=<?=new JsExpression('swal("ส่งทีละหลายคน...")')?>><i class="fa fa-check"></i> ส่งพบแพทย์เฉพาะที่เลือก</button>
         </div>
         <?=
         GridView::widget([
@@ -48,8 +51,10 @@ $dataProvider = new ArrayDataProvider([
                 ],
                 [
                     'class' => 'yii\grid\SerialColumn',
+                    
                 // you may configure additional properties here
                 ],
+                 'hn',
                 [
                     'label' => 'เวลามา',
                     'value' => function($model) {
@@ -59,7 +64,7 @@ $dataProvider = new ArrayDataProvider([
                 [
                     'label' => 'เวลานัด'
                 ],
-                'hn',
+               
                 [
                     'attribute' => 'fname',
                     'label' => 'ชื่อ นามสกุล',
@@ -78,12 +83,10 @@ $dataProvider = new ArrayDataProvider([
                     'label' => 'ส่งห้องตรวจ',
                     'format' => 'raw',
                     'value' => function() {
-                        $items = [
-                            '1' => '1-แพทย์วรวิทย์',
-                            '2' => '2-แพทย์อำนาจ',
-                            '3' => '3-แพทย์คมกฤษ',
-                            '4' => '4-แพทย์พรรษา'
-                        ];
+                        
+                        $items = CDoctorRoom::find()->where(['is_active'=>TRUE])->orderBy(['id'=>SORT_ASC])->all();
+                        $items = ArrayHelper::map($items,'id', 'title');
+                        
                         return Html::dropDownList('room', '', $items, ['prompt' => '---เลือก---']);
                     }
                 ],
@@ -91,7 +94,7 @@ $dataProvider = new ArrayDataProvider([
                     'label' => '',
                     'format' => 'raw',
                     'value' => function() {
-                        return Html::button('ส่งแพทย์', ['onClick' => "swal('ส่ง.....')"]);
+                        return Html::button('ส่งแพทย์', ['onClick' => new JsExpression('swal("ส่งทีละคน...")')]);
                     }
                 ]
             ]

@@ -12,6 +12,7 @@ use app\models\ContactForm;
 use app\components\PatientHelper;
 use app\components\UserHelper;
 
+
 class SiteController extends Controller {
 
     /**
@@ -80,6 +81,7 @@ class SiteController extends Controller {
     }
 
     public function actionLanding() {
+        
         PatientHelper::removeCurrentHnVn();
         return $this->render('landing');
     }
