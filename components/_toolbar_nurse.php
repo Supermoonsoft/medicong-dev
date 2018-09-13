@@ -1,6 +1,9 @@
 <?php
 
 use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 ?>
 
 <div style="width: 100%; margin-top: 0px;box-shadow: 5px 3px 2px grey;" >
@@ -9,7 +12,7 @@ use yii\helpers\Url;
         <div class="navbar-header">
             <ul class="nav navbar-nav na">
 
-                <li>
+                <li class="active" >
                     <a href="<?= Url::to(['/nursescreen/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a><!-- POND -->
                 </li>              
                 <li>
@@ -47,5 +50,6 @@ use yii\helpers\Url;
 
         </div>
     </div>
+
 </div>
 

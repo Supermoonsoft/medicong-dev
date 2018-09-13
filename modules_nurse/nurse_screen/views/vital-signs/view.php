@@ -53,7 +53,7 @@ $this->registerCss("
             'hover'=>true,
             'mode'=>DetailView::MODE_VIEW,
             'panel'=>[
-                'heading'=>'Detail '
+                'heading'=>'<i class="fa fa-sticky-note-o"></i>  Detail '
                         .' : '. Html::a('<i class="glyphicon glyphicon-pencil"></i>', ['update', 'id' => $model->id]) ,
                 'type'=>DetailView::TYPE_INFO,
                 'headingOptions'=>[

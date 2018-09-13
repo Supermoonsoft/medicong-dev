@@ -84,7 +84,7 @@ $hn = PatientHelper::getCurrentHn();
                                 <?php if (empty($hn)): ?>
                                     <button type="submit" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
                                 <?php else: ?>
-                                    <button type="submit" class="btn btn-default" disabled title='กรุณานำผู้รับบริการคนปัจจุบันออก'><i class="glyphicon glyphicon-search"></i></button>
+                                    <button type="submit" class="btn btn-default" disabled title='กรุณายกเลิกให้บริการคนปัจจุบัน'><i class="glyphicon glyphicon-search"></i></button>
                                 <?php endif; ?>
 
                                 <?php ActiveForm::end() ?>
