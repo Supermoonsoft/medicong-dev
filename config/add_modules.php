@@ -46,6 +46,7 @@ $modules['user'] = [
     'cost' => 12,
     'admins' => ['admin']]; // inam
 $modules['rbac'] = ['class' => 'dektrium\rbac\RbacWebModule']; //inam
+$modules['qmanage'] = ['class' => 'app\modules_share\qmanage\Qmanage'];//tehnn
 
 return $modules;
 

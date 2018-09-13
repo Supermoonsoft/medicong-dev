@@ -16,7 +16,7 @@ use yii\bootstrap\NavBar;
                     <a href="<?= Url::to(['/nursescreen/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a><!-- POND -->
                 </li>              
                 <li>
-                    <a href="#"><i class="fa fa-bullhorn"></i> Q.manage</a>
+                    <a href="<?= Url::to(['/qmanage/default/index']) ?>"><i class="fa fa-bullhorn"></i> Q.manage</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-thermometer"></i> LAB</a>

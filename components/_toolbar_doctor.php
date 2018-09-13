@@ -10,42 +10,67 @@ use yii\helpers\Url;
             <ul class="nav navbar-nav na">
 
                 <li>
-                    <a href="<?= Url::to(['/patiententry/default/index']) ?>"><i class="fa fa-wheelchair"></i>  Patient Entry</a>
+                    <a href="#"><i class="fa fa-wheelchair"></i>  Personal Data</a>
                 </li>
                 <li>
-                    <a href="<?= Url::to(['/servicedummy/default/index']) ?>"><i class="fa fa-medkit"></i>  Service Dummy</a>
+                    <a href="#"><i class="fa fa-medkit"></i>  Screening Nurse's Evaluation</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bullhorn"></i> Q.manage</a>
+                    <a href="#"><i class="fa fa-bullhorn"></i> DM.Assessment & Indicators</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-thermometer"></i> LAB</a>
+                    <a href="#"><i class="fa fa-thermometer"></i> DM.NURSE MANAGER</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a>
+                    <a href="#"><i class="fa fa-stethoscope"></i> Q. MANAGE</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bed"></i> Dietitian</a>
+                    <a href="#"><i class="fa fa-bed"></i> PATIENT'S DATA</a>
                 </li>
                 <li>
-                    <a href="<?= Url::to(['/foot/default/index']) ?>"><i class="fa fa-wheelchair"></i> FOOT</a>
+                    <a href="#"><i class="fa fa-wheelchair"></i> LABORATORY RESULT</a>
 
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-archive"></i> HBOT</a>
+                    <a href="#"><i class="fa fa-archive"></i> SPECIAL INVESTIGATION</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-support"></i> HD</a>
+                    <a href="#"><i class="fa fa-support"></i> DM Indicators</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-ambulance"></i> EMR</a>
+                    <a href="#"><i class="fa fa-ambulance"></i> RADIOLOGY</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-clipboard"></i> Print Out</a>
+                    <a href="#"><i class="fa fa-clipboard"></i> EYE EXAM.</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-file-text"></i> Report</a>
+                    <a href="#"><i class="fa fa-file-text"></i> MEDICATION ORDER</a>
                 </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text"></i> DOCTOR FEE</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text"></i> OPD PRINTOUT</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text"></i> DIETITIAN OPD/IPD</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text"></i> FOOT Clinic</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text"></i> HBOT</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text"></i> HEMODIALYSIS</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text"></i> PARAMEDIC NOTE.</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text"></i> REPORTS</a>
+                </li>
+                
             </ul>
 
         </div>

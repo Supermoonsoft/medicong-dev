@@ -47,6 +47,7 @@ $hn = PatientHelper::getCurrentHn();
             .breadcrumb > li + li:before {
                 content: "|" !important;
             }
+            
         </style>
         <?= Html::csrfMetaTags() ?>
         <title>MedicoNG Dev</title>
@@ -95,7 +96,7 @@ $hn = PatientHelper::getCurrentHn();
                                 <h4>
                                     <?= empty($this->params['pt_title']) ? '' : $this->params['pt_title'] ?>
                                     <?php if (!empty($hn)): ?>
-                                        <?= Html::a('  <i class="fa fa-times" aria-hidden="true"></i>', ['/site/index'], ['style' => 'color:white','title'=>'ยกเลิกให้บริการ']) ?>
+                                        <?= Html::a('  <i class="fa fa-times" aria-hidden="true"></i>', ['/site/index'], ['style' => 'color:white', 'title' => 'ยกเลิกให้บริการ']) ?>
                                     <?php endif; ?>
                                 </h4>
 
@@ -126,14 +127,15 @@ $hn = PatientHelper::getCurrentHn();
 
             </div>
         </nav>
-        <?php
-        //\Yii::$app->user->can($permissionName);
-        ?>
-        <?php if (1 == 1): //nurse ?>
+
+        <?php if (\Yii::$app->user->can('nurse')): //nurse ?>
             <?= $this->render('@app/components/_toolbar_nurse') ?>
-        <?php else: ?>
+        <?php elseif (\Yii::$app->user->can('doctor')): ?>
             <?= $this->render('@app/components/_toolbar_doctor') ?>
+        <?php else : ?>
+            <?= $this->render('@app/components/_toolbar_empty') ?>
         <?php endif; ?>
+
 
 
         <div  style="width: 99%; padding-top: 10px;margin: 0 auto;">
