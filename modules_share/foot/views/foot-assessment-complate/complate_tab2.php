@@ -71,10 +71,8 @@ use phpnt\ICheck\ICheck;
 </div>
 <?= $form->field($model, 'chief_complaint')->textArea(['rows' =>4, 'cols' =>200])->label(false); ?>
 <br>
+<div class="box">2. Dermatologic examination</div>
 <table width="100%" class="table table-bordered">
-  <tr>
-    <td colspan="3" align="center"><strong id="docs-internal-guid-8ffb6b17-7fff-0d44-c1e9-fb8212c67b99" style="font-size: 20px;">2. Dermatologic examination</strong></td>
-  </tr>
   <tr>
     <td width="30%">&nbsp;</td>
     <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
@@ -699,11 +697,9 @@ use phpnt\ICheck\ICheck;
   </tr>
 </table>
 
-
+<div class="box">3. Musculoskeletal examination</div>
 <table border="1" cellspacing="0" cellpadding="0" width="100%" class="table table-bordered">
-  <tr>
-    <td width="643" colspan="3" valign="top"><p align="center" style="font-size: 20px;"><strong>3. Musculoskeletal examination</strong></strong></td>
-  </tr>
+
   <tr>
     <td width="30%" valign="top"><p align="center">&nbsp;</p></td>
     <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
@@ -1201,11 +1197,9 @@ use phpnt\ICheck\ICheck;
 </table>
 
 
-
+<div class="box">4.Neuropathy assessment</div>
 <table border="1" cellspacing="0" cellpadding="0" width="100%" class="table table-bordered">
-  <tr>
-    <td width="643" colspan="3" valign="top"><p align="center" class="table-title"><strong>4. </strong><strong>Neuropathy assessment</strong></p></td>
-  </tr>
+
   <tr>
     <td width="30%" valign="top"><p align="center">&nbsp;</p></td>
     <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
@@ -1337,11 +1331,8 @@ use phpnt\ICheck\ICheck;
   </tr>
 </table>
 
-
+<div class="box">5.Vascular assessment</div>
 <table border="1" cellspacing="0" cellpadding="0" width="100%" class="table table-bordered">
-  <tr>
-    <td width="643" colspan="3" valign="top"><p class="table-title" align="center"><strong>5. </strong><strong>Vascular assessment</strong></p></td>
-  </tr>
   <tr>
     <td width="30%" valign="top"><p align="center">&nbsp;</p></td>
     <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>

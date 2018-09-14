@@ -8,6 +8,7 @@ echo ShowLoading::widget();
 
 use app\components\MessageHelper;
 use yii\widgets\Pjax;
+use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules_share\qmanage\models\CDoctorRoomSearch */
@@ -22,7 +23,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
 
     <p>
-        <?= Html::a('<i class="fa fa-plus-square-o" aria-hidden="true"></i> เพิ่มห้อง', ['create'], ['class' => 'btn btn-success']) ?>
+        <?=
+        Html::a('<i class="fa fa-plus-square-o" aria-hidden="true"></i> เพิ่มห้อง', '#', [
+            'class' => 'btn btn-success',
+            'id' => 'btn_add_room',
+            'value'=> \yii\helpers\Url::to(['create'])
+        ]);
+        ?>
     </p>
     <?php
     //Pjax::begin(['id' => 'grid-pjax-tehn']);
@@ -52,5 +59,16 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
 </div>
 <?php
-    $this->registerJs($this->render('./script.js'));
+Modal::begin([
+    'header' => 'เพิ่มรายการห้องตรวจ',
+    'id' => 'modalAddRoom',
+    //'size'=>"modal-lg"
+]);
+
+echo '<div id="modalAddRoomContent"></div>';
+
+Modal::end();
+?>
+<?php
+$this->registerJs($this->render('./script.js'));
 ?>

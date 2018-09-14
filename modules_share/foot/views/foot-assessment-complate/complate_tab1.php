@@ -5,10 +5,7 @@ use phpnt\ICheck\ICheck;
 use kartik\datecontrol\DateControl;
 ?>
 <style>
-.field-sfootassessmentcomplate-evt_right{display: inline-block;}
-.field-sfootassessmentcomplate-evt_note_right{display: inline-block;}
-.field-sfootassessmentcomplate-evt_left{display: inline-block;}
-.field-sfootassessmentcomplate-evt_note_left{display: inline-block;}
+
 
 /* .field-sfootassessmentcomplate-smoking_pack {
     position: absolute;
@@ -27,10 +24,12 @@ use kartik\datecontrol\DateControl;
 (1) Personal and Past Medical History
 </div>
 
+
+
 <div class="row">
-<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-<fieldset class="scheduler-border" style="height: 375px;">
-	<legend class="scheduler-border">Record</legend>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <fieldset class="scheduler-border" style="height: 375px;">
+<legend class="scheduler-border">Record</legend>
 <?= $form->field($model, 'record_number')->textInput();?>
 <?=$form->field($model, 'record_date')->widget(DateControl::classname(), [
     'type'=>DateControl::FORMAT_DATE,
@@ -44,8 +43,7 @@ use kartik\datecontrol\DateControl;
 <?= $form->field($model, 'recorder')->textInput();?>
 </fieldset>
 </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 <fieldset class="scheduler-border" style="height: 375px;">
 	<legend class="scheduler-border">1. occupation</legend>
 <?= $form->field($model, 'occupation')->widget(ICheck::className(), [
@@ -67,20 +65,17 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-occupation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-occupation'.$index.'">'.$label.'</label></br>';
+              return '<input type="radio" id="occupation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="occupation'.$index.'">'.$label.'</label></br>';
           }
       ]])->label(false);
          ?>
-
-         <?= $form->field($model, 'occupation_other')->textArea(['rows'=>2,'placeholder' => 'Occupation Other ...'])->label(false);?>
+    <?= $form->field($model, 'occupation_other')->textArea(['rows'=>2,'placeholder' => 'Occupation Other ...'])->label(false);?>
     
 </fieldset>
-    </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        
-   <fieldset class="scheduler-border">
+</div>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+<fieldset class="scheduler-border">
 	<legend class="scheduler-border">2. Smoking</legend>
-    
     <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">    
          <?= $form->field($model, 'smoking')->widget(ICheck::className(), [
@@ -94,33 +89,27 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-smoking'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-smoking'.$index.'">'.$label.'</label></br>';
+              return '<input type="radio" id="smoking'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="smoking'.$index.'">'.$label.'</label></br>';
           }
       ]])->label(false);
          ?>
-            
-            </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-       <div style="padding-top: 10px;">
-       
-           <?= $form->field($model, 'smoking_pack')->textInput(['style' => 'width:120px;height: 30px;margin-bottom: 20px;'])->label(false);?>
-         <?= $form->field($model, 'smoking_whene')->textInput(['style' => 'width:120px;height: 30px;'])->label(false);?>
          </div>
-         </div>
-         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-         <div style="padding-top: 10px;">
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">      
+<div style="padding-top: 10px;">
+    <?= $form->field($model, 'smoking_pack')->textInput(['style' => 'width:120px;height: 30px;margin-bottom: 20px;'])->label(false);?>
+     <?= $form->field($model, 'smoking_whene')->textInput(['style' => 'width:120px;height: 30px;'])->label(false);?>
+</div>
+</div>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">   
+<div style="padding-top: 10px;">
          /pack<br><br>
          ry
          </div>
+</div>
+</div>
+ </fieldset>
 
-         </div>
-         </div>
-    </div>
-         </fieldset>
-       
-       
-
-    <fieldset class="scheduler-border">
+  <fieldset class="scheduler-border">
 	<legend class="scheduler-border">3. Activity</legend>
                   <?= $form->field($model, 'activity')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -133,12 +122,12 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-activity'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-activity'.$index.'">'.$label.'</label>';
+              return '<input type="radio" id="activity'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="activity'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
  </fieldset>
 
-     <fieldset class="scheduler-border">
+<fieldset class="scheduler-border">
 	<legend class="scheduler-border">4. Using ambulation aid ON</legend>
          <?= $form->field($model, 'using_ambulation')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
@@ -154,19 +143,20 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-using_ambulation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-using_ambulation'.$index.'">'.$label.'</label>';
+              return '<input type="radio" id="using_ambulation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="using_ambulation'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
        </fieldset>
-       </div>
+
+
 </div>
-         </div>
+</div>
+
+
+
+
+<div class="box">Detail of Provider Foot History</div>
 <table width="100%" border="0" class="table table-bordered">
-  <tr>
-    <td colspan="3" align="center">
-    <p style="font-size: 20px;">Detail of Provider Foot History</p>
-    </td>
-  </tr>
   <tr>
   <td width="30%">&nbsp;</td>
     <td width="35%" valign="top"><p align="center"><strong class="table-right">Right  </strong></p></td>
@@ -179,19 +169,36 @@ use kartik\datecontrol\DateControl;
   </tr>
   <tr>
     <td>
-    <?= $form->field($model, 'previous_foot_ulcer')->widget(ICheck::className(), [
+    <?php
+    //  $form->field($model, 'previous_foot_ulcer')->widget(ICheck::className(), [
+    //     'type'  => ICheck::TYPE_RADIO_LIST,
+    //     'style'  => ICheck::STYLE_FLAT,
+    //     'items'    => [
+    //         1 => 'N',
+    //         2 => 'Y , specify site',
+    //     ],
+    //     'color'  => 'green',
+    //     'options' => [
+    //       'item' => function ($index, $label, $name, $checked, $value){
+    //           return '<input type="radio" id="previous_foot_ulcer'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="previous_foot_ulcer'.$index.'">'.$label.'</label>';
+    //       }
+    //   ]])->label(false);
+      ?>
+
+     <?= $form->field($model, 'previous_foot_ulcer')->widget(ICheck::className(), [
         'type'  => ICheck::TYPE_RADIO_LIST,
         'style'  => ICheck::STYLE_FLAT,
         'items'    => [
             'N' => 'N',
-            '2' => 'Y , specify site',
+            'Y' => 'Y , specify site',
         ],
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-previous_foot_ulcer'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-previous_foot_ulcer'.$index.'">'.$label.'</label>';
+              return '<input type="radio" id="previous_foot_ulcer'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="previous_foot_ulcer'.$index.'">'.$label.'</label></br>';
           }
-      ]])->label(false);?>
+      ]])->label(false);
+         ?>
     </td>
     <td>
     <?= $form->field($model, 'previous_foot_ulcer_right')->widget(ICheck::className(), [
@@ -206,7 +213,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-previous_foot_ulcer'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-previous_foot_ulcer'.$index.'">'.$label.'</label><br>';
+              return '<input type="radio" id="previous_foot_ulcer_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="previous_foot_ulcer_right'.$index.'">'.$label.'</label><br>';
           }
       ]])->label(false);?>
     </td>
@@ -223,7 +230,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-previous_foot_ulcer_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-previous_foot_ulcer_left'.$index.'">'.$label.'</label><br>';
+              return '<input type="radio" id="previous_foot_ulcer_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="previous_foot_ulcer_left'.$index.'">'.$label.'</label><br>';
           }
       ]])->label(false);?>
     </td>
@@ -245,7 +252,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-previous_amputation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-previous_amputation'.$index.'">'.$label.'</label>';
+              return '<input type="radio" id="previous_amputation'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="previous_amputation'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
     </td>
@@ -265,7 +272,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-previous_amputation_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-previous_amputation_right'.$index.'">'.$label.'</label></br>';
+              return '<input type="radio" id="previous_amputation_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="previous_amputation_right'.$index.'">'.$label.'</label></br>';
           }
       ]])->label(false);?>
     </td>
@@ -285,7 +292,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-previous_amputation_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-previous_amputation_left'.$index.'">'.$label.'</label></br>';
+              return '<input type="radio" id="previous_amputation_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="previous_amputation_left'.$index.'">'.$label.'</label></br>';
           }
       ]])->label(false);?>
     </td>
@@ -309,7 +316,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-prosthesis'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-prosthesis'.$index.'">'.$label.'</label>';
+              return '<input type="radio" id="prosthesis'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="prosthesis'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
       </td>
@@ -325,7 +332,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-prosthesis_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-prosthesis_right'.$index.'">'.$label.'</label></br>';
+              return '<input type="radio" id="prosthesis_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="prosthesis_right'.$index.'">'.$label.'</label></br>';
           }
       ]])->label(false);?>
       </td>
@@ -341,7 +348,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-prosthesis_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-prosthesis_left'.$index.'">'.$label.'</label></br>';
+              return '<input type="radio" id="prosthesis_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="prosthesis_left'.$index.'">'.$label.'</label></br>';
           }
       ]])->label(false);?>
     </td>
@@ -365,7 +372,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="radio" id="footassessmentcomplate-previous_revascularization'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-previous_revascularization'.$index.'">'.$label.'</label>';
+              return '<input type="radio" id="previous_revascularization'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="previous_revascularization'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
     </td>
@@ -380,7 +387,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="checkbox" id="footassessmentcomplate-evt_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-evt_right'.$index.'">'.$label.'</label>';
+              return '<input type="checkbox" id="evt_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="evt_right'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
 
@@ -397,7 +404,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="checkbox" id="footassessmentcomplate-evt_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-evt_left'.$index.'">'.$label.'</label>';
+              return '<input type="checkbox" id="evt_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="evt_left'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
 
@@ -442,7 +449,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="checkbox" id="footassessmentcomplate-bypass_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-bypass_right'.$index.'">'.$label.'</label>';
+              return '<input type="checkbox" id="bypass_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="bypass_right'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
     </td>
@@ -457,7 +464,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="checkbox" id="footassessmentcomplate-bypass_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-bypass_left'.$index.'">'.$label.'</label>';
+              return '<input type="checkbox" id="bypass_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="bypass_left'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
       </td>
@@ -500,7 +507,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="checkbox" id="footassessmentcomplate-hybrid_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-hybrid_right'.$index.'">'.$label.'</label>';
+              return '<input type="checkbox" id="hybrid_right'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="hybrid_right'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
     </td>
@@ -514,7 +521,7 @@ use kartik\datecontrol\DateControl;
         'color'  => 'green',
         'options' => [
           'item' => function ($index, $label, $name, $checked, $value){
-              return '<input type="checkbox" id="footassessmentcomplate-hybrid_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="footassessmentcomplate-hybrid_left'.$index.'">'.$label.'</label>';
+              return '<input type="checkbox" id="hybrid_left'.$index.'" name="'.$name.'" value="'.$value.'" '.($checked ? 'checked' : false).'> <label for="hybrid_left'.$index.'">'.$label.'</label>';
           }
       ]])->label(false);?>
     </td>

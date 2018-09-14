@@ -25,7 +25,6 @@ class FootAssessmentComplateController extends VisitController
             $model = new SFootAssessmentComplate();
         }
  
-
         if ($model->load($request->post())) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             $model->hn = $hn;
@@ -33,9 +32,13 @@ class FootAssessmentComplateController extends VisitController
             $model->date_start_service = $Sdate;
             $model->time_start_service = $Stime;
             $model->save();
-            return [
-                'data' => $model
-            ];
+            if($model->requester){
+                MessageHelper::setFlashSuccess('บันทึกข้อมูลสำเร็จ');
+                return $this->redirect(['/foot/foot-assessment-complate']);
+             }else{ 
+                 return ['data' => $model->previous_foot_ulcer];
+                }
+
         } else {
             return $this->render('index',[
                 'model' => $model,

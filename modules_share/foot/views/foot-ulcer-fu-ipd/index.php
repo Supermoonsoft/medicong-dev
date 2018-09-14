@@ -57,7 +57,7 @@ echo ShowLoading::widget();
     'tabfirst' =>'',
     'tabfu'=>'active' 
     ])?>
-<h4 style="text-align: center;color:#777;">ipd DIABETIC FOOT ULCER VISIT RECORD : ipd DFU FIRST VISIT</h4>
+<h4 style="text-align: center;color:#777;">IPD DIABETIC FOOT ULCER VISIT RECORD : ipd DFU FIRST VISIT</h4>
 <br>
 <?php $form = ActiveForm::begin([
     'id' => 'form',
@@ -95,10 +95,9 @@ echo ShowLoading::widget();
         
         </div>
 </div>
+<br>
+<div class="box">Details    of DFU and Brief foot examination assessment</div>
           <table width="100%" class="table table-bordered">
-  <tr>
-    <td width="643" colspan="3" valign="top"><p align="center"><strong>Details    of DFU and Brief foot examination assessment</strong></p></td>
-  </tr>
   <tr>
     <td width="20%"  valign="top"><p align="center"><strong>DFU    characteristics</strong></p></td>
     <td width="40%"  valign="top"><p align="center"><strong>Right</strong></p></td>
@@ -863,7 +862,8 @@ year
           </div>
           
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-              <a class="btn btn-success" id="save">บันทึก</a>
+              <!-- <a class="btn btn-success" id="save">บันทึก</a> -->
+              <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> บันทึก', ['class' => 'btn btn-success']) ?>
           </div>    
       </div>
           </div>

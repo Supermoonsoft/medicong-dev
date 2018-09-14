@@ -29,7 +29,7 @@ class SFootAssessmentSummaryIpd extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['hn', 'date_start_service', 'time_start_service'], 'required'],
+            [['requester','hn', 'date_start_service', 'time_start_service'], 'required'],
             [['id'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service', 'risk_of_foot_ulceration', 'right_monofilament', 'right_tuning_fork', 'right_dp', 'right_pt', 'right_abi', 'right_abi_non', 'right_claw_toe', 'right_hammer_toe', 'right_maillet_toe', 'right_hallux_algus', 'right_flat_foot', 'right_charcot_foot', 'right_post_surgical_deformity', 'right_callus', 'right_corn', 'right_nails', 'right_previon_foot_ulcer', 'right_previon_amputation', 'left_monofilament', 'left_tuning_fork', 'left_dp', 'left_pt', 'left_abi', 'left_abi_non', 'left_claw_toe', 'left_hammer_toe', 'left_maillet_toe', 'left_hallux_algus', 'left_flat_foot', 'left_charcot_foot', 'left_post_surgical_deformity', 'left_callus', 'left_corn', 'left_nails', 'left_previon_foot_ulcer', 'left_previon_amputation', 'suggestion_for_prevention'], 'safe'],
             [['vn'], 'string', 'max' => 12],

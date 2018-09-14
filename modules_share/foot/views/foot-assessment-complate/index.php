@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use phpnt\ICheck\ICheck;
+use kartik\datecontrol\DateControl;
 use app\components\PatientHelper;
 use app\components\MessageHelper;
 use app\components\loading\ShowLoading;
@@ -14,20 +15,27 @@ $hn = PatientHelper::getCurrentHn();
 $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 <style>
-.box_form{
-    margin-top:20px;
-}
+.field-sfootassessmentcomplate-evt_right{display: inline-block;}
+.field-sfootassessmentcomplate-evt_note_right{display: inline-block;}
+.field-sfootassessmentcomplate-evt_left{display: inline-block;}
+.field-sfootassessmentcomplate-evt_note_left{display: inline-block;}
+#sfootassessmentcomplate-vessel_palpation_dp_right{display: inline-block;}
+#sfootassessmentcomplate-vessel_palpation_dp_left{display: inline-block;}
+#sfootassessmentcomplate-vessel_palpation_pt_right{display: inline-block;}
+#sfootassessmentcomplate-vessel_palpation_pt_left{display: inline-block;}
+.field-sfootassessmentcomplate-abi1_right{display: inline-block;}
+.field-sfootassessmentcomplate-abi2_right{display: inline-block;}
+.field-sfootassessmentcomplate-abi3_right{display: inline-block;}
+.field-sfootassessmentcomplate-abi1_left{display: inline-block;}
+.field-sfootassessmentcomplate-abi2_left{display: inline-block;}
+.field-sfootassessmentcomplate-abi3_left{display: inline-block;}
 
-.box_form > .form-group{
-    margin-bottom: 31px;
-}
-.help-block {
-    display: block;
-    margin-top: -16px;
-    margin-bottom: 10px;
-    color: #737373;
-}
-/* ## จบ */
+.field-sfootassessmentcomplate-tbi1_right{display: inline-block;}
+.field-sfootassessmentcomplate-tbi2_right{display: inline-block;}
+.field-sfootassessmentcomplate-tbi3_right{display: inline-block;}
+.field-sfootassessmentcomplate-tbi1_left{display: inline-block;}
+.field-sfootassessmentcomplate-tbi2_left{display: inline-block;}
+.field-sfootassessmentcomplate-tbi3_left{display: inline-block;}
 
 </style>
 <?=$this->render('@app/modules_share/foot/views/default/panel_top',[
@@ -36,28 +44,15 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     'tabfirst' =>'',
     'tabfu'=>'' 
     ])?>
-<div>
- <h4 style='text-align: center;17px;color: #777;'>DIABETIC FOOT ASSESSMENT RECORD : COMPLETE </h4>
- </div>
-        <hr/>
-        <?php $form = ActiveForm::begin([
-            'id' => 'form',
-            'action' =>['/foot/foot-assessment-complate']
-            ]); ?>
-                <?=$form->field($model, 'hn')->hiddenInput(['value' => $hn])->label(false);?>
-                <?=$form->field($model, 'vn')->hiddenInput(['value' => $vn])->label(false);?>   
-                <?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab1',['form' => $form,'model' => $model])?>
+<h4 style='text-align: center;17px;color: #777;'>DIABETIC FOOT ASSESSMENT RECORD : COMPLETE </h4>
+ <hr/>
+<?php $form = ActiveForm::begin(['id' => 'form','action' => ['/foot/foot-assessment-complate']]); ?>
+ 
+<?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab1',['form' => $form,'model' => $model])?>
+<?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab2',['form' => $form,'model' => $model])?>
+<?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab3',['form' => $form,'model' => $model])?>
+<?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab4',['form' => $form,'model' => $model])?> 
 
-                <?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab2',['form' => $form,'model' => $model])?>
-
-                <?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab3',['form' => $form,'model' => $model])?>
-
-                <?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab4',['form' => $form,'model' => $model])?>
-
-                <?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab5',['form' => $form,'model' => $model])?>
-
-                <?=$this->render('@app/modules_share/foot/views/foot-assessment-complate/complate_tab6',['form' => $form,'model' => $model])?>
-
-    
 <?php $form = ActiveForm::end(); ?>
+
 <?=$this->render('@app/modules_share/foot/views/default/panel_foot')?>

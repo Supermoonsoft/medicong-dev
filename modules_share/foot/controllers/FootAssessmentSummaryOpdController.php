@@ -6,6 +6,7 @@ use app\modules_share\foot\models\SFootAssessmentSummaryOpd;
 use app\components\PatientHelper;
 use yii\web\Response;
 use app\components\VisitController;
+use app\components\MessageHelper;
 
 
 class FootAssessmentSummaryOpdController extends VisitController
@@ -18,6 +19,8 @@ class FootAssessmentSummaryOpdController extends VisitController
         $Sdate = PatientHelper::getDateVisitByVn($vn);
         $Stime = PatientHelper::getTimeVisitByVn($vn);
         $visit = SFootAssessmentSummaryOpd::findOne(['hn' => $hn,'vn' => $vn]);
+        
+
         if($visit){
             $model = SFootAssessmentSummaryOpd::findOne(['hn' => $hn,'vn' => $vn]);
             $model->requester = '';
@@ -31,9 +34,12 @@ class FootAssessmentSummaryOpdController extends VisitController
             $model->date_start_service = $Sdate;
             $model->time_start_service = $Stime;
             $model->save();
-            return [
-                'data' => $model
-            ];
+            if($model->requester){
+               MessageHelper::setFlashSuccess('บันทึกข้อมูลสำเร็จ');
+               return $this->redirect(['/foot/foot-assessment-summary-opd']);
+            }else{
+                return ['data' => 'success'];
+            }
         } else {
             return $this->render('index',[
                 'model' => $model,

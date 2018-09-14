@@ -1,5 +1,5 @@
 #tehnnn_load_screen{
-    background: skyblue;
+    background: #00ffff;
     opacity: 0.8;
      z-index:9999;
      position: absolute;
@@ -15,5 +15,7 @@
 #tehnnn_loading {
    
   flex-shrink: 0;
+ 
+  
    
 }

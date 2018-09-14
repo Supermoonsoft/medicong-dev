@@ -6,6 +6,8 @@ use yii;
 use app\components\PatientHelper;
 use app\components\VisitController;
 use yii\web\Response;
+use app\components\MessageHelper;
+
 
 class FootUlcerFirstOpdController extends \yii\web\Controller
 {
@@ -30,9 +32,12 @@ class FootUlcerFirstOpdController extends \yii\web\Controller
             $model->date_start_service = $Sdate;
             $model->time_start_service = $Stime;
             $model->save();
-            return [
-                'data' => $model
-            ];
+            if($model->requester){
+                MessageHelper::setFlashSuccess('บันทึกข้อมูลสำเร็จ');
+                return $this->redirect(['/foot/foot-ulcer-first-opd']);
+             }else{
+                return ['data' => 'success'];
+            }
         } else {
             return $this->render('index',[
                 'model' => $model,

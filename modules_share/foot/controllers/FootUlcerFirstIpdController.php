@@ -7,6 +7,8 @@ use app\modules_share\foot\models\SFootUlcerFirstIpd;
 use app\components\PatientHelper;
 use yii\web\Response;
 use app\components\VisitController;
+use app\components\MessageHelper;
+
 
 class FootUlcerFirstIpdController extends VisitController
 {
@@ -31,9 +33,12 @@ class FootUlcerFirstIpdController extends VisitController
             $model->date_start_service = $Sdate;
             $model->time_start_service = $Stime;
             $model->save();
-            return [
-                'data' => $model
-            ];
+            if($model->requester){
+                MessageHelper::setFlashSuccess('บันทึกข้อมูลสำเร็จ');
+                return $this->redirect(['/foot/foot-ulcer-first-ipd']);
+             }else{
+                return ['data' => 'success'];
+            }
         } else {
             return $this->render('index',[
                 'model' => $model,

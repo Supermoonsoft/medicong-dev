@@ -60,12 +60,12 @@ use phpnt\ICheck\ICheck;
       ]])->label(false);?> 
 </fieldset>
 <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
           </div>
           
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-              <a class="btn btn-success" id="save">บันทึก</a>
+          <?php echo Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> บันทึก', ['class' => 'btn btn-success']) ?>              
           </div>    
       </div>
  	

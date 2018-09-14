@@ -17,20 +17,22 @@ $items = ArrayHelper::map($items, 'id', 'username');
 <div class="cdoctor-room-form">
 
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'id'=>'frmAddRoom'
+    ]); ?>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
         </div> 
-        <div class="col-md-4">
+        <div class="col-md-6">
             <?= $form->field($model, 'doctor_id')->dropDownList($items, ['prompt' => '--เลือก--']) ?>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <?= $form->field($model, 'is_active')->checkbox() ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
 
             <div class="form-group">
                 <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

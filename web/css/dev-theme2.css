@@ -86,3 +86,8 @@ li {cursor: pointer}
     border-bottom-color: #EEEEEE;
     background-color: #FAFAFA;
 }
+/* tehnn edit  */
+.btn {
+    border-radius: 0px !important;
+}
+

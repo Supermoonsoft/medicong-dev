@@ -32,7 +32,7 @@ class CDoctorRoom extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title'],'required'],
+            [['title'],'required','message'=>'กรุณาใส่ชื่อห้อง'],
             [['is_active'], 'boolean'],
             [['title','doctor_id', 'created_by', 'created_at', 'updated_by', 'updated_at'], 'string', 'max' => 255],
         ];

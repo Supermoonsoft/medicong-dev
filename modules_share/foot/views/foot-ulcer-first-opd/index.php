@@ -48,6 +48,11 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 .field-sfootulcerfirstopd-post_revascularization_duration{display: inline-block;}
 .field-sfootulcerfirstopd-post_revascularization_months{display: inline-block;}
 .field-sfootulcerfirstopd-post_revascularization_year{display: inline-block;}
+.field-sfootulcerfirstopd-first_visit{margin-bottom: 25px;}
+.field-sfootulcerfirstopd-visit_date{margin-bottom: 25px;}
+.field-sfootulcerfirstopd-date_of_days{margin-bottom: 25px;}
+.field-sfootulcerfirstopd-date_of_months{margin-bottom: 25px;}
+.field-sfootulcerfirstopd-date_of_onset{margin-bottom: 25px;}
 
 </style>
 <?=$this->render('@app/modules_share/foot/views/default/panel_top',[
@@ -262,20 +267,9 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
           } ]])->label('4. Recurrent ulcer at the same location');?>
           </div>
       </div>
-      
-
-          
-            
-         
-        
-
-
       </fieldset>
-
+<div class="box">Details    of DFU and Brief foot examination assessment</div>
           <table width="100%" class="table table-bordered">
-  <tr>
-    <td width="643" colspan="3" valign="top"><p align="center"><strong>Details    of DFU and Brief foot examination assessment</strong></p></td>
-  </tr>
   <tr>
     <td width="250" valign="top"><p align="center"><strong>DFU    characteristics</strong></p></td>
     <td width="200" valign="top"><p align="center"><strong>Right</strong></p></td>
@@ -956,7 +950,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
         'style'  => ICheck::STYLE_FLAT,
         'items'    => [
            'N' => 'N',
-           'Y' => 'Y, type .......... duration .......... days .......... months .......... year',
+           'Y' => 'Y',
         ],
         'color'  => 'green',
         'options' => [
@@ -1034,8 +1028,9 @@ year
           </div>
           
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-              <a class="btn btn-success" id="save">บันทึก</a>
-          </div>    
+              <!-- <a class="btn btn-success" id="save">บันทึก</a> -->
+              <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> บันทึก', ['class' => 'btn btn-success']) ?>
+          </div>  
       </div>
           </div>
 </div>

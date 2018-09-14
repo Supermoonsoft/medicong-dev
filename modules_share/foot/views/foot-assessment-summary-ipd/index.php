@@ -33,7 +33,10 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     'tabfu'=>'' 
     ])?>
   <h4 style="color:#777;text-align: center;">IPD DIABETIC FOOT ASSESSMENT RECORD : SUMMARY</h4>
-  <?php $form = ActiveForm::begin(['id' => 'form','action' =>['/foot/2Ffoot-assessment-summary-ipd']]); ?>
+        <?php $form = ActiveForm::begin([
+      'id' => 'form',
+      'action' => ['/foot/foot-assessment-summary-ipd'],
+      ]); ?>
     <fieldset class="scheduler-border">
 	<legend class="scheduler-border">Risk of foot ulceration</legend>
         <?= $form->field($model, 'risk_of_foot_ulceration')->widget(ICheck::className(), [
@@ -47,8 +50,9 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
           }
       ]])->label(false);?>
       </fieldset>
+      <div class="box">Details of foot examination</div>
           <table width="1106" border="0" class="table table-bordered">
-            <tr><td colspan="3" align="center"><strong style="font-size: 16px;">Details of foot examination</strong></td></tr>
+            
             <tr>
               <td width="278" align="center">&nbsp;</td>
               <td width="342" align="center" style="font-size: 20px;">Right</td>
@@ -568,9 +572,12 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
           </div>
           
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-              <a class="btn btn-success" id="save">บันทึก</a>
-          </div>    
+              <!-- <a class="btn btn-success" id="save">บันทึก</a> -->
+              <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> บันทึก', ['class' => 'btn btn-success']) ?>
+          </div>  
       </div>
   <?php $form = ActiveForm::end(); ?>
 
 <?=$this->render('@app/modules_share/foot/views/default/panel_foot')?>
+
+<a href="" data-confirm="confirm"></a>
