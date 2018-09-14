@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\Html;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 
 
 /* @var $this yii\web\View */

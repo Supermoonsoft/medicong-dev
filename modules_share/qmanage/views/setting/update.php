@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\Html;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 
 /* @var $this yii\web\View */
 /* @var $model app\modules_share\qmanage\models\CDoctorRoom */

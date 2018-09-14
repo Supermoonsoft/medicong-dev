@@ -48,6 +48,7 @@ class CDoctorRoomSearch extends CDoctorRoom
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort'=> ['defaultOrder' => ['id'=>SORT_ASC]]
         ]);
 
         $this->load($params);

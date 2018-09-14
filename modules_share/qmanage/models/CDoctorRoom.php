@@ -32,6 +32,7 @@ class CDoctorRoom extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['title'],'required'],
             [['is_active'], 'boolean'],
             [['title','doctor_id', 'created_by', 'created_at', 'updated_by', 'updated_at'], 'string', 'max' => 255],
         ];
@@ -43,14 +44,14 @@ class CDoctorRoom extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'title' => 'Title',
-            'doctor_id'=>'Doctoe Id',
-            'is_active' => 'Is Active',
-            'created_by' => 'Created By',
-            'created_at' => 'Created At',
-            'updated_by' => 'Updated By',
-            'updated_at' => 'Updated At',
+            'id' => 'รหัสห้อง',
+            'title' => 'ชื่อห้อง',
+            'doctor_id'=>'แพทย์ประจำห้อง',
+            'is_active' => 'เปิดทำการ',
+            'created_by' => 'เพิ่มโดย',
+            'created_at' => 'เวลาเพิ่ม',
+            'updated_by' => 'แก้ไขโดย',
+            'updated_at' => 'เวลาแก้ไข',
         ];
     }
 }
