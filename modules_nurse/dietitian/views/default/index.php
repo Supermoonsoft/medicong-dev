@@ -9,7 +9,6 @@ use app\modules_nurse\dietitian\models\SDietitianOpdNutritionVisitRecord;
 use app\modules_nurse\dietitian\models\SDietitianIpdNutririonVisitRecord;
 use app\components\loading\ShowLoading;
 
-
 echo ShowLoading::widget();
 
 
@@ -25,29 +24,35 @@ $modelipd = new SDietitianIpdNutririonVisitRecord();
 
 
 $items = [
-        [
+    [
         'label' => '<i class="glyphicon glyphicon-heart"></i>  Vital Signs & Contour',
-       'content' => $this->render('test', [ ]),
+        'content' => $this->render('test', []),
         'active' => FALSE
     ],
-        [
+    [
         'label' => '<i class="glyphicon glyphicon-cloud-upload"></i> OPD Visit',
-        'content' =>$this->render('../opdrecord/create', ['model'=>$modelopd ]),
-        'active' => TRUE
+        'content' => $this->render('../opdrecord/create', ['model' => $modelopd]),
+        'active' => FALSE
     ], [
         'label' => '<i class="glyphicon glyphicon-cloud-download"></i> IPT Visit',
-        'content' => $this->render('../ipdrecord/create', ['model'=>$modelipd ]),
+        'content' => $this->render('../ipdrecord/create', ['model' => $modelipd]),
         'active' => false
     ], [
         'label' => '<i class="glyphicon glyphicon-hd-video"></i> HD Visit',
-        'content' => $this->render('_form4', [ ]),
-        'active' => false
+        'content' => $this->render('_form3', []),
+        'active' => TRUE
     ],
 ];
 ?>
 <div class="" style="margin-left: 20px;margin-right: 20px">
     <div class="panel panel-info">
-        <div class="panel-heading"><i class="glyphicon glyphicon-leaf"></i> Dietitian</div>
+        <div class="panel-heading">
+            <div class="panel-title">
+                <i class="glyphicon glyphicon-leaf" style="margin-right: 10px"></i> 
+
+                Dietitian
+            </div>
+        </div>
         <div class="panel-body">
 
             <?php

@@ -47,6 +47,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
                         <?php if (!empty($vn_session)): ?>
                             <a href="<?= Url::to(['/nursescreen/vital-signs/create']) ?>" class="btn btn-success">VS</a>
                             <a href="<?= Url::to(['/nursescreen/nurse-cc/create']) ?>" class="btn btn-info">CC</a>
+							<a href="<?= Url::to(['/nursescreen/nurse-screening/create']) ?>" class="btn btn-primary">NC</a>
                             <a href="<?= Url::to(['/nursescreen/dm-assessment/create']) ?>" class="btn btn-warning">DM</a>
                             <div class="pull-right">VN: <?= $vn_session ?></div>
                         <?php endif; ?>

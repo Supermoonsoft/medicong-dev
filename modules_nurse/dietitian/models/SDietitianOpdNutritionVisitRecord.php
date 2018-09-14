@@ -27,7 +27,7 @@ use Yii;
  * @property string $pg
  * @property string $a1c
  * @property string $tc
-  @property string $tg
+ * @property string $tg
  * @property string $hdl_c
  * @property string $ldl_c
  * @property string $non_hdl_c
@@ -80,7 +80,7 @@ class SDietitianOpdNutritionVisitRecord extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['id', 'hn', 'date_start_service', 'time_start_service'], 'required'],
+            [['requester'], 'required'],
             [['id', 'nutritional_histiry'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service', 'principal_diag'], 'safe'],
             [['stage_of_chang'], 'default', 'value' => null],

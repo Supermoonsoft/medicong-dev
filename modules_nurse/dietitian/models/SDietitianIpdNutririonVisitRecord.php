@@ -67,7 +67,7 @@ class SDietitianIpdNutririonVisitRecord extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['id', 'hn', 'date_start_service', 'time_start_service'], 'required'],
+             [['requester'], 'required'],
             [['id'], 'string'],
             [['data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service', 'chew', 'digestive', 'eat', 'food_access', 'disease_min', 'disease_max'], 'safe'],
             [['visit_no'], 'default', 'value' => null],

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\checkbox\CheckboxX;
 use yii\helpers\Url;
+use phpnt\ICheck\ICheck;
 use app\components\PatientHelper;
 
 $hn = PatientHelper::getCurrentHn();
@@ -381,20 +382,37 @@ $form = ActiveForm::begin([
         <div class="col-md-3" style="text-align: ri">
             <h5>Next Follow Up : </h5>
         </div>
-        <div class="col-md-2" style="margin-top: 10px">
+        <div class="col-md-3" style="margin-top: 10px">
             <?php $list = [0 => ' N', 1 => ' Y']; ?>
-            <?= $form->field($model, 'next_follow_check')->radioList($list, ['inline' => true])->label(FALSE); ?>
+
+            <?=
+            $form->field($model, 'next_follow_check')->widget(ICheck::className(), [
+                'type' => ICheck::TYPE_RADIO_LIST,
+                'style' => ICheck::STYLE_FLAT,
+                'items' => [1 => 'N', 2 => 'Y'],
+                'color' => 'green',
+                'options' => [
+                    'item' => function ($index, $label, $name, $checked, $value) {
+                        return '<input type="radio" id="radio-10-' . $index . '" name="' . $name . '" value="' . $value . '" ' . ($checked ? 'checked' : false) . '> 
+                        <label for="check-7-' . $index . '">' . $label . '</label>';
+                    },
+        ]])->label(FALSE);
+            ?>
         </div>
-        <div class="col-md-7" > <?= $form->field($model, 'next_followup')->textInput(['placeholder' => 'date'])->label(FALSE); ?> </div>
+        <div class="col-md-6" > <?= $form->field($model, 'next_followup')->textInput(['placeholder' => 'date'])->label(FALSE); ?> </div>
 
     </div>
+    
 </div>
 
 
-
-<div class="form-group" style="text-align: right;">
-    <?= Html::a("Reset", Url::toRoute(['index']), ['class' => 'btn btn-danger', 'style' => 'width:100px;height:50px;font-size:16px']) ?>
-    <?= Html::submitButton('Save', ['class' => 'btn btn-success', 'style' => 'width:100px;height:50px']) ?>
+<div class="form-group" style="text-align: left;margin-top: 30px;margin-left: 0px">
+    <div class="col-md-1">
+    <?= $form->field($model, 'requester')->textInput(['placeholder' => 'Requester','style' => 'width:100px'])->label(FALSE); ?>
+    </div>
+    <div class="col-md-2" style="margin-left:15px">
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success', 'style' => 'width:75px']) ?>
+    </div>
 </div>
 
 
