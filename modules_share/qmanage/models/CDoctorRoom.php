@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $title
+ * @property string $doctor_id
  * @property bool $is_active
  * @property string $created_by
  * @property string $created_at
@@ -32,7 +33,7 @@ class CDoctorRoom extends \yii\db\ActiveRecord
     {
         return [
             [['is_active'], 'boolean'],
-            [['title', 'created_by', 'created_at', 'updated_by', 'updated_at'], 'string', 'max' => 255],
+            [['title','doctor_id', 'created_by', 'created_at', 'updated_by', 'updated_at'], 'string', 'max' => 255],
         ];
     }
 
@@ -44,6 +45,7 @@ class CDoctorRoom extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+            'doctor_id'=>'Doctoe Id',
             'is_active' => 'Is Active',
             'created_by' => 'Created By',
             'created_at' => 'Created At',

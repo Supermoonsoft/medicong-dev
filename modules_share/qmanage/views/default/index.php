@@ -37,7 +37,9 @@ $dataProvider = new ArrayDataProvider([
     </div>
     <div class="panel-body">
         <div style="margin-bottom: 3px">
-            <button class="btn btn-info" onclick=<?=new JsExpression('swal("ส่งทีละหลายคน...")')?>><i class="fa fa-check"></i> ส่งพบแพทย์เฉพาะที่เลือก</button>
+            <?php $alert = 'swal("ส่งทีละหลายคน...")' ;?>
+            <button class="btn btn-info" onClick=<?=new JsExpression($alert)?>><i class="fa fa-check"></i> ส่งพบแพทย์เฉพาะที่เลือก</button>
+            <?= Html::a('<i class="fa fa-user-md" aria-hidden="true"></i> ตั้งค่า', ['setting/index'], ['class'=>'btn btn-danger pull-right'])?>
         </div>
         <?=
         GridView::widget([

@@ -9,5 +9,8 @@ class DbHelper extends Component {
     public static function queryAll($db,$sql){
         return \Yii::$app->$db->createCommand($sql)->queryAll();
     }
+    public static function execute($db,$sql){
+        return \Yii::$app->$db->createCommand($sql)->execute();
+    }
 
 }

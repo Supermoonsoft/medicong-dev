@@ -6,6 +6,8 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
+use app\components\loading\ShowLoading;
+echo ShowLoading::widget();
 
 $this->title = $name;
 ?>

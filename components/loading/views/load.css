@@ -1,19 +1,19 @@
 #tehnnn_load_screen{
-    background: #ccc;
+    background: skyblue;
     opacity: 0.8;
-    position: absolute;
-    z-index:9999;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
+     z-index:9999;
+     position: absolute;
+     top:0px;
+     left: 0px;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center
     
 }
 #tehnnn_loading {
-    color:#000;
-    width:120px;
-    height:24px;
-    margin: 250px auto;
-    font-weight: bolder;
-    font-size:  xx-large;
+   
+  flex-shrink: 0;
+   
 }
