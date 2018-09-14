@@ -54,9 +54,9 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
           <table width="1106" border="0" class="table table-bordered">
             
             <tr>
-              <td width="278" align="center">&nbsp;</td>
-              <td width="342" align="center" style="font-size: 20px;">Right</td>
-              <td width="464" align="center" style="font-size: 20px;">Left</td>
+              <td width="300" align="center">&nbsp;</td>
+              <td width="360" align="center" style="font-size: 20px;">Right</td>
+              <td width="360" align="center" style="font-size: 20px;">Left</td>
             </tr>
             <tr>
               <td>1.

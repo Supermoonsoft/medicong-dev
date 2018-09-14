@@ -24,12 +24,12 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     <?php 
         if(DmAssessment::find()->where(['vn'=>$model->vn])->count()>0){
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> DM Assessment </i>',
-                ['/nursescreen/dm-assessment/update','vn'=>$model->vn],
+                ['/nursescreen/dm-assessment/index','vn'=>$model->vn],
                 ['class' => 'btn btn-success']
             );
         }else{
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> DM Assessment </i>',
-                ['/nursescreen/dm-assessment/create',],
+                ['/nursescreen/dm-assessment/index',],
                 ['class' => 'btn btn-success']
             );
         }

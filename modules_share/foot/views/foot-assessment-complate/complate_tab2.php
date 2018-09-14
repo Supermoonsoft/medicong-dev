@@ -71,7 +71,7 @@ use phpnt\ICheck\ICheck;
 </div>
 <?= $form->field($model, 'chief_complaint')->textArea(['rows' =>4, 'cols' =>200])->label(false); ?>
 <br>
-<div class="box">2. Dermatologic examination</div>
+<strong>2. Dermatologic examination</strong>
 <table width="100%" class="table table-bordered">
   <tr>
     <td width="30%">&nbsp;</td>
@@ -697,7 +697,7 @@ use phpnt\ICheck\ICheck;
   </tr>
 </table>
 
-<div class="box">3. Musculoskeletal examination</div>
+<strong>3. Musculoskeletal examination</strong>
 <table border="1" cellspacing="0" cellpadding="0" width="100%" class="table table-bordered">
 
   <tr>
@@ -1197,7 +1197,7 @@ use phpnt\ICheck\ICheck;
 </table>
 
 
-<div class="box">4.Neuropathy assessment</div>
+<strong>4.Neuropathy assessment</strong>
 <table border="1" cellspacing="0" cellpadding="0" width="100%" class="table table-bordered">
 
   <tr>
@@ -1331,7 +1331,7 @@ use phpnt\ICheck\ICheck;
   </tr>
 </table>
 
-<div class="box">5.Vascular assessment</div>
+<strong>5.Vascular assessment</strong>
 <table border="1" cellspacing="0" cellpadding="0" width="100%" class="table table-bordered">
   <tr>
     <td width="30%" valign="top"><p align="center">&nbsp;</p></td>

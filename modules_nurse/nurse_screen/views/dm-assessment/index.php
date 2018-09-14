@@ -22,7 +22,14 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 <div class="panel panel-success box-shadow">
   <div class="panel-heading">
   <div class="panel-title">
-    <i class="fa fa-sticky-note-o"></i> รายการประเมิน </div>
+    <object align="middle">
+        <i class="fa fa-sticky-note-o"></i> รายการประเมิน 
+            <object align="right"><?= Html::a('<i class="glyphicon glyphicon-plus-sign"></i> ประเมิน ',
+                    ['create',],['class' => 'btn btn-success']
+                );?>
+            </object>
+    </object>
+    </div>
   </div>
 <div class="panel-body">
     <?php Pjax::begin(); ?>
