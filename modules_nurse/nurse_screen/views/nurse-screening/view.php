@@ -34,8 +34,9 @@ $this->registerCss("
 <h3>บันทึก Chief Complaint : 
     <?php 
         if(NurseCc::find()->where(['vn'=>$model->vn])->count()>0){
+            $vs = NurseCc::find()->where(['vn'=>$model->vn])->one();
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Chief Complaint </i>',
-                ['/nursescreen/nurse-cc/update','vn'=>$model->vn],
+                ['/nursescreen/nurse-cc/update','id'=>$vs->id],
                 ['class' => 'btn btn-success']
             );
         }else{

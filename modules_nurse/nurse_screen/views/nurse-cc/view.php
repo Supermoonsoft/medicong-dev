@@ -21,18 +21,11 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 <div class="col-md-10">
 
 <h3>บันทึก DM Assessment : 
-    <?php 
-        if(DmAssessment::find()->where(['vn'=>$model->vn])->count()>0){
+    <?php
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> DM Assessment </i>',
-                ['/nursescreen/dm-assessment/index','vn'=>$model->vn],
+                ['/nursescreen/dm-assessment/index','hn'=>$hn],
                 ['class' => 'btn btn-success']
             );
-        }else{
-            echo Html::a('<i class="glyphicon glyphicon-plus-sign"> DM Assessment </i>',
-                ['/nursescreen/dm-assessment/index',],
-                ['class' => 'btn btn-success']
-            );
-        }
     ?>
 </h3>
 

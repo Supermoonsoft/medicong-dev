@@ -6,6 +6,10 @@ use app\components\loading\ShowLoading;
 use app\modules_share\newpatient\models\mPatient;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\modules_nurse\nurse_screen\models\NurseCc;
+use app\modules_nurse\nurse_screen\models\DmAssessment;
+use app\modules_nurse\nurse_screen\models\NurseScreening;
+use app\modules_nurse\nurse_screen\models\VitalSigns;
 
 echo ShowLoading::widget();
 $hn = PatientHelper::getCurrentHn();
@@ -41,15 +45,33 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
                             ?>
                         <?php endif; ?>
                         <?= Html::endForm() ?>
-
+ 
                     </div>
                     <div>
                         <?php if (!empty($vn_session)): ?>
-                            <a href="<?= Url::to(['/nursescreen/vital-signs/create']) ?>" class="btn btn-success">VS</a>
-                            <a href="<?= Url::to(['/nursescreen/nurse-cc/create']) ?>" class="btn btn-info">CC</a>
-							<a href="<?= Url::to(['/nursescreen/nurse-screening/create']) ?>" class="btn btn-primary">NC</a>
-                            <a href="<?= Url::to(['/nursescreen/dm-assessment/create']) ?>" class="btn btn-warning">DM</a>
-                            <div class="pull-right">VN: <?= $vn_session ?></div>
+                        <?php if(VitalSigns::find()->where(['vn'=>$vn_session])->count()>0){
+                            $vs = VitalSigns::find()->where(['vn'=>$vn_session])->one();
+                            echo "<a href=".Url::to(['/nursescreen/vital-signs/update','id'=>$vs->id])." class='btn btn-success'>VS</a>";
+                        }else{
+                            echo "<a href=".Url::to(['/nursescreen/vital-signs/create'])." class='btn btn-success'>VS</a>";
+                        }
+                        ?>
+                        <?php if(NurseScreening::find()->where(['vn'=>$vn_session])->count()>0){
+                            $vs = NurseScreening::find()->where(['vn'=>$vn_session])->one();
+                            echo "<a href=".Url::to(['/nursescreen/nurse-screening/update','id'=>$vs->id])." class='btn btn-primary'>NC</a>";
+                        }else{
+                            echo "<a href=".Url::to(['/nursescreen/nurse-screening/create'])." class='btn btn-primary'>NC</a>";
+                        }
+                        ?>
+                        <?php if(NurseCc::find()->where(['vn'=>$vn_session])->count()>0){
+                            $vs = NurseCc::find()->where(['vn'=>$vn_session])->one();
+                            echo "<a href=".Url::to(['/nursescreen/nurse-cc/update','id'=>$vs->id])." class='btn btn-info'>CC</a>";
+                        }else{
+                            echo "<a href=".Url::to(['/nursescreen/nurse-cc/create'])." class='btn btn-info'>CC</a>";
+                        }
+                        ?>
+                        <?="<a href=".Url::to(['/nursescreen/dm-assessment/create'])." class='btn btn-warning'>DM</a>";?>
+                          <div class="pull-right">VN: <?= $vn_session ?></div>
                         <?php endif; ?>
                     </div>
                 </object>

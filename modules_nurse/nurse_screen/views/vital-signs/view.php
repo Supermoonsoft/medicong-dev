@@ -31,8 +31,9 @@ $this->registerCss("
 <h3>บันทึก Screening : 
     <?php 
         if(NurseScreening::find()->where(['vn'=>$model->vn])->count()>0){
+            $vs = NurseScreening::find()->where(['vn'=>$model->vn])->one();
             echo Html::a('<i class="glyphicon glyphicon-plus-sign"> Screening </i>',
-                ['/nursescreen/nurse-screening/update','vn'=>$model->vn],
+                ['/nursescreen/nurse-screening/update','id'=>$vs->id],
                 ['class' => 'btn btn-info']
             );
         }else{
