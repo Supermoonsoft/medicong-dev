@@ -7,6 +7,7 @@ Use app\components\MessageHelper;
 use app\components\PatientHelper;
 use app\modules_nurse\dietitian\models\SDietitianOpdNutritionVisitRecord;
 use app\modules_nurse\dietitian\models\SDietitianIpdNutririonVisitRecord;
+use app\modules_nurse\dietitian\models\SDietitianOpdNutritionalAssessment;
 use app\components\loading\ShowLoading;
 
 echo ShowLoading::widget();
@@ -21,6 +22,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
 $modelopd = new SDietitianOpdNutritionVisitRecord();
 $modelipd = new SDietitianIpdNutririonVisitRecord();
+$modelopdAss = new SDietitianOpdNutritionalAssessment();
 
 
 $items = [
@@ -39,7 +41,7 @@ $items = [
         'active' => false
     ], [
         'label' => '<i class="glyphicon glyphicon-hd-video"></i> HD Visit',
-        'content' => $this->render('_form3', []),
+        'content' =>  $this->render('../opdassessment/create', ['model' => $modelopdAss]),
         'active' => TRUE
     ],
 ];
