@@ -1,16 +1,11 @@
 <?php
 require_once "stimulsoft/helper.php";
-$vn =$_GET['vn'];
-$hn =$_GET['hn'];
-$name = $_GET['name'];
-
-
 ?>
 <!DOCTYPE html>
 
 <html>
 <head>
-	<title>Report.mrt - Viewer</title>
+	<title>EMR Report</title>
 	<link rel="stylesheet" type="text/css" href="css/stimulsoft.viewer.office2013.whiteteal.css">
 	<script type="text/javascript" src="scripts/stimulsoft.reports.js"></script>
 	<script type="text/javascript" src="scripts/stimulsoft.viewer.js"></script>
@@ -34,13 +29,7 @@ $name = $_GET['name'];
 				"tV4qdfgrOOOk02xX";
 
 			var report = new Stimulsoft.Report.StiReport();
-			var vn = <?=$vn?>;
-			var hn = <?=$hn?>;
-			var tfile =<?=$name?>;
-			//report.setVariable(test, '123456');
-			report.loadFile("reports/"+tfile);
-			report.setVariable('vn', vn);
-			report.setVariable('hn', hn);
+			report.loadFile("reports/stickerDrug_pcc.mrt");
 
 			var options = new Stimulsoft.Viewer.StiViewerOptions();
 			var viewer = new Stimulsoft.Viewer.StiViewer(options, "StiViewer", false);

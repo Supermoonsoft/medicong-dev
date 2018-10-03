@@ -1,0 +1,89 @@
+{
+  "ReportVersion": "2018.2.3.0",
+  "ReportGuid": "901f4dee08a546c6912b68de89ed4e8e",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportCreated": "/Date(1533579858000-0700)/",
+  "ReportChanged": "/Date(1533581227000-0700)/",
+  "EngineVersion": "EngineV2",
+  "ReportUnit": "Inches",
+  "Script": "using System;\r\nusing System.Drawing;\r\nusing System.Windows.Forms;\r\nusing System.Data;\r\nusing Stimulsoft.Controls;\r\nusing Stimulsoft.Base.Drawing;\r\nusing Stimulsoft.Report;\r\nusing Stimulsoft.Report.Dialogs;\r\nusing Stimulsoft.Report.Components;\r\n\r\nnamespace Reports\r\n{\r\n    public class Report : Stimulsoft.Report.StiReport\r\n    {\r\n        public Report()        {\r\n            this.InitializeComponent();\r\n        }\r\n\r\n        #region StiReport Designer generated code - do not modify\r\n\t\t#endregion StiReport Designer generated code - do not modify\r\n    }\r\n}\r\n",
+  "ReferencedAssemblies": {
+    "0": "System.Dll",
+    "1": "System.Drawing.Dll",
+    "2": "System.Windows.Forms.Dll",
+    "3": "System.Data.Dll",
+    "4": "System.Xml.Dll",
+    "5": "Stimulsoft.Controls.Dll",
+    "6": "Stimulsoft.Base.Dll",
+    "7": "Stimulsoft.Report.Dll"
+  },
+  "Dictionary": {
+    "Variables": {
+      "0": {
+        "Name": "vn",
+        "Alias": "vn",
+        "Type": "System.String"
+      },
+      "1": {
+        "Name": "hn",
+        "Alias": "hn",
+        "Type": "System.String"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiMySqlDatabase",
+        "Name": "MySQL",
+        "Alias": "MySQL",
+        "ConnectionStringEncrypted": "w1RpCUhdY4XpR6HYyCW1XotadaPHWgG8YFqhve8B4GbG3sNIZ0uj8MxYnIBpTDJjw8DzokhZQ4XDE8mlamhlP4Jw+4lGCQ=="
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "7870ad6f9b6244019f5f32141c33d63f",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiText",
+          "Name": "Text1",
+          "MinSize": "0,0",
+          "MaxSize": "0,0",
+          "ClientRectangle": "0.8,0.1,5.7,2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "VN = {vn} \r\nHN = {hn}"
+          },
+          "HorAlignment": "Center",
+          "VertAlignment": "Center",
+          "Font": "TH SarabunPSK;36;Bold;",
+          "Border": ";Transparent;;;;;;solid:Black",
+          "Brush": "solid:221,217,195",
+          "TextBrush": "solid:Black",
+          "Type": "Expression"
+        }
+      },
+      "PaperSize": "Letter",
+      "PageWidth": 8.5,
+      "PageHeight": 11.0,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 0.39,
+        "Right": 0.39,
+        "Top": 0.39,
+        "Bottom": 0.39
+      }
+    }
+  }
+}
