@@ -60,6 +60,9 @@ $module = \Yii::$app->controller->module->id;
                 <li>
                     <a href="#"><i class="fas fa-file-excel"></i> Report</a>
                 </li>
+                <li>
+                    <a class="<?= $module == 'icath' ? 'on-active' : 'non-active' ?>" href="<?= Url::to(['/icath/m-masprice/index']) ?>"><i class="fa fa-archive"></i> STOCK</a>
+                </li>
             </ul>
 
         </div>
