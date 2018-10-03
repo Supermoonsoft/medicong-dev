@@ -18,14 +18,14 @@ $module = \Yii::$app->controller->module->id;
                 </li>              
                 <li>
                     <!--<a href="<?= Url::to(['/qmanage/default/index']) ?>"><i class="fa fa-bullhorn"></i> Q.manage</a>-->
-					<a class="<?= $module == 'nursescreen' ? 'on-active' : 'non-active' ?>" href="<?= Url::to(['/queuemanage']) ?>"><i class="fa fa-bullhorn"></i> Q.manage</a>
+					<a class="<?= $module == 'queuemanage' ? 'on-active' : 'non-active' ?>" href="<?= Url::to(['/queuemanage']) ?>"><i class="fa fa-bullhorn"></i> Q.manage</a>
 					
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-thermometer"></i> LAB</a>
                 </li>
                 <li>
-                    <a class="<?= $module == 'dmassessment' ? 'on-active' : 'non-active' ?>" href="<?= Url::to(['/nursescreen/dm-assessment/index']) ?>"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a><!-- POND -->
+                    <a class="<?= $module == 'dmassessment' ? 'on-active' : 'non-active' ?>" href="<?= Url::to(['/dmassessment/dmassessment/index']) ?>"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a><!-- POND -->
                 </li>
                 
                  <li>
@@ -49,7 +49,7 @@ $module = \Yii::$app->controller->module->id;
                     <a class="<?= $module == 'emr' ? 'on-active' : 'non-active' ?>" href="<?= Url::to(['/emr/default/index']) ?>"><i class="fas fa-book"></i> E-DOC</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fab fa-erlang"></i> E-FORM</a>
+                    <a href="#"><i class="fas fa-notes-medical"></i> E-FORM</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-file-signature"></i> QUESTIONNAIRE</a>

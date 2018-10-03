@@ -6,6 +6,7 @@ use app\modules\doctorworkbench\models\CDrugusage;
 use yii\helpers\ArrayHelper;
 use kartik\editable\Editable;
 use kartik\grid\GridView;
+use yii\helpers\Json;
 
 return [
     [
@@ -84,21 +85,22 @@ return [
 //         }
 //     ],
    [
-        'class'=>'\kartik\grid\DataColumn',
+       'class' => 'kartik\grid\EditableColumn',
+       //'class'=>'\kartik\grid\DataColumn',
         'header' => 'จำนวนจ่าย',
         'pageSummary' => 'มูลค่ารวม',
         'attribute' => 'qty',
         'width' => '100px',        
-//         'editableOptions' => [
-//             'inputType' => \kartik\editable\Editable::INPUT_TEXT,
-//             'formOptions' => [
-//                 'action' => \yii\helpers\Url::to(['/doctorworkbench/pcc-medication/editable']),
-//                 'method' => 'post'
-//             ],
-//             'valueIfNull' => '-',
-//             'submitButton' => ['class' => 'btn btn-primary', 'icon' => '<i class="glyphicon glyphicon-ok"></i>'],
-//             'resetButton' => ['class' => 'btn btn-warning', 'icon' => '<i class="glyphicon glyphicon-refresh"></i>'],
-//         ],
+         'editableOptions' => [
+             'inputType' => \kartik\editable\Editable::INPUT_TEXT,
+             'formOptions' => [
+                 'action' => \yii\helpers\Url::to(['/doctorworkbench/pcc-medication/editable']),
+                 'method' => 'post'
+             ],
+             'valueIfNull' => '-',
+             'submitButton' => ['class' => 'btn btn-primary', 'icon' => '<i class="glyphicon glyphicon-ok"></i>'],
+             'resetButton' => ['class' => 'btn btn-warning', 'icon' => '<i class="glyphicon glyphicon-refresh"></i>'],
+         ],
     ],
     [
         'class' => '\kartik\grid\DataColumn',

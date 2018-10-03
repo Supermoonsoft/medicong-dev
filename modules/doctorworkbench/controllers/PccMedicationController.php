@@ -14,7 +14,7 @@ use app\components\PatientHelper;
 use app\modules\doctorworkbench\models\CDrugitems;
 use app\modules\doctorworkbench\models\CDrugusage;
 use app\modules\doctorworkbench\models\GatewayCDrugItems;
-
+use yii\helpers\Json;
 
 class PccMedicationController extends Controller
 {

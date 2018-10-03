@@ -63,5 +63,6 @@ $modules['treatment'] = ['class' => 'app\modules\treatment\Treatment'];//pond
 $modules['appointment'] = ['class' => 'app\modules\appointment\Appointment'];//pond
 $modules['questionare'] = ['class' => 'app\modules\questionare\Questionare'];//inam
 /* PCC EMR*/
+$modules['dmassessment'] = ['class' => 'app\modules_nurse\dmassessment\Dmassessment']; //pond
 return $modules;
 
