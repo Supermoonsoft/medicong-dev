@@ -131,7 +131,7 @@ $hn = PatientHelper::getCurrentHn();
         <?php if (\Yii::$app->user->can('nurse')): //nurse ?>
             <?= $this->render('@app/components/_toolbar_nurse') ?>
         <?php elseif (\Yii::$app->user->can('doctor')): ?>
-            <?= $this->render('@app/components/_toolbar_doctor') ?>
+            <?= $this->render('@app/components/_toolbar_doctor_pcc') ?>
         <?php else : ?>
             <?= $this->render('@app/components/_toolbar_empty') ?>
         <?php endif; ?>
