@@ -21,9 +21,9 @@ $url = \yii\helpers\Url::to(['order/icd10-list']);//กำหนด URL ที�
 $prefix = empty($person->prefix_id) ? '' : BasePrefix::findOne($model->prefix_id)->prefix_name;//กำหนดค่าเริ่มต้น
 ?>
 <?=$this->render('../default/panel_top',[
-'emr' => '',
-'lab' => '',
-'drug' => '',
+//'emr' => '',
+//'lab' => '',
+//'drug' => '',
 'diagnosis' => '',
 'medication' => '',
 'procedure' => '',

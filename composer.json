@@ -32,7 +32,8 @@
         "dektrium/yii2-user": "^0.9.14",
         "dektrium/yii2-rbac": "1.0.0-alpha@dev",
         "mdmsoft/yii2-admin": "~2.0",
-        "philippfrenzel/yii2fullcalendar": "*"
+        "philippfrenzel/yii2fullcalendar": "*",
+        "kartik-v/yii2-editable": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

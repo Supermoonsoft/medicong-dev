@@ -55,12 +55,14 @@ li.dropdown:hover > .dropdown-menu {
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<!-- tabs -->
   <ul class="nav nav-tabs">
+  <!--
   <li class="<?=$emr;?>"><?=Html::a('<i class="far fa-hospital"></i> EMR', ['/doctorworkbench/order/emr'])?></li>    
   <li class="<?=$lab;?>"><?=Html::a('<i class="fas fa-flask"></i> Lab History', ['/doctorworkbench/order/lab'])?></li> 
-  <li class="<?=$drug;?>"><?=Html::a('<i class="fas fa-prescription"></i> Drug History', ['/doctorworkbench/order/drug'])?></li>  
+  <li class="<?=$drug;?>"><?=Html::a('<i class="fas fa-prescription"></i> Drug History', ['/doctorworkbench/order/drug'])?></li>
+-->  
   <li class="<?=$cc;?>"><?=Html::a('<i class="fas fa-universal-access"></i> CC', ['/doctorworkbench/order/cc'])?></li>    
-  <li class="<?=$pi;?>"><?=Html::a('PI', ['/doctorworkbench/order/pi'])?></li>    
-  <li class="<?=$pe;?>"><?=Html::a('PE', ['/doctorworkbench/order/pe'])?></li>    
+  <li class="<?=$pi;?>"><?=Html::a('<i class="fas fa-street-view"></i> PI', ['/doctorworkbench/order/pi'])?></li>    
+  <li class="<?=$pe;?>"><?=Html::a('<i class="fas fa-file-alt"></i> PE', ['/doctorworkbench/order/pe'])?></li>    
     <li class="<?=$diagnosis;?>"><?=Html::a('<i class="fas fa-user-md"></i> Diganosis', ['/doctorworkbench/pcc-diagnosis'])?></li>
     <li class="<?=$medication;?>"><?=Html::a('<i class="fas fa-pills"></i> Medication', ['/doctorworkbench/pcc-medication'])?></li>
     <li class="<?=$procedure;?>"><?=Html::a('<i class="fas fa-diagnoses"></i> Procedure', ['/doctorworkbench/pcc-procedure'])?></li>
