@@ -22,7 +22,8 @@ class DevAsset extends AssetBundle {
     public $baseUrl = '@web';
     public $css = [
         //'css/site.css',
-        'css/font-awesome-4.7.0/css/font-awesome.min.css',
+        //'css/font-awesome-4.7.0/css/font-awesome.min.css',
+		'css/fontawesome-free-5.3.1/css/all.min.css',
         'css/dev-theme2.css',
         //'css/w3.css'
     ];

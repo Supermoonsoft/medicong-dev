@@ -47,6 +47,21 @@ $modules['user'] = [
     'admins' => ['admin']]; // inam
 $modules['rbac'] = ['class' => 'dektrium\rbac\RbacWebModule']; //inam
 $modules['qmanage'] = ['class' => 'app\modules_share\qmanage\Qmanage'];//tehnn
-
+/* PCC EMR */
+$modules['lab'] = ['class' => 'app\modules\lab\Lab']; //pond 
+$modules['drug'] = ['class' => 'app\modules\drug\Drug']; //pond 
+$modules['doctorworkbench'] = ['class' => 'app\modules\doctorworkbench\Doctorworkbench']; //oh
+$modules['queuemanage'] = ['class' => 'app\modules\queuemanage\QueueManage']; //tehnn
+//$modules['emr'] = ['class' => 'app\modules\emr\Emr']; //jub
+//$modules['printout'] = ['class' => 'app\modules\printout\PrintOut'];
+$modules['report'] = ['class' => 'app\modules\report\Report'];
+$modules['stock'] = ['class' => 'app\modules\stock\Stock'];
+$modules['setsession'] = ['class' => 'app\modules\setsession\SetSession']; //tehnn
+$modules['patientexit'] = ['class' => 'app\modules\patientexit\PatientExit']; //tehnn
+$modules['chiefcomplaint'] = ['class' => 'app\modules\chiefcomplaint\Chiefcomplaint'];//pond 
+$modules['treatment'] = ['class' => 'app\modules\treatment\Treatment'];//pond
+$modules['appointment'] = ['class' => 'app\modules\appointment\Appointment'];//pond
+$modules['questionare'] = ['class' => 'app\modules\questionare\Questionare'];//inam
+/* PCC EMR*/
 return $modules;
 

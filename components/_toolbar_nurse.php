@@ -24,6 +24,11 @@ use yii\bootstrap\NavBar;
                 <li>
                     <a href="<?= Url::to(['/nursescreen/dm-assessment/index']) ?>"><i class="fa fa-stethoscope"></i> DM Nurse Manager</a><!-- POND -->
                 </li>
+                
+                 <li>
+                    <a href="#"><i class="fa fa-ambulance"></i> ORDER</a>
+                </li>
+                
                 <li>
                     <a href="<?= Url::to(['/dietitian']) ?>"><i class="fa fa-bed"></i> Dietitian</a>
                 </li>
@@ -37,11 +42,17 @@ use yii\bootstrap\NavBar;
                 <li>
                     <a href="#"><i class="fa fa-support"></i> HD</a>
                 </li>
-                <li>
-                    <a href="<?= Url::to(['/emr/default/index']) ?>"><i class="fa fa-ambulance"></i> EMR</a>
+                 <li>
+                    <a href="<?= Url::to(['/emr/default/index']) ?>"><i class="fa fa-ambulance"></i> E-DOC</a>
                 </li>
                 <li>
-                    <a href="<?= Url::to(['/printout']) ?>"><i class="fa fa-clipboard"></i> Print Out</a>
+                    <a href="#"><i class="fa fa-ambulance"></i> E-FORM</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-ambulance"></i> QUESTIONNAIRE</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-clipboard"></i> Print Out</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-file-text"></i> Report</a>

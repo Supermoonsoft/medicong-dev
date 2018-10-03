@@ -47,7 +47,7 @@ $hn = PatientHelper::getCurrentHn();
             .breadcrumb > li + li:before {
                 content: "|" !important;
             }
-            
+
         </style>
         <?= Html::csrfMetaTags() ?>
         <title>MedicoNG Dev</title>
@@ -105,9 +105,9 @@ $hn = PatientHelper::getCurrentHn();
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
-                        <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-bell"  style="font-size:20px;color:white"></i><span class="badge badge-light">9</span></a></li>
+                        <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-bell"  style="font-size:20px;color:white"></i><span class="badge badge-light">2</span></a></li>
 
-                        <li style="padding-right: 30px;"><a data-toggle="modal" data-target="#myModal2"><i class="fa fa-user-o"  style="font-size:20px;color:white;"></i></a></li>
+                        <li style="padding-right: 30px;"><a data-toggle="modal" data-target="#myModal2"><i class="fa fa-user"  style="font-size:20px;color:white;"></i><span class="badge badge-light">5</span></a></li>
 
                         <li><img src="img\profile.png" height="40px" class="img-circle" style="padding-top: 6px;" /></li>
                         <li  style="padding-top: 5px;padding-left: 5px;">
@@ -162,13 +162,12 @@ $hn = PatientHelper::getCurrentHn();
                     </div>
 
                     <div class="modal-body">
-                        <ul>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                        </ul>
+
+                        <h4><i class="fa fa-exclamation"></i> แพ้ยา : Penicillin</h4>
+                        <h4><i class="fa fa-exclamation"></i> วัคซีน TT เข็ม 3 (11 พย.61)</h4>
+
+
+
                     </div>
 
                 </div><!-- modal-content -->
@@ -186,13 +185,14 @@ $hn = PatientHelper::getCurrentHn();
                     </div>
 
                     <div class="modal-body">
-                        <ul>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                        </ul>
+
+                        <a href='#'><h4>นางมาลี ผลไม้กระป๋อง</h4></a>
+                        <a href='#'><h4>นายสมชาย มีมาก</h4></a>
+                        <a href='#'><h4>นส.สมศรี  สีสวย</h4></a>
+                        <a href='#'><h4>นางเจริญ สุขมาก</h4></a>
+                        <a href='#'><h4>ดช.สาธิต หลักไชย</h4></a>
+
+
                     </div>
 
                 </div><!-- modal-content -->

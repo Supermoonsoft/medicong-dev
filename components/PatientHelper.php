@@ -25,7 +25,15 @@ class PatientHelper extends Component {
             return '<i class="fa fa-wheelchair" aria-hidden="true"></i> กรุณาเลือกผู้เข้ารับบริการ';
         }
     }
-
+    
+  
+    public static function getDummy(){
+        return 'dummmy';
+    }
+//getCurrentCid
+    public static function getCurrentCid(){
+        return '1111111111111';
+    }
     public static function genNextHn() {
         $prev_hn = mPatient::find()->orderBy(['hn' => SORT_DESC])->one();
         $next_hn = '000000000' . ((int) $prev_hn->hn + 1);
