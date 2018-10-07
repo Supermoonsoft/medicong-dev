@@ -5,12 +5,12 @@ namespace app\modules_stock\icath\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules_stock\icath\models\MMasprice;
+use app\modules_stock\icath\models\MStockIcathMasprice;
 
 /**
- * MMaspriceSearch represents the model behind the search form of `app\modules_stock\icath\models\MMasprice`.
+ * MStockIcathMaspriceSearch represents the model behind the search form of `app\modules_stock\icath\models\MStockIcathMasprice`.
  */
-class MMaspriceSearch extends MMasprice
+class MStockIcathMaspriceSearch extends MStockIcathMasprice
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ class MMaspriceSearch extends MMasprice
     public function rules()
     {
         return [
-            [['section', 'code', 'name', 'charge_code', 'charge_name', 'opd_price', 'opd_dr_percent', 'opd_dr_amt', 'ipd_price', 'ipd_dr_percent', 'ipd_dr_amt', 'price_cost', 'recieve_code', 'recieve_thai_name', 'recieve_eng_name', 'change_date', 'update_time', 'title', 'map_code', 'is_active', 'created_at', 'created_by', 'updated_at', 'updated_by', 'requester', 'data_json', 'data1', 'data2'], 'safe'],
+            [['section', 'code', 'name', 'charge_code', 'charge_name', 'opd_price', 'opd_dr_percent', 'opd_dr_amt', 'ipd_price', 'ipd_dr_percent', 'ipd_dr_amt', 'price_cost', 'recieve_code', 'recieve_thai_name', 'recieve_eng_name', 'change_date', 'update_time', 'created_at', 'created_by', 'updated_at', 'updated_by', 'requester', 'data_json'], 'safe'],
             [['id'], 'integer'],
         ];
     }
@@ -41,7 +41,7 @@ class MMaspriceSearch extends MMasprice
      */
     public function search($params)
     {
-        $query = MMasprice::find();
+        $query = MStockIcathMasprice::find();
 
         // add conditions that should always apply here
 
@@ -59,9 +59,9 @@ class MMaspriceSearch extends MMasprice
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'id' => $this->id,
         ]);
 
         $query->andFilterWhere(['ilike', 'section', $this->section])
@@ -81,15 +81,10 @@ class MMaspriceSearch extends MMasprice
             ->andFilterWhere(['ilike', 'recieve_eng_name', $this->recieve_eng_name])
             ->andFilterWhere(['ilike', 'change_date', $this->change_date])
             ->andFilterWhere(['ilike', 'update_time', $this->update_time])
-            ->andFilterWhere(['ilike', 'title', $this->title])
-            ->andFilterWhere(['ilike', 'map_code', $this->map_code])
-            ->andFilterWhere(['ilike', 'is_active', $this->is_active])
             ->andFilterWhere(['ilike', 'created_by', $this->created_by])
             ->andFilterWhere(['ilike', 'updated_by', $this->updated_by])
             ->andFilterWhere(['ilike', 'requester', $this->requester])
-            ->andFilterWhere(['ilike', 'data_json', $this->data_json])
-            ->andFilterWhere(['ilike', 'data1', $this->data1])
-            ->andFilterWhere(['ilike', 'data2', $this->data2]);
+            ->andFilterWhere(['ilike', 'data_json', $this->data_json]);
 
         return $dataProvider;
     }

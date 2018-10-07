@@ -5,7 +5,7 @@ namespace app\modules_stock\icath\models;
 use Yii;
 
 /**
- * This is the model class for table "m_masprice".
+ * This is the model class for table "m_stock_icath_masprice".
  *
  * @property string $section
  * @property string $code
@@ -24,27 +24,22 @@ use Yii;
  * @property string $recieve_eng_name
  * @property string $change_date
  * @property string $update_time
- * @property string $title
- * @property string $map_code
- * @property string $is_active
- * @property string $id
  * @property string $created_at
  * @property string $created_by
  * @property string $updated_at
  * @property string $updated_by
  * @property string $requester
  * @property array $data_json
- * @property string $data1
- * @property string $data2
+ * @property string $id
  */
-class MMasprice extends \yii\db\ActiveRecord
+class MStockIcathMasprice extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'm_masprice';
+        return 'm_stock_icath_masprice';
     }
 
     /**
@@ -54,7 +49,7 @@ class MMasprice extends \yii\db\ActiveRecord
     {
         return [
             [['created_at', 'updated_at', 'data_json'], 'safe'],
-            [['section', 'code', 'name', 'charge_code', 'charge_name', 'opd_price', 'opd_dr_percent', 'opd_dr_amt', 'ipd_price', 'ipd_dr_percent', 'ipd_dr_amt', 'price_cost', 'recieve_code', 'recieve_thai_name', 'recieve_eng_name', 'change_date', 'update_time', 'title', 'map_code', 'is_active', 'created_by', 'updated_by', 'requester', 'data1', 'data2'], 'string', 'max' => 255],
+            [['section', 'code', 'name', 'charge_code', 'charge_name', 'opd_price', 'opd_dr_percent', 'opd_dr_amt', 'ipd_price', 'ipd_dr_percent', 'ipd_dr_amt', 'price_cost', 'recieve_code', 'recieve_thai_name', 'recieve_eng_name', 'change_date', 'update_time', 'created_by', 'updated_by', 'requester'], 'string', 'max' => 255],
         ];
     }
 
@@ -81,18 +76,13 @@ class MMasprice extends \yii\db\ActiveRecord
             'recieve_eng_name' => 'Recieve Eng Name',
             'change_date' => 'Change Date',
             'update_time' => 'Update Time',
-            'title' => 'Title',
-            'map_code' => 'Map Code',
-            'is_active' => 'Is Active',
-            'id' => 'ID',
             'created_at' => 'Created At',
             'created_by' => 'Created By',
             'updated_at' => 'Updated At',
             'updated_by' => 'Updated By',
             'requester' => 'Requester',
             'data_json' => 'Data Json',
-            'data1' => 'Data1',
-            'data2' => 'Data2',
+            'id' => 'ID',
         ];
     }
 }

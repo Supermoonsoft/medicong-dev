@@ -3,16 +3,16 @@
 namespace app\modules_stock\icath\controllers;
 
 use Yii;
-use app\modules_stock\icath\models\MMasprice;
-use app\modules_stock\icath\models\MMaspriceSearch;
+use app\modules_stock\icath\models\MStockIcathMasprice;
+use app\modules_stock\icath\models\MStockIcathMaspriceSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MMaspriceController implements the CRUD actions for MMasprice model.
+ * MStockIcathMaspriceController implements the CRUD actions for MStockIcathMasprice model.
  */
-class MMaspriceController extends Controller
+class MStockIcathMaspriceController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class MMaspriceController extends Controller
     }
 
     /**
-     * Lists all MMasprice models.
+     * Lists all MStockIcathMasprice models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new MMaspriceSearch();
+        $searchModel = new MStockIcathMaspriceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class MMaspriceController extends Controller
     }
 
     /**
-     * Displays a single MMasprice model.
+     * Displays a single MStockIcathMasprice model.
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class MMaspriceController extends Controller
     }
 
     /**
-     * Creates a new MMasprice model.
+     * Creates a new MStockIcathMasprice model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new MMasprice();
+        $model = new MStockIcathMasprice();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class MMaspriceController extends Controller
     }
 
     /**
-     * Updates an existing MMasprice model.
+     * Updates an existing MStockIcathMasprice model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -96,7 +96,7 @@ class MMaspriceController extends Controller
     }
 
     /**
-     * Deletes an existing MMasprice model.
+     * Deletes an existing MStockIcathMasprice model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -110,15 +110,15 @@ class MMaspriceController extends Controller
     }
 
     /**
-     * Finds the MMasprice model based on its primary key value.
+     * Finds the MStockIcathMasprice model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return MMasprice the loaded model
+     * @return MStockIcathMasprice the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = MMasprice::findOne($id)) !== null) {
+        if (($model = MStockIcathMasprice::findOne($id)) !== null) {
             return $model;
         }
 

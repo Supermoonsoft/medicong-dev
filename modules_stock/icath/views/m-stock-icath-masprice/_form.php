@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules_stock\icath\models\MMasprice */
+/* @var $model app\modules_stock\icath\models\MStockIcathMasprice */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="mmasprice-form">
+<div class="mstock-icath-masprice-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -46,12 +46,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'update_time')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'map_code')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'is_active')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'created_at')->textInput() ?>
 
     <?= $form->field($model, 'created_by')->textInput(['maxlength' => true]) ?>
@@ -63,10 +57,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'requester')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'data_json')->textInput() ?>
-
-    <?= $form->field($model, 'data1')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'data2')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

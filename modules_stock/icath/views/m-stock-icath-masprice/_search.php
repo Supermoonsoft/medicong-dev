@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules_stock\icath\models\MMaspriceSearch */
+/* @var $model app\modules_stock\icath\models\MStockIcathMaspriceSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="mmasprice-search">
+<div class="mstock-icath-masprice-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -49,14 +49,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'update_time') ?>
 
-    <?php // echo $form->field($model, 'title') ?>
-
-    <?php // echo $form->field($model, 'map_code') ?>
-
-    <?php // echo $form->field($model, 'is_active') ?>
-
-    <?php // echo $form->field($model, 'id') ?>
-
     <?php // echo $form->field($model, 'created_at') ?>
 
     <?php // echo $form->field($model, 'created_by') ?>
@@ -69,9 +61,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'data_json') ?>
 
-    <?php // echo $form->field($model, 'data1') ?>
-
-    <?php // echo $form->field($model, 'data2') ?>
+    <?php // echo $form->field($model, 'id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

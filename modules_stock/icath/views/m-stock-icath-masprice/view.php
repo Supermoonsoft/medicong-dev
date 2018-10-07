@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules_stock\icath\models\MMasprice */
+/* @var $model app\modules_stock\icath\models\MStockIcathMasprice */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Mmasprices', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Mstock Icath Masprices', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="mmasprice-view">
+<div class="mstock-icath-masprice-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -45,18 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'recieve_eng_name',
             'change_date',
             'update_time',
-            'title',
-            'map_code',
-            'is_active',
-            'id',
             'created_at',
             'created_by',
             'updated_at',
             'updated_by',
             'requester',
             'data_json',
-            'data1',
-            'data2',
+            'id',
         ],
     ]) ?>
 
