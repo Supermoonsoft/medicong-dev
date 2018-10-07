@@ -3,14 +3,16 @@
 namespace app\modules_stock\icath\controllers;
 
 use Yii;
-use app\modules_stock\icath\models\MStockIcathMasprice;
-use app\modules_stock\icath\models\MStockIcathMaspriceSearch;
+use app\modules_stock\icath\models\MStockIcathInsurance;
+use app\modules_stock\icath\models\MStockIcathInsuranceSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-
-class MStockIcathMaspriceController extends Controller
+/**
+ * MStockIcathInsuranceController implements the CRUD actions for MStockIcathInsurance model.
+ */
+class MStockIcathInsuranceController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -27,21 +29,27 @@ class MStockIcathMaspriceController extends Controller
         ];
     }
 
-    
+    /**
+     * Lists all MStockIcathInsurance models.
+     * @return mixed
+     */
     public function actionIndex()
     {
-        $searchModel = new MStockIcathMaspriceSearch();
+        $searchModel = new MStockIcathInsuranceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        //$model = new MStockIcathMasprice();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'pagination' => false
         ]);
     }
 
-    
+    /**
+     * Displays a single MStockIcathInsurance model.
+     * @param string $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
     public function actionView($id)
     {
         return $this->render('view', [
@@ -49,10 +57,14 @@ class MStockIcathMaspriceController extends Controller
         ]);
     }
 
-   
+    /**
+     * Creates a new MStockIcathInsurance model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
     public function actionCreate()
     {
-        $model = new MStockIcathMasprice();
+        $model = new MStockIcathInsurance();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -63,7 +75,13 @@ class MStockIcathMaspriceController extends Controller
         ]);
     }
 
-    
+    /**
+     * Updates an existing MStockIcathInsurance model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param string $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -77,7 +95,13 @@ class MStockIcathMaspriceController extends Controller
         ]);
     }
 
-    
+    /**
+     * Deletes an existing MStockIcathInsurance model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param string $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -85,10 +109,16 @@ class MStockIcathMaspriceController extends Controller
         return $this->redirect(['index']);
     }
 
-    
+    /**
+     * Finds the MStockIcathInsurance model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param string $id
+     * @return MStockIcathInsurance the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
     protected function findModel($id)
     {
-        if (($model = MStockIcathMasprice::findOne($id)) !== null) {
+        if (($model = MStockIcathInsurance::findOne($id)) !== null) {
             return $model;
         }
 

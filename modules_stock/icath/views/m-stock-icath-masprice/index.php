@@ -1,12 +1,12 @@
 <?php
-
+use app\components\loading\ShowLoading;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\data\ArrayDataProvider;
+use app\assets\DataTableAsset;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\modules_stock\icath\models\MStockIcathMaspriceSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
+DataTableAsset::register($this);
+echo ShowLoading::widget();
 $this->title = 'รายการทั้งหมด';
 $this->params['breadcrumbs'][] = $this->title;
 $summas = app\modules_stock\icath\models\MStockIcathMasprice::find()->count();
@@ -20,11 +20,14 @@ $summas = app\modules_stock\icath\models\MStockIcathMasprice::find()->count();
     <p class="pull-right">
         <?= Html::a('<i class="fas fa-plus"></i> เพิ่มรายการใหม่', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
-    <?=
+    
+<?php  echo
+    
     GridView::widget([
+        'id'=>'grid-view-data-table',
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
+        //'layout' => '{items}',           
         'summary' => false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -52,12 +55,12 @@ $summas = app\modules_stock\icath\models\MStockIcathMasprice::find()->count();
             //'requester',
             //'data_json',
             //'id',
-            //['class' => 'yii\grid\ActionColumn'],
+//            ['class' => 'yii\grid\ActionColumn'],
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{view}',
                 'buttons' => [
                     'view' => function($url) {
-                        return Html::a('<i class="glyphicon glyphicon-search"></i> ', $url, ['class' => 'btn btn-primary','title'=>'รายละเอียด']);
+                        return Html::a('<i class="glyphicon glyphicon-search"></i> ', $url, ['class' => 'btn btn-primary btn-xs','title'=>'รายละเอียด']);
                     },
 //                    'update' => function($url) {
 //                        return Html::a('<i class="glyphicon glyphicon-edit"></i> แก้ไข', $url, ['class' => 'btn btn-warning',
@@ -66,6 +69,19 @@ $summas = app\modules_stock\icath\models\MStockIcathMasprice::find()->count();
                 ]
             ],
         ],
+
     ]);
     ?>
 </div>
+
+<?php
+$js = <<< JS
+    
+    $('#grid-view-data-table .table').dataTable({
+       "bInfo" : false,
+       "paging": false,      
+       "pageLength": 10
+   }); 
+    
+JS;
+$this->registerJs($js);
