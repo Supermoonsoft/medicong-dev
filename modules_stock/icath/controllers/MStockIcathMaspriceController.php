@@ -32,9 +32,49 @@ class MStockIcathMaspriceController extends Controller
     {
         $searchModel = new MStockIcathMaspriceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        //$dataProvider->query->where(['charge_code'=>'O.R.']);
         //$model = new MStockIcathMasprice();
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'pagination' => false
+        ]);
+    }
+    public function actionIndexicath()
+    {
+        $searchModel = new MStockIcathMaspriceSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->where(['in','charge_code',['14','74','75']]);
+        //$model = new MStockIcathMasprice();
+
+        return $this->render('indexicath', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'pagination' => false
+        ]);
+    }
+    public function actionIndexidrug()
+    {
+        $searchModel = new MStockIcathMaspriceSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->where(['charge_code'=>'1']);
+        //$model = new MStockIcathMasprice();
+
+        return $this->render('indexidrug', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'pagination' => false
+        ]);
+    }
+    public function actionIndexinondrug()
+    {
+        $searchModel = new MStockIcathMaspriceSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->where(['charge_code'=>'2']);
+        //$model = new MStockIcathMasprice();
+
+        return $this->render('indexinondrug', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'pagination' => false

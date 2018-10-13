@@ -47,6 +47,7 @@ $modules['user'] = [
     'admins' => ['admin']]; // inam
 $modules['rbac'] = ['class' => 'dektrium\rbac\RbacWebModule']; //inam
 $modules['qmanage'] = ['class' => 'app\modules_share\qmanage\Qmanage'];//tehnn
+$modules['medicostock'] = ['class' => 'app\modules_stock\medicostock\Medicostock']; //inam
 $modules['icath'] = ['class' => 'app\modules_stock\icath\Icath']; //inam
 /* PCC EMR */
 $modules['lab'] = ['class' => 'app\modules\lab\Lab']; //pond 

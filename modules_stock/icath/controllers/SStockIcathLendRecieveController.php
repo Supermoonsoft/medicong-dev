@@ -33,7 +33,7 @@ class SStockIcathLendRecieveController extends Controller
      * Lists all SStockIcathLendRecieve models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex_()
     {
         $searchModel = new SStockIcathLendRecieveSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -44,12 +44,38 @@ class SStockIcathLendRecieveController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single SStockIcathLendRecieve model.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+    public function actionIndex()
+    {
+        $searchModel = new SStockIcathLendRecieveSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
+    public function actionIndexidrug()
+    {
+        $searchModel = new SStockIcathLendRecieveSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexidrug', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionIndexinondrug()
+    {
+        $searchModel = new SStockIcathLendRecieveSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexinondrug', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     public function actionView($id)
     {
         return $this->render('view', [
