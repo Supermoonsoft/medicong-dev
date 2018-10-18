@@ -12,7 +12,7 @@ echo ShowLoading::widget();
 
 <div class="medicostock-default-index">
     <div class="row">
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-4 col-md-4">
             <div class="media" style="text-align: center">               
                 <img src="../modules_stock/medicostock/img/icath.png" alt="..." style="width: 150px; height: 150px;">
                 <label class="label label-info">Management i-cath</label>              
@@ -24,16 +24,27 @@ echo ShowLoading::widget();
                 </div>       
             </div>
         </div> 
-        <div class="col-sm-6 col-md-8">
+        <div class="col-sm-4 col-md-4">
             <div class="list-group">
-                <l href="#" class="list-group-item active">
-                    ระบบงาน - i-cath
+                <l href="#" class="list-group-item active"><i class="glyphicon glyphicon-download"></i>
+                     ระบบงาน - i-cath
                 </l>
-                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> Morbi leo risus</a>
-                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> Vestibulum at eros</a>
+                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> รับยืมอุปกรณ์</a>
+                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> บันทึกการใช้จ่าย</a>
+                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> รายงาน</a>
+                
             </div>
-        </div>     
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="list-group">
+                <l href="#" class="list-group-item active"><i class="glyphicon glyphicon-cog"></i>
+                     ข้อมูลพื้นฐาน - ระบบงาน - i-cath
+                </l>
+                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> บริษัทอุปกรณ์การแพทย์</a>
+                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> รายการอุปกรณ์</a>
+                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> บริษัทประกันชีวิตคู่สัญญา</a>
+                
+            </div>
+        </div> 
     </div>
 </div>
