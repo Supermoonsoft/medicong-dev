@@ -29,7 +29,7 @@ echo ShowLoading::widget();
                 <l href="#" class="list-group-item active"><i class="glyphicon glyphicon-download"></i>
                      ระบบงาน - i-cath
                 </l>
-                <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> รับยืมอุปกรณ์</a>
+                <a href="<?= Yii::$app->urlManager->createUrl('icath/s-stock-icath-lend-recieve/mainlend'); ?>" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> รับยืมอุปกรณ์</a>
                 <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> บันทึกการใช้จ่าย</a>
                 <a href="#" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> รายงาน</a>
                 

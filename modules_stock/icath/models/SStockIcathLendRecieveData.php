@@ -47,13 +47,13 @@ class SStockIcathLendRecieveData extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'date_start_service', 'time_start_service', 'vendor_dispen_lot'], 'required'],
+            //[['date_start_service', 'time_start_service', 'vendor_dispen_lot'], 'required'],
             [['id'], 'string'],
             [['receive_id', 'qty'], 'default', 'value' => null],
-            [['receive_id', 'qty'], 'integer'],
+            [[ 'qty'], 'integer'],
             [['unitprice', 'unitcost'], 'number'],
             [['mfd_date', 'exp_date', 'data_json', 'created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service'], 'safe'],
-            [['code', 'lot', 'detail', 'requester', 'created_by', 'updated_by', 'vendor_dispen_lot'], 'string', 'max' => 255],
+            [['receive_id','code', 'lot', 'detail', 'requester', 'created_by', 'updated_by', 'vendor_dispen_lot'], 'string', 'max' => 255],
             [['vn'], 'string', 'max' => 12],
             [['hn'], 'string', 'max' => 9],
             [['id'], 'unique'],

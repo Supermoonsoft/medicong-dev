@@ -1,59 +1,108 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\Select2;
+use yii\web\JsExpression;
+use yii\web\View;
+use yii\helpers\ArrayHelper;
+use yii\bootstrap\ActiveForm;
+use kartik\datecontrol\DateControl;
+use app\modules_stock\icath\models\MStockIcathVendor;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules_stock\icath\models\SStockIcathLendRecieve */
-/* @var $form yii\widgets\ActiveForm */
+$this->registerCss($this->render('../../dist/css/style.css'));
 ?>
 
 <div class="sstock-icath-lend-recieve-form">
+    <style>
+        .form-group {
+            margin-bottom: 1px;
+        }
+        .help-block {
+            display: block;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            color: #737373;
+        }
+        .input-group {
+            margin-bottom: 1px;
+        }
+        /*.col-sm-offset-1 {
+            margin-left: 1%;
+        }*/
+        .modal.in .modal-dialog {
+            width: 80%;
+        }
+    </style>
+    
 
-    <?php $form = ActiveForm::begin(); ?>
+    <fieldset style="">
+        <legend class="scheduler-border"><i class="glyphicon glyphicon-pencil"></i> บันทึกรับการยืมอุปกรณ์
+        </legend> 
+        <br>
 
-    <?= $form->field($model, 'id')->textInput() ?>
+        <?php
+        $form = ActiveForm::begin([
+                    'options' => ['enctype' => 'multipart/form-data'],
+                    'fieldConfig' => [
+                        'horizontalCssClasses' => [
+                            'label' => 'col-md-3',
+                            'wrapper' => 'col-md-8',
+                        ]
+                    ],
+                    'layout' => 'horizontal'
+        ]);
+        ?>
+        <div class="row">
+            <div class="col-md-6">
+                <?=
+                $form->field($model, 'date_in')->widget(DateControl::classname(), [
+                    'type' => DateControl::FORMAT_DATE,
+                    'ajaxConversion' => false,
+                    'widgetOptions' => [
+                        'language' => 'th',
+                        'pluginOptions' => [
+                            'todayHighlight' => true,
+                            'autoclose' => true
+                        ]
+                    ]
+                ])->label('วันที่รับยืม')
+                ?>
+                <?=
+                $form->field($model, 'vendor')->widget(kartik\widgets\Select2::className(), [
+                    'data' => ArrayHelper::map(MStockIcathVendor::find()->all(), 'id', 'vendor_name'),
+                    'options' => [
+                        'id' => 'vendor',
+                        'placeholder' => 'บริษัท..',
+                    ],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ]
+                ])
+                ?>
 
-    <?= $form->field($model, 'vn')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'invoice')->textInput()->label('เลขที่ใบส่งของ') ?>
+                <?=
+                $form->field($model, 'date_invoice')->widget(DateControl::classname(), [
+                    'type' => DateControl::FORMAT_DATE,
+                    'ajaxConversion' => false,
+                    'widgetOptions' => [
+                        'language' => 'th',
+                        'pluginOptions' => [
+                            'todayHighlight' => true,
+                            'autoclose' => true
+                        ]
+                    ]
+                ])->label('วันที่ใบส่งของ')
+                ?>
+            </div>
+            <div class="col-md-6">
 
-    <?= $form->field($model, 'hn')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'detail')->textarea(['rows' => 3]) ?>
+                <br/><br/>
+                <?= Html::submitButton('<i class="fas fa-plus"></i> บันทึก', ['class' => 'btn btn-success', 'id' => 'btn-save','style'=>"margin-left:230px;"]) ?>
+            </div>
+        </div>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'created_by')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_by')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'date_start_service')->textInput() ?>
-
-    <?= $form->field($model, 'time_start_service')->textInput() ?>
-
-    <?= $form->field($model, 'date_end_service')->textInput() ?>
-
-    <?= $form->field($model, 'time_end_service')->textInput() ?>
-
-    <?= $form->field($model, 'date_in')->textInput() ?>
-
-    <?= $form->field($model, 'vendor')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'invoice')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'date_invoice')->textInput() ?>
-
-    <?= $form->field($model, 'detail')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'totalprice')->textInput() ?>
-
-    <?= $form->field($model, 'requester')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'data_json')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
-
+        <?php ActiveForm::end(); ?>
+    </fieldset>
 </div>

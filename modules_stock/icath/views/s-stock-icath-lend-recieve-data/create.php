@@ -5,17 +5,18 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules_stock\icath\models\SStockIcathLendRecieveData */
-
-$this->title = 'Create Sstock Icath Lend Recieve Data';
-$this->params['breadcrumbs'][] = ['label' => 'Sstock Icath Lend Recieve Datas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//
+//$this->title = 'Create Sstock Icath Lend Recieve Data';
+//$this->params['breadcrumbs'][] = ['label' => 'Sstock Icath Lend Recieve Datas', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="sstock-icath-lend-recieve-data-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1><?= Html::encode($this->title) ?></h1>-->
 
     <?= $this->render('_form', [
         'model' => $model,
+        'id'=>$id
     ]) ?>
 
 </div>

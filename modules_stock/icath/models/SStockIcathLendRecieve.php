@@ -43,7 +43,7 @@ class SStockIcathLendRecieve extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'date_start_service', 'time_start_service'], 'required'],
+            [['date_start_service', 'time_start_service'], 'required'],
             [['id'], 'string'],
             [['created_at', 'updated_at', 'date_start_service', 'time_start_service', 'date_end_service', 'time_end_service', 'date_in', 'date_invoice', 'data_json'], 'safe'],
             [['totalprice'], 'number'],
