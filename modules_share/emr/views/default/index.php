@@ -24,6 +24,8 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
                 <?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?> 
                 <?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?> 
                 <?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?> 
+                <?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?> 
+
             </div>
         </div>
         <div class="contrainer-tm right">
@@ -35,6 +37,8 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
                 <?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?> 
                 <?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?> 
                 <?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?> 
+		<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?> 
+
             </div>
         </div>
         <div class="contrainer-tm left">
@@ -46,6 +50,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
                 <?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?> 
                 <?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?> 
                 <?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?> 
+		<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
             </div>
         </div>
         <div class="contrainer-tm right">
@@ -57,6 +62,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
                 <?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?> 
                 <?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?> 
                 <?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?> 
+		<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
             </div>
         </div>
 
