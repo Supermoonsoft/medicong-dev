@@ -6,10 +6,13 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 ?>
 
 <?=$this->render('@app/modules_share/foot/views/default/panel_top',[
-    'tabsummary' => '',
-    'tabcomplate' =>'',
-    'tabfirst' =>'',
-    'tabfu'=>'' 
+ 'tabsummary_opd' => '',
+ 'tabsummary_ipd' => '',
+ 'tabcomplate' =>'',
+ 'tabfirst_opd' =>'',
+ 'tabfirst_ipd' =>'',
+ 'tabfu_opd'=>'' ,
+ 'tabfu_ipd'=>'' 
     ])?>
 
 <h1 class="text-center" style="margin-top:100px;">FOOT ASSESSMENT</h1>

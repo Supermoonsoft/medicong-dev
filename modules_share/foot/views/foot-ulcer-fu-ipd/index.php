@@ -52,10 +52,13 @@ echo ShowLoading::widget();
 .field-sfootulcerfuipd-post_revascularization_year{display: inline-block;}
 </style>
 <?=$this->render('@app/modules_share/foot/views/default/panel_top',[
-    'tabsummary' => '',
-    'tabcomplate' =>'',
-    'tabfirst' =>'',
-    'tabfu'=>'active' 
+ 'tabsummary_opd' => '',
+ 'tabsummary_ipd' => '',
+ 'tabcomplate' =>'',
+ 'tabfirst_opd' =>'',
+ 'tabfirst_ipd' =>'',
+ 'tabfu_opd'=>'' ,
+ 'tabfu_ipd'=>'active' 
     ])?>
 <h4 style="text-align: center;color:#777;">IPD DIABETIC FOOT ULCER VISIT RECORD : ipd DFU FIRST VISIT</h4>
 <br>
@@ -858,12 +861,12 @@ year
 
           <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
+          <?=$form->field($model,'requester')->textInput(['id' => 'requester','placeholder' => 'Requester'])->label(false);?>
           </div>
           
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
               <!-- <a class="btn btn-success" id="save">บันทึก</a> -->
-              <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> บันทึก', ['class' => 'btn btn-success']) ?>
+              <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> Save', ['class' => 'btn btn-success']) ?>
           </div>    
       </div>
           </div>

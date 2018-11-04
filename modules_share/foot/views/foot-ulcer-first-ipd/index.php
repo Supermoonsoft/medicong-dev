@@ -57,10 +57,13 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 .field-sfootulcerfirstipd-date_of_onset{margin-bottom: 25px;}
 </style>
 <?=$this->render('@app/modules_share/foot/views/default/panel_top',[
-    'tabsummary' => '',
+    'tabsummary_opd' => '',
+    'tabsummary_ipd' => '',
     'tabcomplate' =>'',
-    'tabfirst' =>'active',
-    'tabfu'=>'' 
+    'tabfirst_opd' =>'',
+    'tabfirst_ipd' =>'active',
+    'tabfu_opd'=>'' ,
+    'tabfu_ipd'=>''  
     ])?>
 <h4 style="text-align: center;color:#777;">IPD DIABETIC FOOT ULCER VISIT RECORD : OPD DFU FIRST VISIT</h4>
 <hr>    
@@ -1027,12 +1030,12 @@ year
 
           <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
+          <?=$form->field($model,'requester')->textInput(['id' => 'requester','placeholder' => 'Requester'])->label(false);?>
           </div>
           
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
               <!-- <a class="btn btn-success" id="save">บันทึก</a> -->
-              <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> บันทึก', ['class' => 'btn btn-success']) ?>
+              <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> Save', ['class' => 'btn btn-success']) ?>
           </div>   
       </div>
           </div>

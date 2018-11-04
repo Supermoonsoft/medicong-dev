@@ -27,10 +27,13 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 .field-sfootassessmentsummaryipd-left_corn{display: inline-block;}
 </style>
 <?=$this->render('@app/modules_share/foot/views/default/panel_top',[
-    'tabsummary' => 'active',
-    'tabcomplate' =>'',
-    'tabfirst' =>'',
-    'tabfu'=>'' 
+ 'tabsummary_opd' => '',
+ 'tabsummary_ipd' => 'active',
+ 'tabcomplate' =>'',
+ 'tabfirst_opd' =>'',
+ 'tabfirst_ipd' =>'',
+ 'tabfu_opd'=>'' ,
+ 'tabfu_ipd'=>''  
     ])?>
   <h4 style="color:#777;text-align: center;">IPD DIABETIC FOOT ASSESSMENT RECORD : SUMMARY</h4>
         <?php $form = ActiveForm::begin([
@@ -568,12 +571,12 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
       </fieldset>
       <div class="row">
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
+          <?=$form->field($model,'requester')->textInput(['id' => 'requester','placeholder' => 'Requester'])->label(false);?>
           </div>
           
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
               <!-- <a class="btn btn-success" id="save">บันทึก</a> -->
-              <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> บันทึก', ['class' => 'btn btn-success']) ?>
+              <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> Save', ['class' => 'btn btn-success']) ?>
           </div>  
       </div>
   <?php $form = ActiveForm::end(); ?>

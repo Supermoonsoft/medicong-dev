@@ -61,11 +61,11 @@ use phpnt\ICheck\ICheck;
 </fieldset>
 <div class="row">
           <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
+          <?=$form->field($model,'requester')->textInput(['id' => 'requester','placeholder' => 'Requester'])->label(false);?>
           </div>
           
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <?php echo Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> บันทึก', ['class' => 'btn btn-success']) ?>              
+          <?php echo Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> Save', ['class' => 'btn btn-success']) ?>              
           </div>    
       </div>
  	

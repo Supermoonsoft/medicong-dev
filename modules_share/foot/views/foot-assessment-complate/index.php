@@ -39,10 +39,13 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
 </style>
 <?=$this->render('@app/modules_share/foot/views/default/panel_top',[
-    'tabsummary' => '',
+    'tabsummary_opd' => '',
+    'tabsummary_ipd' => '',
     'tabcomplate' =>'active',
-    'tabfirst' =>'',
-    'tabfu'=>'' 
+    'tabfirst_opd' =>'',
+    'tabfirst_ipd' =>'',
+    'tabfu_opd'=>'' ,
+    'tabfu_ipd'=>'' 
     ])?>
 <h4 style='text-align: center;17px;color: #777;'>DIABETIC FOOT ASSESSMENT RECORD : COMPLETE </h4>
  <hr/>

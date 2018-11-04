@@ -55,10 +55,13 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
     
 </style>
 <?=$this->render('@app/modules_share/foot/views/default/panel_top',[
-     'tabsummary' => 'active',
+     'tabsummary_opd' => 'active',
+     'tabsummary_ipd' => '',
      'tabcomplate' =>'',
-     'tabfirst' =>'',
-     'tabfu'=>'' 
+     'tabfirst_opd' =>'',
+     'tabfirst_ipd' =>'',
+     'tabfu_opd'=>'' ,
+     'tabfu_ipd'=>'' 
     ])?>
 
 <h4 style="color:#777;text-align: center;">OPD DIABETIC FOOT ASSESSMENT RECORD : SUMMARY</h4>
@@ -598,12 +601,12 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
 <div class="row">
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-        <?=$form->field($model,'requester')->textInput(['id' => 'requester'])->label(false);?>
+        <?=$form->field($model,'requester')->textInput(['id' => 'requester','placeholder' => 'Requester'])->label(false);?>
     </div>
 
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <!-- <a class="btn btn-success" id="save">บันทึก</a> -->
-        <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> บันทึก', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('<i class="fa fa-check-square-o" aria-hidden="true"></i> Save', ['class' => 'btn btn-success']) ?>
     </div>
 </div>
 <?php $form = ActiveForm::end(); ?>
