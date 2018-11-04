@@ -31,7 +31,7 @@ class FootUlcerFuOpdController extends VisitController
             $model->vn = $vn;
             $model->date_start_service = $Sdate;
             $model->time_start_service = $Stime;
-            $model->save();
+            $model->save(false);
             if($model->requester){
                 MessageHelper::setFlashSuccess('บันทึกข้อมูลสำเร็จ');
                 return $this->redirect(['/foot/foot-ulcer-fu-opd']);
