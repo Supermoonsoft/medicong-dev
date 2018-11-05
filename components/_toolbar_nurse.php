@@ -49,7 +49,7 @@ $module = \Yii::$app->controller->module->id;
                     <a class="<?= $module == 'emr' ? 'on-active' : 'non-active' ?>" href="<?= Url::to(['/emr/default/index']) ?>"><i class="fas fa-book"></i> E-DOC</a>
                 </li>
 <li>
-<a href="#"><i class="fas fa-notes-medical"></i> EDUCATE</a>
+<a href="<?= Url::to(['/education/education/create']) ?>"><i class="fas fa-notes-medical"></i> EDUCATE</a>
 </li>
                 <li>
                     <a href="#"><i class="fas fa-notes-medical"></i> E-FORM</a>

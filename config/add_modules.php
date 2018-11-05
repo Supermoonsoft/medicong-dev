@@ -66,5 +66,6 @@ $modules['appointment'] = ['class' => 'app\modules\appointment\Appointment'];//p
 $modules['questionare'] = ['class' => 'app\modules\questionare\Questionare'];//inam
 /* PCC EMR*/
 $modules['dmassessment'] = ['class' => 'app\modules_nurse\dmassessment\Dmassessment']; //pond
+$modules['education'] = ['class' => 'app\modules_share\education\Education']; //jub
 return $modules;
 
