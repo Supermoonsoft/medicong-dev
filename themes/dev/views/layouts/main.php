@@ -140,11 +140,11 @@ $hn = PatientHelper::getCurrentHn();
 
         <div  style="width: 99%; padding-top: 10px;margin: 0 auto;">
 
-            <?=
-            Breadcrumbs::widget([
-                'homeLink' => FALSE,
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ])
+            <?php
+//             echo Breadcrumbs::widget([
+//                'homeLink' => FALSE,
+//                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+//            ])
             ?>
 
             <?php echo \yii2mod\notify\BootstrapNotify::widget(); ?>
