@@ -28,9 +28,9 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
             </div>
         </div>
-        <div class="contrainer-tm right">
+<div class="contrainer-tm right" style="margin-top:-120px">
             <div class="content-tm">
-                <h3><i class="fa fa-wheelchair"></i> 10พค.2018</h3>
+                <h3><i class="fa fa-wheelchair"></i> 10พค.2018_xxx</h3>
                 <div style="padding-bottom: 5px">ไข้ ปวดศรีษะ 3 วันก่อนมา ซื้อยาทานเอง ไม่หาย</div>
                 <?= Html::a('VISIT', '#', ['class' => 'btn btn-default visit', 'value' => Url::to(['popup/index','type'=>1])]) ?>
                 <?= Html::a('LAB', '#', ['class' => 'btn btn-default lab', 'value' => Url::to(['popup/index','type'=>2])]) ?>
@@ -41,7 +41,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 
             </div>
         </div>
-        <div class="contrainer-tm left">
+        <div class="contrainer-tm left" style="margin-top:-50px">
             <div class="content-tm">
                 <h3><i class="fa fa-wheelchair"></i> 12กค.2017</h3>
                 <div style="padding-bottom: 5px">ถ่ายเหลว 3 ครั้ง เป็นมา 1 วัน ทานอาหารงานเลี้ยง</div>
@@ -53,7 +53,7 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 		<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
             </div>
         </div>
-        <div class="contrainer-tm right">
+        <div class="contrainer-tm right"  style="margin-top:-120px">
             <div class="content-tm">
                 <h3><i class="fa fa-wheelchair"></i> 25มค.2016</h3>
                 <div style="padding-bottom: 5px">อาเจียน 2 ครั้ง เป็นมา 1 วัน ทานอาหารงานเลี้ยง</div>
@@ -65,6 +65,78 @@ $this->params['pt_title'] = PatientHelper::getPatientTitleByHn($hn);
 		<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
             </div>
         </div>
+<div class="contrainer-tm left" style="margin-top:-50px">
+<div class="content-tm">
+<h3><i class="fa fa-wheelchair"></i> 12กค.2017</h3>
+<div style="padding-bottom: 5px">ถ่ายเหลว 3 ครั้ง เป็นมา 1 วัน ทานอาหารงานเลี้ยง</div>
+<?= Html::a('VISIT', '#', ['class' => 'btn btn-default visit', 'value' => Url::to(['popup/index','type'=>1])]) ?>
+<?= Html::a('LAB', '#', ['class' => 'btn btn-default lab', 'value' => Url::to(['popup/index','type'=>2])]) ?>
+<?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?>
+<?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?>
+<?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?>
+<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
+</div>
+</div>
+<div class="contrainer-tm right"  style="margin-top:-120px">
+<div class="content-tm">
+<h3><i class="fa fa-wheelchair"></i> 25มค.2016</h3>
+<div style="padding-bottom: 5px">อาเจียน 2 ครั้ง เป็นมา 1 วัน ทานอาหารงานเลี้ยง</div>
+<?= Html::a('VISIT', '#', ['class' => 'btn btn-default visit', 'value' => Url::to(['popup/index','type'=>1])]) ?>
+<?= Html::a('LAB', '#', ['class' => 'btn btn-default lab', 'value' => Url::to(['popup/index','type'=>2])]) ?>
+<?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?>
+<?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?>
+<?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?>
+<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
+</div>
+</div>
+<div class="contrainer-tm left" style="margin-top:-50px">
+<div class="content-tm">
+<h3><i class="fa fa-wheelchair"></i> 12กค.2017</h3>
+<div style="padding-bottom: 5px">ถ่ายเหลว 3 ครั้ง เป็นมา 1 วัน ทานอาหารงานเลี้ยง</div>
+<?= Html::a('VISIT', '#', ['class' => 'btn btn-default visit', 'value' => Url::to(['popup/index','type'=>1])]) ?>
+<?= Html::a('LAB', '#', ['class' => 'btn btn-default lab', 'value' => Url::to(['popup/index','type'=>2])]) ?>
+<?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?>
+<?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?>
+<?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?>
+<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
+</div>
+</div>
+<div class="contrainer-tm right"  style="margin-top:-120px">
+<div class="content-tm">
+<h3><i class="fa fa-wheelchair"></i> 25มค.2016</h3>
+<div style="padding-bottom: 5px">อาเจียน 2 ครั้ง เป็นมา 1 วัน ทานอาหารงานเลี้ยง</div>
+<?= Html::a('VISIT', '#', ['class' => 'btn btn-default visit', 'value' => Url::to(['popup/index','type'=>1])]) ?>
+<?= Html::a('LAB', '#', ['class' => 'btn btn-default lab', 'value' => Url::to(['popup/index','type'=>2])]) ?>
+<?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?>
+<?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?>
+<?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?>
+<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
+</div>
+</div>
+<div class="contrainer-tm left" style="margin-top:-50px">
+<div class="content-tm">
+<h3><i class="fa fa-wheelchair"></i> 12กค.2017</h3>
+<div style="padding-bottom: 5px">ถ่ายเหลว 3 ครั้ง เป็นมา 1 วัน ทานอาหารงานเลี้ยง</div>
+<?= Html::a('VISIT', '#', ['class' => 'btn btn-default visit', 'value' => Url::to(['popup/index','type'=>1])]) ?>
+<?= Html::a('LAB', '#', ['class' => 'btn btn-default lab', 'value' => Url::to(['popup/index','type'=>2])]) ?>
+<?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?>
+<?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?>
+<?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?>
+<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
+</div>
+</div>
+<div class="contrainer-tm right"  style="margin-top:-120px">
+<div class="content-tm">
+<h3><i class="fa fa-wheelchair"></i> 25มค.2016</h3>
+<div style="padding-bottom: 5px">อาเจียน 2 ครั้ง เป็นมา 1 วัน ทานอาหารงานเลี้ยง</div>
+<?= Html::a('VISIT', '#', ['class' => 'btn btn-default visit', 'value' => Url::to(['popup/index','type'=>1])]) ?>
+<?= Html::a('LAB', '#', ['class' => 'btn btn-default lab', 'value' => Url::to(['popup/index','type'=>2])]) ?>
+<?= Html::a('DRUG', '#', ['class' => 'btn btn-default drug', 'value' => Url::to(['popup/index','type'=>3])]) ?>
+<?= Html::a('DOC', '#', ['class' => 'btn btn-default doc', 'value' => Url::to(['popup/index','type'=>4])]) ?>
+<?= Html::a('PACs', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>5])]) ?>
+<?= Html::a('EKG', '#', ['class' => 'btn btn-default pacs', 'value' => Url::to(['popup/index','type'=>6])]) ?>
+</div>
+</div>
 
     </div>
 </div>
